@@ -1,0 +1,17 @@
+CREATE DATABASE bounty;
+USE bounty;
+SET NAMES 'utf8';
+
+USE bounty;
+DROP TABLE IF EXISTS user;
+CREATE TABLE user (
+	id	INT(10) AUTO_INCREMENT,
+	name VARCHAR(255) NOT NULL,
+	pwd VARCHAR(255) NOT NULL,
+	timecreate TIMESTAMP,
+	timemodify DATETIME NULL,
+	PRIMARY KEY(id)
+)
+ ENGINE =InnoDB
+ DEFAULT CHARSET = utf8
+ COLLATE = utf8_unicode_ci;
