@@ -41,12 +41,12 @@
 {% endblock %}
 
 {% block midnav %}
-<div class="container">
+<div class="container front-page">
 	<ul class="nav nav-tabs">
-		<li class="active"><a href="#"><p class="text-danger">首页</p></a></li>
+		<li><a href="#"><b>首页</b></a></li>
 		<li class="dropdown">
 		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-			&nbsp;&nbsp;58APP&nbsp;&nbsp; <span class="caret"></span>
+			&nbsp;&nbsp;<b>58APP</b>&nbsp;&nbsp; <span class="caret"></span>
 		</a>
 		<ul class="dropdown-menu">
 			<li><a href="#">Swing</a></li>
@@ -56,10 +56,59 @@
 			<li><a href="#">分离的链接</a></li>
 		</ul>
 		</li>
-		<li><a href="#">PHP</a></li>
+
+		<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			&nbsp;&nbsp;<b>商家APP</b>&nbsp;&nbsp; <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="#">Swing</a></li>
+			<li><a href="#">jMeter</a></li>
+			<li><a href="#">EJB</a></li>
+			<li class="divider"></li>
+			<li><a href="#">分离的链接</a></li>
+		</ul>
+		</li>
+
+		<li class="dropdown">
+		<a class="dropdown-toggle" data-toggle="dropdown" href="#">
+			&nbsp;&nbsp;<b>58公众号</b>&nbsp;&nbsp; <span class="caret"></span>
+		</a>
+		<ul class="dropdown-menu">
+			<li><a href="#">Swing</a></li>
+			<li><a href="#">jMeter</a></li>
+			<li><a href="#">EJB</a></li>
+			<li class="divider"></li>
+			<li><a href="#">分离的链接</a></li>
+		</ul>
+		</li>
+
+		<li><a href="#"><b>微站</b></a></li>
+		<li><a href="#"><b>金融</b></a></li>
+		<li><a href="#"><b>安居客</b></a></li>
+		<li><a href="#"><b>中华英才网</b></a></li>
+		<li><a href="#"><b>58车</b></a></li>
+		<li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;</li>
+		<li><a href="#"><b>我要推广</b></a></li>
 	</ul>
 </div>
 {% endblock %}
+{% block mainlink %}
+<div class="container">
+	<div class="row">
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第一部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第2部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第3部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第4部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第5部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第6部分</div>
+		<div class="col-md-1" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">第7部分</div>
+		<div class="col-md-5" style="background-color: #dedef8;box-shadow: inset 1px -1px 1px #444, inset -1px 1px 1px #444;">
+			我在右边
+		</div>
+	</div>
+</div>
+{% endblock%}
 {% block jsb %}
 <script>
 $(function() {$(".dropdown-toggle").dropdown('toggle');});
