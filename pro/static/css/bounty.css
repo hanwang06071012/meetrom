@@ -1,3 +1,11 @@
+.all-all
+{
+	background-color:snow;
+}
+.div-all
+{
+	background-color:white;
+}
 drop-tb-width
 {
 	width:300px;
@@ -25,4 +33,29 @@ drop-tbr
 .front-page
 {
 	border-bottom:5px solid OrangeRed ;
+}
+.eigth-div
+{
+	background-color:white;
+	border-style:solid;
+	border-color:snow;
+	padding:0px 0px 0px 0px;
+	text-align:center;
+}
+.eigth-font-top
+{
+	font-size:14px;
+}
+.eigth-font-bot
+{
+	font-size:11px;
+}
+.eigth-img
+{
+	padding: 15px 15px 3px 15px;
+}
+.total-eigth
+{
+	margin:3px 0px 3px 0px;
+	border-style:solid;
 }
