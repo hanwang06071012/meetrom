@@ -59,3 +59,15 @@ drop-tbr
 	margin:3px 0px 3px 0px;
 	border-style:solid;
 }
+.eigth-five-child
+{	
+	float:left;
+	width:70px;
+	height:90px;
+	margin:3px 0px 3px 13px;
+}
+.body-frist-div
+{
+	margin:0px;
+	border: 3px solid red;
+}
