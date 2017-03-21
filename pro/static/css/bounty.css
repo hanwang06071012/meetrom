@@ -69,20 +69,32 @@ drop-tbr
 .body-frist-div
 {
 	margin:0px;
-	border: 3px solid red;
+	border: 3px solid snow;
+	float:left;
+	background-color:#dedef8;
+}
+.body-frist-div table
+{
+	margin:0px;
+}
+.body-frist-div caption
+{
+	padding:7px 0px 1px 5px;
+	text-align:left center;
+	background-color:white;
 }
 .cont-main-text
 {
 	font-weight:900;
 	text-align:left;
-	color:orange;
-	font-size:14px;
+	color:#ff6600;
+	font-size:15px;
 }
 .cont-sed-text
 {
 	font-weight:300;
 	text-align:left;
-	color:orange;
+	color:#ff6600;
 	font-size:11px;
 }
 .cont-thd-text
@@ -98,4 +110,36 @@ drop-tbr
 	text-align:left;
 	color:black;
 	font-size:11px;
+}
+.body-all-div
+{
+	margin:0px;
+	border: 10px solid snow;
+	padding:0px;
+}
+.body-frist-div-bottom
+{
+	margin:0px;
+	border: 3px solid snow;
+	float:left;
+	background-color:#dedef8;
+	width:20%;
+}
+.body-frist-div-bottom table
+{
+	margin:0px;
+}
+.body-frist-div-bottom p
+{
+	font-size:10px;
+}
+.body-frist-div-bottom img
+{
+	width:50px;
+}
+.body-frist-div-bottom caption
+{
+	padding:7px 0px 1px 5px;
+	text-align:left center;
+	background-color:white;
 }
