@@ -5,6 +5,7 @@
 .div-all
 {
 	background-color:white;
+	padding:0px;
 }
 drop-tb-width
 {
@@ -57,7 +58,6 @@ drop-tbr
 .total-eigth
 {
 	margin:3px 0px 3px 0px;
-	border-style:solid;
 }
 .eigth-five-child
 {	
@@ -142,4 +142,30 @@ drop-tbr
 	padding:7px 0px 1px 5px;
 	text-align:left center;
 	background-color:white;
+}
+.body-div-contracts
+{
+	margin:0px;
+	border: 3px solid snow;
+	float:left;
+	background-color:white;
+	width:16%;
+}
+.body-div-contracts img
+{
+	width:100px;
+	height:50px;
+}
+.contracts-head-text
+{
+	font-size:18px;
+}
+.body-div-contracts-end
+{
+	margin:5px;
+	padding:0px;
+	border: 0px solid snow;
+	float:left;
+	background-color:#dedef8;
+	width:14%;
 }
