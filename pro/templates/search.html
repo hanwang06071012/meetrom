@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+{% block topad %}
+	<div class="container btn-danger" style="margin-top:0px;">
+		<img src="static/img/top.png">
+	</div>
+{% endblock %}
+{% block search %}
+<div class="container search">
+	<div class="row">
+		<div class="col-md-2">
+			<a href="#"><img class="search-width" src="/static/img/logo-o.png" alt="通用的占位符缩略图"></a>
+		</div>
+		<div class="col-md-2">
+			<a href="#"><img class="search-width" src="/static/img/logo-o.png" alt="通用的占位符缩略图"></a>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-10">
+					<label><input type="text" placeholder="Name"></label>
+					<label>
+						<span>充话费</span>
+						<span>租房</span>
+						<span>合租</span>
+						<span>电瓶车</span>
+						<span>销售急聘</span>
+						<span>洗车故障</span>
+						<span>装修公司</span>
+						<span>同城租车</span>
+					</label>
+				</div>
+				<div class="col-md-2">
+					<lable><button type="button" class="button">搜索</button></label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="button alert">&nbsp;&nbsp;&nbsp;免费发布信息&nbsp;&nbsp;&nbsp;</button>
+		</div>
+	</div>
+</div>
+{% endblock %}
