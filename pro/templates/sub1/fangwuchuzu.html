@@ -1,2 +1,38 @@
-{%  extends "search.html" %}
-
+{% extends "layout.html" %}
+{% block topad %}
+	<div class="container btn-danger" style="margin-top:0px;">
+		<img src="static/img/top.png">
+	</div>
+{% endblock %}
+{% block search %}
+<div class="container search">
+	<div class="row">
+		<div class="col-md-2">
+			<a href="#"><img class="search-width" src="/static/img/logo-o.png" alt="通用的占位符缩略图"></a>
+		</div>
+		<div class="col-md-2">
+			<a href="#"><img class="search-width" src="/static/img/logo-o.png" alt="通用的占位符缩略图"></a>
+		</div>
+		<div class="col-md-6">
+			<div class="row">
+				<div class="col-md-10 close-to">
+					<label><input type="text" placeholder="Name"></label>
+					<label>
+						<span><a href="https://www.baidu.com">品牌房源</a></span>
+						<span><a href="https://www.baidu.com">热租房源</a></span>
+						<span><a href="https://www.baidu.com">求租</a></span>
+						<span><a href="https://www.baidu.com">阳光主卧</a></span>
+						<span><a href="https://www.baidu.com">独立卫生间</a></span>
+					</label>
+				</div>
+				<div class="col-md-2 close-to">
+					<lable><button type="button" class="button">搜房源</button></label>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-2">
+			<button type="button" class="button alert">&nbsp;&nbsp;&nbsp;免费发布信息&nbsp;&nbsp;&nbsp;</button>
+		</div>
+	</div>
+</div>
+{% endblock %}

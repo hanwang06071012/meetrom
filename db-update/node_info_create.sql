@@ -13,6 +13,7 @@ CREATE TABLE node_info (
 	parent_id INT(10) NOT NULL  DEFAULT 0,
 	name VARCHAR(255) NOT NULL UNIQUE,
 	link_name VARCHAR(2048),
+	addris BOOL NULL DEFAULT FALSE,
 	timecreate TIMESTAMP,
 	timemodify DATETIME NULL,
 	UNIQUE KEY (`node_id`,`name`),
