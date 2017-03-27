@@ -1,4 +1,6 @@
 {% extends "layout.html" %}
+<script src="/static/js/select2.js"></script>
+<link href="/static/css/select2.css" rel="stylesheet">
 {% block topad %}
 	<div class="container btn-danger" style="margin-top:0px;">
 		<img src="static/img/top.png">
@@ -16,7 +18,7 @@
 		<div class="col-md-6">
 			<div class="row">
 				<div class="col-md-10 close-to">
-					<label><input type="text" placeholder="Name"></label>
+					<label><input type="text" id="one_search_text"></label>
 					<label>
 						<span><a href="https://www.baidu.com">品牌房源</a></span>
 						<span><a href="https://www.baidu.com">热租房源</a></span>
@@ -26,13 +28,17 @@
 					</label>
 				</div>
 				<div class="col-md-2 close-to">
-					<lable><button type="button" class="button">搜房源</button></label>
+					<lable><button id="sech-btn" type="button" class="btn btn-info search-height">搜房源</button></label>
 				</div>
 			</div>
 		</div>
 		<div class="col-md-2">
-			<button type="button" class="button alert">&nbsp;&nbsp;&nbsp;免费发布信息&nbsp;&nbsp;&nbsp;</button>
+			<button  type="button" class="btn btn-danger search-height">&nbsp;&nbsp;&nbsp;免费发布信息&nbsp;&nbsp;&nbsp;</button>
 		</div>
 	</div>
 </div>
+<script>
+$("#sech-btn").bind("click",test);
+$("#one_search_text").select2({tags:["red", "green", "blue"]});
+</script>
 {% endblock %}
