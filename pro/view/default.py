@@ -19,7 +19,7 @@ def show_default():
 		current_id = request.form['current_id',1]
 	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
 	print("=====================start ========================")
-	print (current_name)
+	print unicode(current_name,'gbk')
 	print str(json.dumps(current_name))
 	session['default_name'] = json.dumps(current_name)
 	print("=====================  end ========================")
