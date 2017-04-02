@@ -13,7 +13,7 @@ from pro.model.node_info  import NodeInfo
 
 @app.route('/')
 def show_default():
-	session['node_name'] = "北京"
+	session['node_name'] = "uxyi"
 	print("=====================start ========================")
 	str_sel = NodeInfo.select(cols="name")
 	print str_sel
