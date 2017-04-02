@@ -20,8 +20,7 @@ def show_default():
 		current_id = request.form['current_id',1]
 	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))
 	print("=====================start ========================")
-	print (current_name)
-    print type(current_name)
+	print (type(current_name))
 	session['default_name'] = json.dumps('北京')
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
