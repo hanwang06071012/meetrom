@@ -1,5 +1,4 @@
 #-*- coding:utf-8 -*-
-#coding=utf-8
 #============================================================
 #作者：韩望
 #日期：2017-04-02
@@ -17,11 +16,11 @@ def show_default():
 	current_id = 8
 	if request.method=='POST':
 		current_id = request.form['current_id',1]
-	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
+	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))
 	print("=====================start ========================")
 	print (current_name)
-	print str(json.dumps(current_name))
-	session['default_name'] = json.dumps(current_name)
+	print str(json.dumps(current_name[0]))
+	session['default_name'] = json.dumps(current_name[0])
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
 
