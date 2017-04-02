@@ -22,7 +22,6 @@ def show_default():
 	print("=====================start ========================")
 	print (current_name)
 	name_str = str(current_name[0])
-    print name_str
     dafault_name = json.dumps(name_str)
 	session['default_name'] = default_name
 	print("=====================  end ========================")
