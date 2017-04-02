@@ -46,10 +46,10 @@ class Multi_DB(object):
         return self.conn
 
     def execute(self, *a, **kw):
-        print("=======================start==================================")
+        print("=======================excute start==================================")
         print a
         print kw
-        print("=======================end==================================")
+        print("=======================excute end==================================")
         cursor = kw.pop('cursor', None)
         try:
             cursor = cursor or self.get_conn().cursor()
