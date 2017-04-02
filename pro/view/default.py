@@ -29,3 +29,7 @@ def fangwuchuzu():
 @app.route('/selectaddr')
 def selectaddr():
 	return render_template('selectaddr.html')
+
+@app.route('/test')
+def test():
+	return "hello world!"
