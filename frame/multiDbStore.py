@@ -87,7 +87,7 @@ class Multi_DB(object):
 
     def query_all(self, *a, **kw):
 		cursor = None
-		print ("query_all *a=[%s], **kw=[%s]\n" % (a, kw))
+		#print ("query_all *a=[%s], **kw=[%s]\n" % (a, kw))
 		try:
 			cursor = self.execute(*a, **kw)
 			self.commit() 

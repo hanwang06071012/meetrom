@@ -6,7 +6,8 @@ from pro.model.node_info  import NodeInfo
 @app.route('/')
 def show_default():
 	print("=====================start ========================")
-	NodeInfo.select("name")
+	str_sel = NodeInfo.select(cols="name")
+	print str_sel
 	print("=====================  end ========================")
 	return render_template('default.html')
 
