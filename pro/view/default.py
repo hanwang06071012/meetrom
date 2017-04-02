@@ -22,8 +22,8 @@ def show_default():
 	print("=====================start ========================")
 	print (current_name)
 	print str(current_name[0])
-    dafault_name = json.dumps(current_name[0])
-	session['default_name'] = default_name
+    dafault_name = json.dumps(current_name)
+	session['default_name'] = default_name[0][0]
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
 
