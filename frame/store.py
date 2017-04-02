@@ -1,10 +1,15 @@
 # -*- coding:utf-8 -*-
-__author__ = 'Ulric Qin'
+#=======================================================
+#作者：韩望
+#日期：2017-02-19
+#功能：数据库驱动一次封装
+#更新：无
+#备注：无
+#=======================================================
 
 import logging
 import MySQLdb
 from frame import config
-
 
 def connect_db(cfg):
     try:
