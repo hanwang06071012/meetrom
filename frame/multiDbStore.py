@@ -18,7 +18,7 @@ def connect_db(host, port, user, password, db):
             user=user,
             passwd=password,
             db=db,
-            use_unicode=0,
+            use_unicode=True,
             charset="utf8")
         return conn
     except Exception, e:
