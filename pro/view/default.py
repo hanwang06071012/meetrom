@@ -10,7 +10,7 @@ def show_default():
 	str_sel = NodeInfo.select(cols="name")
 	print str_sel
 	print("=====================  end ========================")
-	return render_template('default.html',**localhost())
+	return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu')
 def fangwuchuzu():
