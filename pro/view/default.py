@@ -14,7 +14,7 @@ import json
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-	current_id = 1
+	current_id = 8
 	if request.method=='POST':
 		current_id = request.form['current_id',1]
 	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
