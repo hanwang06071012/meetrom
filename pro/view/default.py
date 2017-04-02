@@ -14,7 +14,7 @@ import json
 
 @app.route('/')
 def show_default():
-	session['node_name'] = json.dumps("北京")
+	session['node_name'] = str(json.dumps("北京"))
 	print("=====================start ========================")
 	str_sel = NodeInfo.select(cols="name")
 	print str_sel
