@@ -27,7 +27,7 @@ def connect_db(cfg):
         return None
 
 
-class DB(object):
+class DB:
     def __init__(self, cfg):
         self.config = cfg
         self.conn = None
