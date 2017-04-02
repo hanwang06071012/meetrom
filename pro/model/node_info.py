@@ -11,7 +11,7 @@ from pro.model.bean import Bean
 class NodeInfo(Bean):
 	_tbl = 'node_info'
 	_id = 'id'
-	_cols = ''
+	_cols = 'id,node_id,parent_id,name,link_name,addris,timecreate,timemodify'
 
 	def __init__(self,id,node_id,parent_id,name,link_name,addris,timecreate,timemodify):
 		self.id =id
