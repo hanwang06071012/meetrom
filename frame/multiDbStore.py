@@ -50,10 +50,13 @@ class Multi_DB(object):
         print a
         print kw
         print("=======================excute end==================================")
-        cursor = kw.pop('cursor', None)
+        #cursor = kw.pop('cursor', None)
         try:
             cursor = cursor or self.get_conn().cursor()
-            cursor.execute(*a, **kw)
+            #cursor.execute(*a, **kw)
+            str_result = cursor.execute("select * from node_info")
+            restul = str_result.fetchall()
+            print str_result
         except (AttributeError, MySQLdb.OperationalError):
             self.conn and self.conn.close()
             self.conn = None
@@ -128,8 +131,8 @@ class Multi_DB(object):
                 self.conn = None
 
 db = Multi_DB(
-		host = config.BOUNTY_DB_HOST,
-		port = config.BOUNTY_DB_PORT,
-		user = config.BOUNTY_DB_USER,
-		password =config.BOUNTY_DB_PASSWD,
-		db =config.BOUNTY_DB_NAME)
+		config.BOUNTY_DB_HOST,
+		config.BOUNTY_DB_PORT,
+		config.BOUNTY_DB_USER,
+		config.BOUNTY_DB_PASSWD,
+		config.BOUNTY_DB_NAME)
