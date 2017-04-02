@@ -1,35 +1,40 @@
-# -*- coding:utf-8 -*-
-__author__ = 'Ulric Qin'
-
-import logging
+#-*- coding:utf-8 -*-
 import MySQLdb
 from frame import config
 
-
-def connect_db(cfg):
+def connect_db(host, port, user, password, db):
     try:
         conn = MySQLdb.connect(
-            host=cfg.PORTAL_DB_HOST,
-            port=cfg.PORTAL_DB_PORT,
-            user=cfg.PORTAL_DB_USER,
-            passwd=cfg.PORTAL_DB_PASSWD,
-            db=cfg.PORTAL_DB_NAME,
+            host=host,
+            port=port,
+            user=user,
+            passwd=password,
+            db=db,
             use_unicode=True,
             charset="utf8")
         return conn
     except Exception, e:
-        logging.getLogger().critical('connect db: %s' % e)
+        print "Fatal: connect db fail:%s" % e
         return None
 
+class Multi_DB(object):
 
-class DB(object):
-    def __init__(self, cfg):
-        self.config = cfg
+    def __init__(self, host, port, user, password, db):
+        self.host = host
+        self.port = port
+        self.user = user
+        self.password = password
+        self.db = db
         self.conn = None
+
+    def connect(self):
+        if not self.conn:
+            self.conn = connect_db(self.host, self.port, self.user, self.password, self.db)
+        return self.conn
 
     def get_conn(self):
         if self.conn is None:
-            self.conn = connect_db(self.config)
+            self.conn = connect_db(self.host, self.port, self.user, self.password, self.db)
         return self.conn
 
     def execute(self, *a, **kw):
@@ -73,13 +78,14 @@ class DB(object):
             cursor and cursor.close()
 
     def query_all(self, *a, **kw):
-        cursor = None
-        try:
-            cursor = self.execute(*a, **kw)
-            self.commit()
-            return cursor.fetchall()
-        finally:
-            cursor and cursor.close()
+		cursor = None
+		print ("query_all *a=[%s], **kw=[%s]\n" % (a, kw))
+		try:
+			cursor = self.execute(*a, **kw)
+			self.commit() 
+			return cursor.fetchall()
+		finally:
+			cursor and cursor.close()
 
     def query_one(self, *a, **kw):
         rows = self.query_all(*a, **kw)
@@ -109,5 +115,9 @@ class DB(object):
             except MySQLdb.OperationalError:
                 self.conn = None
 
-
-dbs = DB(config)
+db = Multi_DB(
+		config.BOUNTY_DB_HOST,
+		config.BOUNTY_DB_PORT,
+		config.BOUNTY_DB_USER,
+		config.BOUNTY_DB_PASSWD,
+		config.BOUNTY_DB_NAME)

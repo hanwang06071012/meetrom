@@ -190,3 +190,8 @@ drop-tb-width
 	background-color:#dedef8;
 	width:14%;
 }
+.table-div-every
+{
+	border-bottom:10px solid snow;
+	margin:0px;
+}

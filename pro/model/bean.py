@@ -6,7 +6,7 @@
 #更新：无
 #备注：无
 #============================================================
-from frame.store import db
+from frame.multiDbStore  import db
 class Bean(object):
 	_tbl = ''
 	_id = 'id'
