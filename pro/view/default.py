@@ -9,7 +9,9 @@ from flask import Flask,session,url_for
 from flask import render_template,request
 from pro import app
 from pro.model.node_info  import NodeInfo
-import json
+import json,sys
+reload(sys)
+sys.setdefaultencoding('utf-8')
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
