@@ -21,7 +21,9 @@ def show_default():
 	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))
 	print("=====================start ========================")
 	print (current_name)
-	session['default_name'] = current_name[0][0]
+    str_current_name = str(current_name[0][0])
+    print str_current_name
+	session['default_name'] = str_current_name
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
 
