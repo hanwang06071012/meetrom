@@ -19,7 +19,7 @@ def show_default():
 		current_id = request.form['current_id',1]
 	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
 	print("=====================start ========================")
-	print json.dumps(current_name)
+	print str(json.dumps(current_name))
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
 
