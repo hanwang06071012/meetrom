@@ -2,7 +2,7 @@
 #============================================================
 #作者：韩望
 #日期：2017-04-02
-#功能：标准页
+#功能：数据库的二次封装
 #更新：无
 #备注：无
 #============================================================
@@ -13,7 +13,7 @@ from pro.model.node_info  import NodeInfo
 
 @app.route('/')
 def show_default():
-	session['node_name'] = "北京"
+	session['node_name'] = " beijing"
 	print("=====================start ========================")
 	str_sel = NodeInfo.select(cols="name")
 	print str_sel
