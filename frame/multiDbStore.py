@@ -50,13 +50,10 @@ class Multi_DB(object):
         print a
         print kw
         print("=======================excute end==================================")
-        #cursor = kw.pop('cursor', None)
+        cursor = kw.pop('cursor', None)
         try:
             cursor = cursor or self.get_conn().cursor()
-            #cursor.execute(*a, **kw)
-            str_result = cursor.execute("select * from node_info")
-            restul = str_result.fetchall()
-            print str_result
+            cursor.execute(*a, **kw)
         except (AttributeError, MySQLdb.OperationalError):
             self.conn and self.conn.close()
             self.conn = None
