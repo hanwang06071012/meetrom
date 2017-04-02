@@ -14,12 +14,13 @@ import json
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
+	current_id = 1
 	if request.method=='POST':
 		current_id = request.form['current_id',1]
-		current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
-		print("=====================start ========================")
-		print current_name
-		print("=====================  end ========================")
+	current_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))[0]
+	print("=====================start ========================")
+	print current_name
+	print("=====================  end ========================")
 	return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu')
