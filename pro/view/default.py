@@ -10,10 +10,11 @@ from flask import Flask,session
 from flask import render_template
 from pro import app
 from pro.model.node_info  import NodeInfo
+import json
 
 @app.route('/')
 def show_default():
-	session['node_name'] = "uxyi"
+	session['node_name'] = json.dumps("北京")
 	print("=====================start ========================")
 	str_sel = NodeInfo.select(cols="name")
 	print str_sel
