@@ -87,10 +87,6 @@ class Bean(object):
 			if offset < 0:
 				offset =0
 			sql = '%s OFFSET %s' %(sql,offset)
-		print("================select start====================================")
-		print sql
-		print params
-		print("================select end====================================")
 		return db.query_all(sql,params)
 
 	@classmethod

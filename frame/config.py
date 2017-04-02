@@ -10,7 +10,6 @@ import os
 DEBUG = True
 
 #--  bounty db config --
-#BOUNTY_DB_HOST = "192.168.122.95"
 BOUNTY_DB_HOST = "127.0.0.1"
 BOUNTY_DB_PORT = 3306
 BOUNTY_DB_USER = "root"
