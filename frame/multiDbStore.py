@@ -128,8 +128,8 @@ class Multi_DB(object):
                 self.conn = None
 
 db = Multi_DB(
-		config.BOUNTY_DB_HOST,
-		config.BOUNTY_DB_PORT,
-		config.BOUNTY_DB_USER,
-		config.BOUNTY_DB_PASSWD,
-		config.BOUNTY_DB_NAME)
+		host = config.BOUNTY_DB_HOST,
+		port = config.BOUNTY_DB_PORT,
+		user = config.BOUNTY_DB_USER,
+		password =config.BOUNTY_DB_PASSWD,
+		db =config.BOUNTY_DB_NAME)
