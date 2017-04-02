@@ -16,12 +16,11 @@ sys.setdefaultencoding('utf-8')
 @app.route('/',methods=['POST','GET'])
 def show_default():
 	current_id = 8
-    tuple_name=()
 	if request.method=='POST':
 		current_id = request.form['current_id',1]
 	tuple_name = NodeInfo.select(cols='name',where=("id = %s"% current_id))
 	print("=====================start ========================")
-    print tuple_name[0]
+    print tuple_name
 	session['default_name'] = "北京"
 	print("=====================  end ========================")
 	return render_template('default.html',**locals())
