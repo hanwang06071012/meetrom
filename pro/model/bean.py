@@ -90,7 +90,7 @@ class Bean(object):
 		print("================select start====================================")
 		print sql
 		print params
-		print("================select start====================================")
+		print("================select end====================================")
 		return db.query_all(sql,params)
 
 	@classmethod
