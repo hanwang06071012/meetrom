@@ -22,10 +22,22 @@ def show_default():
         current_id = int(current_id)
     if (current_id > 0 and current_id <= 3133):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
+        session['master_city_id'] = current_id
+        session['frit_slave_city_id'] = current_id + 1
+        session['sed_slave_city_id'] = current_id +2
+        session['thrid_slave_city_id'] = current_id +3
     elif (current_id < 0 or current_id > 3136):
         current_id = 1
+        session['master_city_id'] = current_id
+        session['frit_slave_city_id'] = 2
+        session['sed_slave_city_id'] = 3
+        session['thrid_slave_city_id'] = 4
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (2,3,4)))
     else:
+        session['master_city_id'] = current_id
+        session['frit_slave_city_id'] = 1
+        session['sed_slave_city_id'] = 2
+        session['thrid_slave_city_id'] = 3
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (1,2,3)))
     tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
     session['master_city_name'] = tuple_master_name[0][0]
