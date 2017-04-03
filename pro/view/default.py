@@ -41,10 +41,10 @@ def show_default():
         session['thrid_slave_city_id'] = const.CITYNODEIDTHREE
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (const.CITYNODEIDONE,const.CITYNODEIDSED,const.CITYNODEIDTHREE)))
     tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
-    session['master_city_name'] = tuple_master_name[0][0]
-    session['frist_slave_city_name'] = tuple_slave_name[0][0]
-    session['sed_slave_city_name'] = tuple_slave_name[1][0]
-    session['thrid_slave_city_name'] = tuple_slave_name[2][0]
+    session['master_city_name'] = tuple_master_name[0][const.CITYLOCATIONINARRAY]
+    session['frist_slave_city_name'] = tuple_slave_name[0][const.CITYLOCATIONINARRAY]
+    session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
+    session['thrid_slave_city_name'] = tuple_slave_name[2][const.CITYLOCATIONINARRAY]
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu')
