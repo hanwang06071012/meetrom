@@ -21,13 +21,13 @@ def show_default():
     if request.method=='GET':
         current_id = request.values.get('current_id',default=1)
         current_id = int(current_id)
-    if (current_id > 0 and current_id <= 3133):
+    if (current_id > 0 and current_id <= (const.MAXCITYNODE - const.CITYOFFSET)):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
         session['master_city_id'] = current_id
         session['frist_slave_city_id'] = current_id + 1
         session['sed_slave_city_id'] = current_id +2
         session['thrid_slave_city_id'] = current_id +3
-    elif (current_id < 0 or current_id > 3136):
+    elif (current_id < 0 or current_id > const.MAXCITYNODE):
         current_id = 1
         session['master_city_id'] = current_id
         session['frist_slave_city_id'] = 2
