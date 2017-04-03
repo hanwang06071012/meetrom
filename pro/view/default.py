@@ -15,7 +15,7 @@ sys.setdefaultencoding('utf-8')
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    current_id = 8
+    current_id = 1
     if request.method=='POST':
         current_id = request.form['current_id',1]
     tuple_name = NodeInfo.select(cols='name',where=('id =%s'%(current_id)))
