@@ -132,6 +132,13 @@ drop-tb-width
 	color:black;
 	font-size:11px;
 }
+.cont-head-text
+{
+	font-weight:400;
+	text-align:left;
+	color:#ff6600;
+	font-size:12px;
+}
 .body-all-div
 {
 	margin:0px;
