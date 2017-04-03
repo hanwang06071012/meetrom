@@ -17,7 +17,7 @@ sys.setdefaultencoding('utf-8')
 def show_default():
     current_id = 1
     tuple_slave_name =()
-    if request.method=='get':
+    if request.method=='GET':
         current_id = request.args.get['current_id',1]
     tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
     if (current_id > 0 and current_id <= 3133):
