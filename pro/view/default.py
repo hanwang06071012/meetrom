@@ -18,7 +18,7 @@ def show_default():
     current_id = 1
     if request.method=='POST':
         current_id = request.form['current_id',1]
-    tuple_name = NodeInfo.select(cols='name',where=('id =%s'%(current_id)))
+    tuple_name = NodeInfo.select(cols='name',where=('node_id =%s'%(current_id)))
     print("=====================start ========================")
     print (tuple_name)
     session['node_name'] = tuple_name[0][0]
