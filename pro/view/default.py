@@ -19,27 +19,27 @@ def show_default():
     current_id = const.DEFAULTCITYID
     tuple_slave_name =()
     if request.method=='GET':
-        current_id = request.values.get('current_id',default=1)
+        current_id = request.values.get('current_id',default=const.DEFAULTCITYID)
         current_id = int(current_id)
-    if (current_id > 0 and current_id <= (const.MAXCITYNODE - const.CITYOFFSET)):
-        tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
+    if (current_id > const.INITCITYNODEID and current_id <= (const.MAXCITYNODEID - const.CITYNODEIDOFFSET)):
+        tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+const.CITYOFFSET)))
         session['master_city_id'] = current_id
-        session['frist_slave_city_id'] = current_id + 1
-        session['sed_slave_city_id'] = current_id +2
-        session['thrid_slave_city_id'] = current_id +3
-    elif (current_id < 0 or current_id > const.MAXCITYNODE):
-        current_id = 1
+        session['frist_slave_city_id'] = current_id + const.CITYNODEIDOFFSETONE
+        session['sed_slave_city_id'] = current_id + const.CITYNODEIDOFFSESED
+        session['thrid_slave_city_id'] = current_id + const.CITYNODEIDOFFSET
+    elif (current_id < const.INITCITYNODEID or current_id > const.MAXCITYNODEID):
+        current_id = const.DEFAULTCITYID
         session['master_city_id'] = current_id
-        session['frist_slave_city_id'] = 2
-        session['sed_slave_city_id'] = 3
-        session['thrid_slave_city_id'] = 4
-        tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (2,3,4)))
+        session['frist_slave_city_id'] = const.CITYNODEIDSED
+        session['sed_slave_city_id'] = const.CITYNODEIDTHREE
+        session['thrid_slave_city_id'] = const.CITYNODEIDFOURTH
+        tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (const.CITYNODEIDSED,const.CITYNODEIDTHREE,const.CITYNODEIDFOURTH)))
     else:
         session['master_city_id'] = current_id
-        session['frist_slave_city_id'] = 1
-        session['sed_slave_city_id'] = 2
-        session['thrid_slave_city_id'] = 3
-        tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (1,2,3)))
+        session['frist_slave_city_id'] = const.CITYNODEIDONE
+        session['sed_slave_city_id'] = const.CITYNODEIDSED
+        session['thrid_slave_city_id'] = const.CITYNODEIDTHREE
+        tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (const.CITYNODEIDONE,const.CITYNODEIDSED,const.CITYNODEIDTHREE)))
     tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
     session['master_city_name'] = tuple_master_name[0][0]
     session['frist_slave_city_name'] = tuple_slave_name[0][0]
