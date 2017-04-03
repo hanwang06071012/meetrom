@@ -18,9 +18,9 @@ def show_default():
     current_id = 8
     if request.method=='POST':
         current_id = request.form['current_id',1]
-    NodeInfo.select(cols='name',where=("id = %s"% current_id))
-	print("=====================start ========================")
-    print ("hanwang")
+    tuple_name = NodeInfo.select(cols='name',where=('id =%s'%(current_id)))
+    print("=====================start ========================")
+    print (tuple_name)
     session['default_name'] = "biejing"
     print("=====================  end ========================")
     return render_template('default.html',**locals())
