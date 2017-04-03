@@ -18,7 +18,7 @@ def show_default():
     current_id = 1
     tuple_slave_name =()
     if request.method=='get':
-        current_id = request.values.get['current_id',1]
+        current_id = request.values.get('current_id',1)
         current_id = int(current_id)
     if (current_id > 0 and current_id <= 3133):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
