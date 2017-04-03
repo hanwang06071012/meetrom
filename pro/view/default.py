@@ -10,12 +10,13 @@ from flask import render_template,request
 from pro import app
 from pro.model.node_info  import NodeInfo
 import json,sys
+from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    current_id = 1
+    current_id = const.DEFAULTCITYID
     tuple_slave_name =()
     if request.method=='GET':
         current_id = request.values.get('current_id',default=1)
