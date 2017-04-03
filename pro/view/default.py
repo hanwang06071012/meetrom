@@ -21,7 +21,7 @@ def show_default():
     tuple_name = NodeInfo.select(cols='name',where=('id =%s'%(current_id)))
     print("=====================start ========================")
     print (tuple_name)
-    session['node_name'] = "biejing"
+    session['node_name'] = tuple_name[0][0]
     print("=====================  end ========================")
     return render_template('default.html',**locals())
 
