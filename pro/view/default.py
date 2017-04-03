@@ -22,7 +22,7 @@ def show_default():
         current_id = request.values.get('current_id',default=const.DEFAULTCITYID)
         current_id = int(current_id)
     if (current_id > const.INITCITYNODEID and current_id <= (const.MAXCITYNODEID - const.CITYNODEIDOFFSET)):
-        tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+const.CITYOFFSET)))
+        tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+const.CITYNODEIDOFFSET)))
         session['master_city_id'] = current_id
         session['frist_slave_city_id'] = current_id + const.CITYNODEIDOFFSETONE
         session['sed_slave_city_id'] = current_id + const.CITYNODEIDOFFSESED
