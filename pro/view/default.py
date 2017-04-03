@@ -17,8 +17,8 @@ sys.setdefaultencoding('utf-8')
 def show_default():
     current_id = 1
     tuple_slave_name =()
-    if request.method=='GET':
-        current_id = request.args.get['current_id',1]
+    if request.method=='POST':
+        current_id = request.form.get['current_id',1]
     if (current_id > 0 and current_id <= 3133):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
     elif (current_id < 0 or current_id > 3136):
