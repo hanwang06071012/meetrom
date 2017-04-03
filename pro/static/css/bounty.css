@@ -204,5 +204,5 @@ drop-tb-width
 }
 .href-non-line
 {
-	text-decoration: none;
+	text-decoration-line: none;
 }
