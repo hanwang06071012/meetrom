@@ -28,6 +28,7 @@ def show_default():
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (1,2,3)))
     tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
     print("=====================start ========================")
+    print ("current_id=%d" % current_id)
     print (tuple_master_name)
     print (tuple_slave_name)
     session['master_city_name'] = tuple_master_name[0][0]
