@@ -17,7 +17,12 @@
 	<nav class="navbar navbar-default" style="margin:0px;" role="navigation">
 		<div class="container-fluid"> 
 			<div class="navbar-header">
-				<p class="navbar-text navbar-left">{{ session['node_name']}}<a class="" href="/selectaddr">[切换城市]</a></p>
+				<p class="navbar-text navbar-left">{{ session['master_city_name']}}
+				<a class="" href="/selectaddr">[&nbsp;&nbsp;切换城市</a>&nbsp;&nbsp;
+				<a class="" href="/selectaddr">session['frist_slave_name']</a>&nbsp;&nbsp;
+				<a class="" href="/selectaddr">session['sed_slave_name']</a>&nbsp;&nbsp;
+				<a class="" href="/selectaddr">session['thrid_slave_name']&nbsp;&nbsp;]</a>
+				</p>
 			</div>
 			<div>
 				<p class="navbar-text navbar-left">招聘</p>
