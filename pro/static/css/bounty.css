@@ -202,3 +202,7 @@ drop-tb-width
 	border-bottom:10px solid snow;
 	margin:0px;
 }
+.href-non-line
+{
+	text-decoration: none;
+}
