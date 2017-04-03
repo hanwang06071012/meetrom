@@ -18,12 +18,15 @@ def show_default():
     current_id = 1
     tuple_slave_name =()
     if request.method=='GET':
-        current_id = request.args.get['current_id']
-    tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
+        current_id = request.args.get['current_id',1]
     if (current_id > 0 and current_id <= 3133):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+3)))
+    elif (current_id < 0 or current_id > 3136):
+        current_id = 1
+        tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (2,3,4)))
     else:
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (1,2,3)))
+    tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
     print("=====================start ========================")
     print (tuple_master_name)
     print (tuple_slave_name)
