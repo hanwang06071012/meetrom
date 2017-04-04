@@ -15,7 +15,7 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-def check_addr():
+def init_addr():
     current_id = const.DEFAULTCITYID
     tuple_slave_name =()
     if request.method=='GET':
@@ -48,12 +48,12 @@ def check_addr():
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    check_addr()
+    init_addr()
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu',methods=['POST','GET'])
 def fangwuchuzu():
-    #check_addr()
+    #init_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
 
 
