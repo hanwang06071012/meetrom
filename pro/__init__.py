@@ -6,15 +6,11 @@
 #默认函数更新：无
 #备注：无
 #============================================================
-from flask import Flask,session
-from frame import const
+from flask import Flask
 
-def constset():
-    session['master_city_id'] = const.DEFAULTCITYID
 #-----------create app----------
 app = Flask(__name__)
 app.config.from_object("frame.config")
 app.config['SECRET_KEY'] = '123456'
-constset();
 
 from view import default
