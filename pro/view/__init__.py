@@ -9,8 +9,4 @@
 from flask import Flask,session
 from frame import const
 
-#
-def constset():
-    session['master_city_id'] = const.DEFAULTCITYID
-
-constset();
+session['master_city_id'] = const.DEFAULTCITYID
