@@ -53,7 +53,8 @@ def show_default():
 
 @app.route('/fangwuchuzu')
 def fangwuchuzu():
-	return render_template('sub1/fangwuchuzu.html')
+    check_addr()
+    return render_template('sub1/fangwuchuzu.html')
 
 
 @app.route('/selectaddr')
