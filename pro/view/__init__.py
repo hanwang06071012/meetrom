@@ -6,7 +6,3 @@
 #默认函数更新：无
 #备注：无
 #============================================================
-from flask import Flask,session
-from frame import const
-
-session['master_city_id'] = const.DEFAULTCITYID
