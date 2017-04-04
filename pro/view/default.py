@@ -2,7 +2,8 @@
 #============================================================
 #作者：韩望
 #日期：2017-04-02
-#功能：默认函数更新：无
+#功能：默认视图函数
+#默认函数更新：无
 #备注：无
 #============================================================
 from flask import Flask,session,url_for
@@ -40,7 +41,7 @@ def show_default():
         session['sed_slave_city_id'] = const.CITYNODEIDSED
         session['thrid_slave_city_id'] = const.CITYNODEIDTHREE
         tuple_slave_name = NodeInfo.select(cols='name',where=('node_id = %s or node_id = %s or node_id = %s ' % (const.CITYNODEIDONE,const.CITYNODEIDSED,const.CITYNODEIDTHREE)))
-    tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(current_id)))
+    tuple_master_name = NodeInfo.select(cols='name',where=('node_id = %s'%(session['master_city_id'])))
     session['master_city_name'] = tuple_master_name[0][const.CITYLOCATIONINARRAY]
     session['frist_slave_city_name'] = tuple_slave_name[0][const.CITYLOCATIONINARRAY]
     session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
