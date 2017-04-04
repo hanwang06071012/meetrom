@@ -15,8 +15,7 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-@app.route('/',methods=['POST','GET'])
-def show_default():
+def check_addr():
     current_id = const.DEFAULTCITYID
     tuple_slave_name =()
     if request.method=='GET':
@@ -46,6 +45,10 @@ def show_default():
     session['frist_slave_city_name'] = tuple_slave_name[0][const.CITYLOCATIONINARRAY]
     session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
     session['thrid_slave_city_name'] = tuple_slave_name[2][const.CITYLOCATIONINARRAY]
+
+@app.route('/',methods=['POST','GET'])
+def show_default():
+   check_addr()
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu')
