@@ -51,7 +51,7 @@ def show_default():
     check_addr()
     return render_template('default.html',**locals())
 
-@app.route('/fangwuchuzu')
+@app.route('/fangwuchuzu',methods=['POST','GET'])
 def fangwuchuzu():
     check_addr()
     return render_template('sub1/fangwuchuzu.html')
