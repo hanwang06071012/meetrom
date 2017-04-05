@@ -68,7 +68,7 @@ def check_addr():
 def set_addr():
     print("=============set_addr start==============================================")
     try:
-        current_city_id = request.values.get('addr_node_id',default='')
+        current_city_id = request.values.get("str_node_id",default="")
         if (len(current_city_id) != 0):
             init_addr(current_city_id)
             print(session['master_city_id'])
