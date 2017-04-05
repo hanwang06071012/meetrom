@@ -15,12 +15,12 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-def init_addr():
-    current_id = const.DEFAULTCITYID
+def init_addr(current_id):
+    #current_id = const.DEFAULTCITYID
     tuple_slave_name =()
-    if request.method=='GET':
-        current_id = request.values.get('current_id',default=const.DEFAULTCITYID)
-        current_id = int(current_id)
+    #if request.method=='GET':
+        #current_id = request.values.get('current_id',default=const.DEFAULTCITYID)
+    current_id = int(current_id)
     if (current_id > const.INITCITYNODEID and current_id <= (const.MAXCITYNODEID - const.CITYNODEIDOFFSET)):
         tuple_slave_name = NodeInfo.select(cols="name",where=('node_id > %s and node_id <= %s' % (current_id,current_id+const.CITYNODEIDOFFSET)))
         session['master_city_id'] = current_id
@@ -48,10 +48,33 @@ def init_addr():
 
 def check_addr():
     try:
+        current_id = request.values.get('current_id',default='')
         if (len(session['master_city_name'])==0):
-            init_addr()
+            if (len(current_id)==0):
+                init_addr(const.DEFAULTCITYID)
+            else:
+                init_addr(current_id)
+        else:
+            if (len(current_id) !=0):
+                init_addr(current_id)
+            else:
+                pass
     except:
-        init_addr() 
+        init_addr(const.DEFAULTCITYID) 
+
+#地址设置
+@app.route("/set/addr")
+def set_addr():
+    try:
+        current_city_id = request.values.get('addr_node_id',default='')
+        if (len(current_city_id) != 0):
+            init_addr(current_city_id)
+            return ""
+        else:
+            return "set city failure...."    
+    except:
+        return "set city failure...."
+
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
