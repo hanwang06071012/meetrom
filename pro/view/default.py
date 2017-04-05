@@ -46,7 +46,7 @@ def init_addr():
     session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
     session['thrid_slave_city_name'] = tuple_slave_name[2][const.CITYLOCATIONINARRAY]
 
-def checkaddr():
+def check_addr():
     try:
         if (len(session['master_city_name'])==0):
             init_addr()
