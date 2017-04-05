@@ -35,7 +35,7 @@ function set_addr_go_back(addr_node_id)
     {
         if (msg=="")
         {
-            history.back(-1);
+            location.href = document.referrer
         }
         else
         {
