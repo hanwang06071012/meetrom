@@ -51,12 +51,12 @@ def check_addr():
     try:
         current_id = session['master_city_id']
         if (len(session['master_city_name'])==0):
-            if (len(current_id)==0):
+            if (current_id==''):
                 init_addr(const.DEFAULTCITYID)
             else:
                 init_addr(current_id)
         else:
-            if (len(current_id) !=0):
+            if (current_id !=''):
                 init_addr(current_id)
             else:
                 pass
