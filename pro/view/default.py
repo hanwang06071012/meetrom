@@ -83,10 +83,16 @@ def set_addr():
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    check_addr()
     print("===========================default start===================================")
     print(session['master_city_id'])
     print(session['master_city_name'])
+    print(len(session['master_city_id']))
+    print(len(session['master_city_name']))
+    check_addr()
+    print(session['master_city_id'])
+    print(session['master_city_name'])
+    print(len(session['master_city_id']))
+    print(len(session['master_city_name']))
     print("===========================default end===================================")
     return render_template('default.html',**locals())
 
