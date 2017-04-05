@@ -55,12 +55,12 @@ def check_addr():
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    check_addr()
+    init_addr()
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu',methods=['POST','GET'])
 def fangwuchuzu():
-    check_addr()
+    init_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
 
 
