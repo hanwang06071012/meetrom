@@ -46,6 +46,13 @@ def init_addr():
     session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
     session['thrid_slave_city_name'] = tuple_slave_name[2][const.CITYLOCATIONINARRAY]
 
+def checkaddr():
+    try:
+        if (len(session['master_city_name'])==0):
+            init_addr()
+    except:
+        init_addr() 
+
 @app.route('/',methods=['POST','GET'])
 def show_default():
     init_addr()
@@ -53,7 +60,7 @@ def show_default():
 
 @app.route('/fangwuchuzu',methods=['POST','GET'])
 def fangwuchuzu():
-    #init_addr()
+    check_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
 
 
