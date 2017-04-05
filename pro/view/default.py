@@ -46,9 +46,10 @@ def init_addr(current_id):
     session['sed_slave_city_name'] = tuple_slave_name[1][const.CITYLOCATIONINARRAY]
     session['thrid_slave_city_name'] = tuple_slave_name[2][const.CITYLOCATIONINARRAY]
 
+#检查地址是否存在，不存在就初始化
 def check_addr():
     try:
-        current_id = request.values.get('current_id',default='')
+        current_id = session['master_city_id']
         if (len(session['master_city_name'])==0):
             if (len(current_id)==0):
                 init_addr(const.DEFAULTCITYID)
@@ -78,7 +79,7 @@ def set_addr():
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    init_addr()
+    check_addr()
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu',methods=['POST','GET'])
