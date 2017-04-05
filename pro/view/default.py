@@ -64,7 +64,7 @@ def check_addr():
         init_addr(const.DEFAULTCITYID) 
 
 #地址设置
-@app.route("/set/addr")
+@app.route("/set/addr",methods=['POST'])
 def set_addr():
     print("=============set_addr start==============================================")
     try:
