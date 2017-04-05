@@ -66,14 +66,10 @@ def check_addr():
 #地址设置
 @app.route("/set/addr",methods=['POST'])
 def set_addr():
-    print("=============set_addr start==============================================")
     try:
         current_city_id = request.values.get("str_node_id",default="")
         if (len(current_city_id) != 0):
             init_addr(current_city_id)
-            print(session['master_city_id'])
-            print(session['master_city_name'])
-            print("=============set_addr end==============================================")
             return ""
         else:
             return "set city failure...."    
@@ -83,17 +79,7 @@ def set_addr():
 
 @app.route('/',methods=['POST','GET'])
 def show_default():
-    print("===========================default start===================================")
-    print(session['master_city_id'])
-    print(session['master_city_name'])
-    print(len(session['master_city_id']))
-    print(len(session['master_city_name']))
     check_addr()
-    print(session['master_city_id'])
-    print(session['master_city_name'])
-    print(len(session['master_city_id']))
-    print(len(session['master_city_name']))
-    print("===========================default end===================================")
     return render_template('default.html',**locals())
 
 @app.route('/fangwuchuzu',methods=['POST','GET'])
