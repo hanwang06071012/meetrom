@@ -42,3 +42,11 @@ $("#sech-btn").bind("click",test);
 $("#one_search_text").select2({tags:["red", "green", "blue"]});
 </script>
 {% endblock %}
+
+{% block mainlink %}
+<p>
+	<a href="https://www.baidu.com">{{session['master_city_name']}}58同城</a><span>></span>
+	<a href="https://www.baidu.com">{{session['master_city_name']}}房产信息</a><span>></span>
+	<a href="https://www.baidu.com">{{session['master_city_name']}}58出租</a>
+</p>
+{% endblock %}
