@@ -61,7 +61,8 @@ def check_addr():
             else:
                 pass
     except:
-        init_addr(const.DEFAULTCITYID) 
+        init_addr(const.DEFAULTCITYID)
+    return ""
 
 #地址设置
 @app.route("/set/addr",methods=['POST'])
@@ -76,7 +77,6 @@ def set_addr():
     except:
         return "set city failure...."
 
-
 @app.route('/',methods=['POST','GET'])
 def show_default():
     check_addr()
@@ -86,7 +86,6 @@ def show_default():
 def fangwuchuzu():
     check_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
-
 
 @app.route('/selectaddr')
 def selectaddr():
