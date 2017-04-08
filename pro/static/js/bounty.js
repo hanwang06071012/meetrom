@@ -55,16 +55,15 @@ function set_fangwu_chaxun()
     {
         if (msg=="")
         {
-            alert("no node....");
+            alert("此城市没有登入房产平台信息");
         }
         else
         {
             alert(msg);
             var json_msg = eval(msg)
-            for (var i = 0; i < json_msg.length; i++) 
-            {
-                alert(json_msg[i]);
-            }
+            alert(json_msg["city_names"]);
+            alert(json_msg['fangzu']);
+            alert(json_msg['agent_names'])
         }
     });
 }

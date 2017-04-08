@@ -92,12 +92,43 @@ def fangwuchuzu():
 @app.route('/fangwuchaxun',methods=['POST','GET'])
 def fangwuchaxun():
     check_addr()
-    fangwu_chaxun_result = []
+    list_city_names = []
+    list_ciyt_fangzu=[]
+    list_agent_names=[]
+    map_fangchan_chaxun = {}
+
     current_city_id = session['master_city_id']
     tuple_city_names=NodeInfo.select(cols='name',where=("parent_id=%s" % current_city_id))
-    print tuple_city_names
-    json_city_names = json.dumps(tuple_city_names)
-    return (str(json_city_names))
+    try:
+        for sig_city_names in tuple_city_names:
+            sig_city_name = sig_city_names[0]
+            list_city_names.append(sig_city_name)
+    except:
+        pass
+    map_fangchan_chaxun["city_names"] = list_city_names
+
+    tuple_city_category=NodeInfo.select(cols='category',where=("node_id=%s" % current_city_id))
+    current_category = tuple_city_category[0][0]
+    tuple_city_incomes = Income.select(cols='frist_levle,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level',where=("city_type=%s" % current_category))
+    try:
+        for sig_city_incomes in tuple_city_incomes:
+            for sig_city_income in sig_city_incomes:
+                list_ciyt_fangzu.append(sig_city_income/4)
+    except:
+        pass
+    map_fangchan_chaxun["fangzu"] = list_ciyt_fangzu
+
+    tuple_agent_names = EstateAgents.select(cols="name",where=("level <= %s" % current_category))
+    try:
+        for sig_agent_names in tuple_agent_names:
+            for sig_agent_name in sig_agent_names:
+                list_agent_names.append[sig_agent_name]
+    except:
+        pass
+    map_fangchan_chaxun['agents_names'] = list_agent_names
+
+    json_fangchan_chaxun_result = json.dumps(map_fangchan_chaxun)
+    return (json_fangchan_chaxun_result)
 
 @app.route('/selectaddr')
 def selectaddr():
