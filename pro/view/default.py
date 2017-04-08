@@ -113,6 +113,7 @@ def fangwuchaxun():
     try:
         for sig_city_incomes in tuple_city_incomes:
             for sig_city_income in sig_city_incomes:
+                sig_city_income = int(sig_city_income)
                 list_ciyt_fangzu.append(sig_city_income/4)
     except:
         pass
@@ -122,7 +123,7 @@ def fangwuchaxun():
     try:
         for sig_agent_names in tuple_agent_names:
             for sig_agent_name in sig_agent_names:
-                list_agent_names.append[sig_agent_name]
+                list_agent_names.append(sig_agent_name)
     except:
         pass
     map_fangchan_chaxun['agents_names'] = list_agent_names
