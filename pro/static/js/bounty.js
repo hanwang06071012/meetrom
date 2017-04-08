@@ -55,11 +55,16 @@ function set_fangwu_chaxun()
     {
         if (msg=="")
         {
-            alert("good null....");
+            alert("no node....");
         }
         else
         {
             alert(msg);
+            var json_msg = eval(msg)
+            for (var i = 0; i < json_msg.length; i++) 
+            {
+                alert(json_msg[i]);
+            }
         }
     });
 }
