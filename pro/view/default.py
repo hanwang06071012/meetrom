@@ -134,11 +134,6 @@ def fangwuchaxun():
     list_fangwu_chaxun_result.append(list_agent_names)
 
     json_fangchan_chaxun_result = json.dumps(list_fangwu_chaxun_result)
-    print("=================start=====================")
-    print("current_category=%s" % current_category)
-    print(tuple_city_incomes)
-    print(tuple_agent_names)
-    print("=================end=====================")
     return (json_fangchan_chaxun_result)
 
 @app.route('/selectaddr')
