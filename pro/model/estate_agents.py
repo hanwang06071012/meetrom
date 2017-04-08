@@ -6,6 +6,7 @@
 #更新：无
 #备注：无
 #=======================================================
+from pro.model.bean import Bean
 
 class EstateAgents(Bean):
 	_tbl = 'estate_agents'

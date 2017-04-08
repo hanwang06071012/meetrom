@@ -6,6 +6,7 @@
 #更新：无
 #备注：无
 #=======================================================
+from pro.model.bean import Bean
 
 class Income(Bean):
 	_tbl = 'income'
