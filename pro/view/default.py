@@ -109,14 +109,14 @@ def fangwuchaxun():
 
     tuple_city_category=NodeInfo.select(cols='category',where=("node_id=%s" % current_city_id))
     current_category = tuple_city_category[0][0]
-    tuple_city_incomes = Income.select(cols='frist_levle,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level',where=("city_type=%s" % current_category))
+    tuple_city_incomes = Income.select(cols="frist_level,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level",where=("city_type=%s" % current_category))
     try:
         for sig_city_incomes in tuple_city_incomes:
             for sig_city_income in sig_city_incomes:
                 list_ciyt_fangzu.append(sig_city_income/4)
     except:
         pass
-    map_fangchan_chaxun["fangzu"] = list_ciyt_fangzu
+    map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
 
     tuple_agent_names = EstateAgents.select(cols="name",where=("level <= %s" % current_category))
     try:

@@ -11,7 +11,7 @@ from pro.model.bean import Bean
 class Income(Bean):
 	_tbl = 'income'
 	_id = 'id'
-	_cols = 'id,city_type,frist_levle,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level,time_modify,time_create'
+	_cols = 'id,city_type,frist_level,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level,time_modify,time_create'
 
 	def __init__(self,id,city_type,frist_level,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level,time_modify,time_create):
 		self.id=id
