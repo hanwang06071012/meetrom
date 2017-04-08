@@ -121,7 +121,7 @@ def fangwuchaxun():
     except:
         pass
     #map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
-    list_fangwu_chaxun_result.append[list_ciyt_fangzu]
+    list_fangwu_chaxun_result.append(list_ciyt_fangzu)
 
     tuple_agent_names = EstateAgents.select(cols="name",where=("level <= %s" % current_category))
     try:
