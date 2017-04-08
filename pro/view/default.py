@@ -109,6 +109,8 @@ def fangwuchaxun():
 
     tuple_city_category=NodeInfo.select(cols='category',where=("node_id=%s" % current_city_id))
     current_category = tuple_city_category[0][0]
+    print("=================start=====================")
+    print("=================end=====================")
     tuple_city_incomes = Income.select(cols="frist_level,second_level,thrid_level,forth_level,fifth_level,sixth_level,seventh_level,eigth_level",where=("city_type=%s" % current_category))
     try:
         for sig_city_incomes in tuple_city_incomes:
