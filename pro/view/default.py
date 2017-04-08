@@ -107,7 +107,7 @@ def fangwuchaxun():
     except:
         pass
     #map_fangchan_chaxun["city_names"] = list_city_names
-    list_fangwu_chaxun_result.append[list_city_names]
+    list_fangwu_chaxun_result.append(list_city_names)
     #map_fangchan_chaxun={}
 
     tuple_city_category=NodeInfo.select(cols='category',where=("node_id=%s" % current_city_id))
@@ -131,7 +131,7 @@ def fangwuchaxun():
     except:
         pass
     #map_fangchan_chaxun['agents_names'] = list_agent_names
-    list_fangwu_chaxun_result.append[list_agent_names]
+    list_fangwu_chaxun_result.append(list_agent_names)
 
     json_fangchan_chaxun_result = json.dumps(list_fangwu_chaxun_result)
     print("=================start=====================")
