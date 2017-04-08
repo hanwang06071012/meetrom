@@ -10,6 +10,8 @@ from flask import Flask,session,url_for
 from flask import render_template,request
 from pro import app
 from pro.model.node_info  import NodeInfo
+from pro.model.income import Income
+from pro.model.estate_agents import EstateAgents
 import json,sys
 from frame import const
 reload(sys)
@@ -86,6 +88,14 @@ def show_default():
 def fangwuchuzu():
     check_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
+
+@app.route
+def fangwuchaxun():
+    check_addr()
+    fangwu_chaxun_result = []
+    current_city_id = session['master_city_id']
+    tuple_city_names=NodeInfo.select(cols='name',where=("parent_id=%s" % current_city_id))
+    print tuple_city_names
 
 @app.route('/selectaddr')
 def selectaddr():
