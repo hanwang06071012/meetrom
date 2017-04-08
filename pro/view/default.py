@@ -96,6 +96,7 @@ def fangwuchaxun():
     list_ciyt_fangzu=[]
     list_agent_names=[]
     map_fangchan_chaxun = {}
+    list_fangwu_chaxun_result=[]
 
     current_city_id = session['master_city_id']
     tuple_city_names=NodeInfo.select(cols='name',where=("parent_id=%s" % current_city_id))
@@ -105,7 +106,9 @@ def fangwuchaxun():
             list_city_names.append(sig_city_name)
     except:
         pass
-    map_fangchan_chaxun["city_names"] = list_city_names
+    #map_fangchan_chaxun["city_names"] = list_city_names
+    list_fangwu_chaxun_result.append[list_city_names]
+    #map_fangchan_chaxun={}
 
     tuple_city_category=NodeInfo.select(cols='category',where=("node_id=%s" % current_city_id))
     current_category = tuple_city_category[0][0]
@@ -117,7 +120,8 @@ def fangwuchaxun():
                 list_ciyt_fangzu.append(sig_city_income/4)
     except:
         pass
-    map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
+    #map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
+    list_fangwu_chaxun_result.append[list_ciyt_fangzu]
 
     tuple_agent_names = EstateAgents.select(cols="name",where=("level <= %s" % current_category))
     try:
@@ -126,9 +130,10 @@ def fangwuchaxun():
                 list_agent_names.append(sig_agent_name)
     except:
         pass
-    map_fangchan_chaxun['agents_names'] = list_agent_names
+    #map_fangchan_chaxun['agents_names'] = list_agent_names
+    list_fangwu_chaxun_result.append[list_agent_names]
 
-    json_fangchan_chaxun_result = json.dumps(map_fangchan_chaxun)
+    json_fangchan_chaxun_result = json.dumps(list_fangwu_chaxun_result)
     print("=================start=====================")
     print("current_category=%s" % current_category)
     print(tuple_city_incomes)

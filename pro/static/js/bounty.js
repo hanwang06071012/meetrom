@@ -61,9 +61,9 @@ function set_fangwu_chaxun()
         {
             alert(msg);
             var json_msg = eval(msg)
-            alert(json_msg["city_names"]);
-            alert(json_msg['fangzu']);
-            alert(json_msg['agent_names'])
+            alert(json_msg[0][0]);
+            alert(json_msg[1][0]);
+            alert(json_msg[2][0])
         }
     });
 }
