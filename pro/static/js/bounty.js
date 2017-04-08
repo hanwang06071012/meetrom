@@ -43,3 +43,23 @@ function set_addr_go_back(addr_node_id)
         }
     });
 }
+
+//设置房租出租选择数据获取
+function set_fangwu_chaxun()
+{
+     $.post("/fangwuchaxun",
+    {
+        man:'male'
+    },
+    function(msg,status)
+    {
+        if (msg=="")
+        {
+            alert("good ....");
+        }
+        else
+        {
+            alert(msg);
+        }
+    });
+}

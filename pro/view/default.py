@@ -89,7 +89,7 @@ def fangwuchuzu():
     check_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
 
-@app.route
+@app.route('/fangwuchaxun',methods=['POST','GET'])
 def fangwuchaxun():
     check_addr()
     fangwu_chaxun_result = []
