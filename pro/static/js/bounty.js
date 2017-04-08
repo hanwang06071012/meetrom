@@ -55,7 +55,7 @@ function set_fangwu_chaxun()
     {
         if (msg=="")
         {
-            alert("good ....");
+            alert("good null....");
         }
         else
         {

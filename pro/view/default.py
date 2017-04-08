@@ -96,6 +96,8 @@ def fangwuchaxun():
     current_city_id = session['master_city_id']
     tuple_city_names=NodeInfo.select(cols='name',where=("parent_id=%s" % current_city_id))
     print tuple_city_names
+    json_city_names = json.dumps(tuple_city_names)
+    return (json_city_names)
 
 @app.route('/selectaddr')
 def selectaddr():
