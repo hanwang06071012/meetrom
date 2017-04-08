@@ -15,6 +15,7 @@ CREATE TABLE node_info (
 	name VARCHAR(255) NOT NULL UNIQUE, -- 地址名称
 	link_name VARCHAR(2048), -- 地址链接名
 	addris BOOL NULL DEFAULT FALSE, -- 地址差别标志
+	category TINYINT(4)  NOT NULL DEFAULT 3, -- 城市级别，1:一线城市，2:二线城市，3:三线城市，4:四线城市，默认为三线城市
 	time_modify TIMESTAMP, -- 自动更新时间
 	time_create DATETIME NULL, -- 地址创建时间
 	UNIQUE KEY (`node_id`,`name`), -- 地址与节点编号唯一对应
