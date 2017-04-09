@@ -94,7 +94,7 @@ function init_fangwu_chaxun()
                 var str_fangzu_label = ("<label for='fang_zu'> <input type='radio' value='" + fangzu_val + "' style='visibility: hidden;' name='fang_zu' id=' "+ fangzu_id +"'/>"+ fangzu_name +"</label>");
                 str_fangzu_labels += str_fangzu_label;
             }
-            var str_input_submit = ("    <label for='pricestart'> <input type='text' style='width:70px;height:20px;' name='pricestart' id='price_start'/> — &nbsp;</label><label for='priceend'> <input type='text' style='width:70px;height:20px;' name='priceend' id='price_end'/></label>    <label for='subbtn'> <button type='btn btn-default'  style='height:20px;' name='subbtn' id='sub_btn' onclick='set_fangwu_chaxun()'>价格筛选</button></label>");
+            var str_input_submit = ("    <label for='pricestart'> <input type='text' style='width:70px;height:20px;' name='pricestart' id='price_start'/> — &nbsp;</label><label for='priceend'> <input type='text' style='width:70px;height:20px;' name='priceend' id='price_end'/></label>    <label for='subbtn'> <button type='btn btn-default'  style='height:20px;' name='subbtn' id='sub_btn' onclick=''>价格筛选</button></label>");
             str_fangzu_labels += str_input_submit;
             str_fangzu_labels += "</p>";
             $("#city_fangzu_levels").html(str_fangzu_labels);

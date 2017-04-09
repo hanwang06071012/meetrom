@@ -40,6 +40,11 @@
 <script>
 $("#sech-btn").bind("click",test);
 //$("#one_search_text").select2({tags:["red", "green", "blue"]});
+<script>
+	$(funciton(){
+		init_fangwu_chaxun();
+	});
+</script>
 </script>
 {% endblock %}
 
@@ -111,14 +116,4 @@ $("#sech-btn").bind("click",test);
 		<label for="helponline"> <input type="checkbox" value="0" name="helponline" id="help_online"/>帮帮在线</label> 
 	</p>
 </div>
-<div>
-	<button type="button" class="btn btn-danger" onclick="set_fangwu_chaxun()">危险按钮</button>
-</div>
-{% endblock %}
-{% block jsb %}
-<script type="text/javascript">
-	$(funciton(){
-		init_fangwu_chaxun();
-	});
-</script>
 {% endblock %}
