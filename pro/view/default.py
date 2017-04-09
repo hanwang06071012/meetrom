@@ -99,11 +99,13 @@ def fangwuchaxun():
     list_fangwu_chaxun_result=[]
 
     current_city_id = session['master_city_id']
-    tuple_city_names=NodeInfo.select(cols='name',where=("parent_id=%s" % current_city_id))
+    tuple_city_names=NodeInfo.select(cols='name,node_id',where=("parent_id=%s" % current_city_id))
     try:
-        for sig_city_names in tuple_city_names:
-            sig_city_name = sig_city_names[0]
-            list_city_names.append(sig_city_name)
+        for sig_city_name in tuple_city_names:
+            map_city_name_id ={}
+            map_city_name_id['city_name'] = sig_city_name[0]
+            map_city_name_id['node_id'] = sig_city_name[1]
+            list_city_names.append(map_city_name_id)
     except:
         pass
     #map_fangchan_chaxun["city_names"] = list_city_names
@@ -117,17 +119,19 @@ def fangwuchaxun():
         for sig_city_incomes in tuple_city_incomes:
             for sig_city_income in sig_city_incomes:
                 sig_city_income = int(sig_city_income)
-                list_ciyt_fangzu.append(sig_city_income/4)
+                list_ciyt_fangzu.append(sig_city_income/5)
     except:
         pass
     #map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
     list_fangwu_chaxun_result.append(list_ciyt_fangzu)
 
-    tuple_agent_names = EstateAgents.select(cols="name",where=("level <= %s" % current_category))
+    tuple_agent_names = EstateAgents.select(cols="name,id",where=("level <= %s" % current_category))
     try:
-        for sig_agent_names in tuple_agent_names:
-            for sig_agent_name in sig_agent_names:
-                list_agent_names.append(sig_agent_name)
+        for sig_agent_name in tuple_agent_names:
+            map_agent_name_id = {}
+            map_agent_name_id['name'] = sig_agent_name[0]
+            map_agent_name_id['id'] = sig_agent_name[1]
+            list_agent_names.append(map_agent_name_id)
     except:
         pass
     #map_fangchan_chaxun['agents_names'] = list_agent_names
