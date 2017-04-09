@@ -55,74 +55,60 @@ $("#sech-btn").bind("click",test);
 	<a href="https://www.baidu.com">{{session['master_city_name']}}小区</a>
 	<a class="pull-right" href="https://www.baidu.com">轻松一点，地图找房</a>
 </p>
-<div style="font-size:2" id="child_city_names">
+<div id="child_city_names">
 </div>
-<div style="font-size: 2" id="city_fangzu_levels">
-</div>
-<div style="font-size: 2">
-	<p>
-		<label for="jiage"> 厅室:</label>
-		<label for="jiage"> <input type="radio" value="男" style="visibility: hidden;" name="man" id="man"/>不限</label>
-		<label for="jiage"> <input type="radio" value="男" style="visibility: hidden;" name="man" id="man"/>一室</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>两室</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>三室</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>四室</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>四室以上</label>
-	</p>
-	<p>
-		<label for="jiage"> 方式:</label>
-		<label for="jiage"> <input type="radio" value="男" style="visibility: hidden;" name="man" id="man"/>不限</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>整套出租</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>单间出租</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>床位出租</label> 
-	</p>
-</div>
-<div id="brand_agents">
-	<p>
-		<label for="brand"> 品牌:</label>
-		<label for="agents"> <input type="radio" value="男" style="visibility: hidden;" name="agents" id="man"/>不限</label>
-		<label for="agents"> <input type="radio" value="女" style="visibility: hidden;" name="agents" id="man2"/>我爱我家</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>兴达置业</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>中天置地</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>麦田房产</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>21世纪不动产</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>中原地产</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>华熙地产</label>
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>兴商房地产</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>易合房地产</label> 
-		<label for="man2"> <input type="radio" value="女" style="visibility: hidden;" name="man" id="man2"/>吉永达地产</label>
-	</p>
+<div id="city_fangzu_levels">
 </div>
 <div>
 	<p>
-		<label for="jiage"> 其他:</label>
-		<label for="jiage">
-			<select>
-				<option value="volvo">朝向不限</option>
-				<option value="saab">东</option>
-				<option value="opel">南</option>
-				<option value="audi">西</option>
-				<option value="saab">北</option>
-				<option value="opel">南北</option>
-				<option value="audi">东西</option>
-				<option value="saab">东南</option>
-				<option value="opel">东北</option>
-				<option value="audi">西南</option>
-				<option value="saab">西北</option>
+		<label for="rom"> 厅室:</label>
+		<label for="rom"> <input type="radio" value="0" style="visibility: hidden;" name="rom" id="romnolimit"/>不限</label>
+		<label for="rom"> <input type="radio" value="1" style="visibility: hidden;" name="rom" id="rom_one"/>一室</label>
+		<label for="rom"> <input type="radio" value="2" style="visibility: hidden;" name="rom" id="rom_two"/>两室</label>
+		<label for="rom"> <input type="radio" value="3" style="visibility: hidden;" name="rom" id="rom_three"/>三室</label>
+		<label for="rom"> <input type="radio" value="4" style="visibility: hidden;" name="rom" id="rom_four"/>四室</label> 
+		<label for="rom"> <input type="radio" value="5" style="visibility: hidden;" name="rom" id="rom_four_over"/>四室以上</label>
+	</p>
+	<p>
+		<label for="way"> 方式:</label>
+		<label for="way"> <input type="radio" value="男" style="visibility: hidden;" name="rental_manner" id="rentalnolimit"/>不限</label>
+		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalall"/>整套出租</label>
+		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalsigrom"/>单间出租</label> 
+		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalsigbed"/>床位出租</label> 
+	</p>
+</div>
+<div id="brand_agents">
+</div>
+<div>
+	<p>
+		<label for="chaoxiang"> 其他:</label>
+		<label for="chaoxiang">
+			<select name="direction">
+				<option value="0">朝向不限</option>
+				<option value="1">东</option>
+				<option value="2">南</option>
+				<option value="3">西</option>
+				<option value="4">北</option>
+				<option value="5">南北</option>
+				<option value="6">东西</option>
+				<option value="7">东南</option>
+				<option value="8">东北</option>
+				<option value="8">西南</option>
+				<option value="9">西北</option>
 			</select>
 		</label>
-		<label for="jiage">
-			<select>
-				<option value="volvo">装修不限</option>
-				<option value="saab">毛坯</option>
-				<option value="opel">简单装修</option>
-				<option value="audi">中等装修</option>
-				<option value="saab">精装修</option>
-				<option value="opel">豪华装修</option>
+		<label for="zhuangxiu">
+			<select name="decoration">
+				<option value="0">装修不限</option>
+				<option value="1">毛坯</option>
+				<option value="2">简单装修</option>
+				<option value="3">中等装修</option>
+				<option value="4">精装修</option>
+				<option value="5">豪华装修</option>
 			</select>
 		</label>
-		<label for="man2"> <input type="checkbox" value="女" name="man" id="man2"/>只看有图</label> 
-		<label for="man2"> <input type="checkbox" value="女" name="man" id="man2"/>帮帮在线</label> 
+		<label for="imghas"> <input type="checkbox" value="0" name="imghas" id="img_has"/>只看有图</label> 
+		<label for="helponline"> <input type="checkbox" value="0" name="helponline" id="help_online"/>帮帮在线</label> 
 	</p>
 </div>
 <div>
