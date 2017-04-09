@@ -62,13 +62,13 @@ function set_fangwu_chaxun()
             alert(msg);
             var json_msg = eval(msg);
             var list_city_name_id = json_msg[0];
-            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' style='visibility: hidden;' name='child_city' id='0'/> 不限 </label>");
+            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
             for (var i = 0; i <list_city_name_id.length; i++) {
                 var map_city_name_id = list_city_name_id[i];
                 var city_val = map_city_name_id['id'];
                 var city_id = ("city"+map_city_name_id['id']);
                 var city_name = map_city_name_id['city_name'];
-                var str_city_label = ("<label for='child_city'> <input type='radio' value=" + city_val +" style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
+                var str_city_label = ("<label for='child_city'> <input type='radio' value='" + city_val +"' style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
                 str_city_labels += str_city_label;                
             }
             $("#child_city_names").html(str_city_labels);
@@ -91,13 +91,26 @@ function set_fangwu_chaxun()
                 {
                     fangzu_name = (list_fangzu[i] + "-"+list_fangzu[i+1] + "元");
                 }
-                var str_fangzu_label = ("<label for='fang_zu'> <input type='radio' value=" + fangzu_val + " style='visibility: hidden;' name='fang_zu' id=' "+ fangzu_id +"'/>"+ fangzu_name +"</label>");
+                var str_fangzu_label = ("<label for='fang_zu'> <input type='radio' value='" + fangzu_val + "' style='visibility: hidden;' name='fang_zu' id=' "+ fangzu_id +"'/>"+ fangzu_name +"</label>");
                 str_fangzu_labels += str_fangzu_label;
             }
             var str_input_submit = ("    <label for='pricestart'> <input type='text' style='width:70px;height:20px;' name='pricestart' id='price_start'/> — &nbsp;</label><label for='priceend'> <input type='text' style='width:70px;height:20px;' name='priceend' id='price_end'/></label>    <label for='subbtn'> <button type='btn btn-default'  style='height:20px;' name='subbtn' id='sub_btn' onclick='set_fangwu_chaxun()'>价格筛选</button></label>");
             str_fangzu_labels += str_input_submit;
             str_fangzu_labels += "</p>";
             $("#city_fangzu_levels").html(str_fangzu_labels);
+
+            var list_agents = json_msg[2];
+            var str_agent_labels = ("<p><label for='brand'> 品牌:</label><label for='agents'> <input type='radio' value='0' style='visibility: hidden;' name='agents' id='agentnolimit'/>不限</label>");
+            for (var i = 0; i < list_agents.length; i++) {
+                var agent_name = list_agents[i]['name'];
+                var agent_id = ("agents" + list_agents['id']);
+                var agent_val = (list_agents[i]['id']);
+                var str_agent_label = ("<label for='agents'> <input type='radio' value='" + agent_val +"' style='visibility: hidden;' name='agents' id='" + agent_id + "'/>" + agent_name + "</label>");
+                str_agent_labels += str_agent_label;
+            }
+            str_agent_labels += "</p>";
+            $("#brand_agents").html(str_agent_labels);
+
         }
     });
 }
