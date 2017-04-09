@@ -81,7 +81,7 @@ function init_fangwu_chaxun()
             $("#child_city_names").html(str_city_labels);
 
             var list_fangzu = json_msg[1];
-            var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label><label for='fang_zu'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='fang_zu' id='fangzunolimit'/>不限</label>");
+            var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label><label for='fang_zu'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='fang_zu' id='fangzunolimit'/> 不限 </label>");
             var fangzu_val = list_fangzu[0];
             var fangzu_id = ('fangzu0');
             var fangzu_name =(list_fangzu[0] + "元以下");
