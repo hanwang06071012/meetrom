@@ -125,7 +125,7 @@ def init_fangwu_chaxun():
     #map_fangchan_chaxun["fang_zu"] = list_ciyt_fangzu
     list_fangwu_chaxun_result.append(list_ciyt_fangzu)
 
-    tuple_agent_names = EstateAgents.select(cols="name,id",where=("level <= %s" % current_category))
+    tuple_agent_names = EstateAgents.select(cols="name,id",where=("level >= %s" % current_category))
     try:
         for sig_agent_name in tuple_agent_names:
             map_agent_name_id = {}
