@@ -62,7 +62,7 @@ $("#sech-btn").bind("click",test);
 <div>
 	<p>
 		<label for="rom"> 厅室:</label>
-		<label for="rom"> <input type="radio" value="0" style="visibility: hidden;" name="rom" id="romnolimit"/>不限</label>
+		<label for="rom"> <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rom" id="romnolimit"/>不限</label>
 		<label for="rom"> <input type="radio" value="1" style="visibility: hidden;" name="rom" id="rom_one"/>一室</label>
 		<label for="rom"> <input type="radio" value="2" style="visibility: hidden;" name="rom" id="rom_two"/>两室</label>
 		<label for="rom"> <input type="radio" value="3" style="visibility: hidden;" name="rom" id="rom_three"/>三室</label>
@@ -71,10 +71,10 @@ $("#sech-btn").bind("click",test);
 	</p>
 	<p>
 		<label for="way"> 方式:</label>
-		<label for="way"> <input type="radio" value="男" style="visibility: hidden;" name="rental_manner" id="rentalnolimit"/>不限</label>
-		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalall"/>整套出租</label>
-		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalsigrom"/>单间出租</label> 
-		<label for="way"> <input type="radio" value="女" style="visibility: hidden;" name="rental_manner" id="rentalsigbed"/>床位出租</label> 
+		<label for="way"> <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rental_manner" id="rentalnolimit"/>不限</label>
+		<label for="way"> <input type="radio" value="1" style="visibility: hidden;" name="rental_manner" id="rentalall"/>整套出租</label>
+		<label for="way"> <input type="radio" value="2" style="visibility: hidden;" name="rental_manner" id="rentalsigrom"/>单间出租</label> 
+		<label for="way"> <input type="radio" value="3" style="visibility: hidden;" name="rental_manner" id="rentalsigbed"/>床位出租</label> 
 	</p>
 </div>
 <div id="brand_agents">
@@ -84,7 +84,7 @@ $("#sech-btn").bind("click",test);
 		<label for="chaoxiang"> 其他:</label>
 		<label for="chaoxiang">
 			<select name="direction">
-				<option value="0">朝向不限</option>
+				<option value="0" checked>朝向不限</option>
 				<option value="1">东</option>
 				<option value="2">南</option>
 				<option value="3">西</option>
@@ -99,7 +99,7 @@ $("#sech-btn").bind("click",test);
 		</label>
 		<label for="zhuangxiu">
 			<select name="decoration">
-				<option value="0">装修不限</option>
+				<option value="0" checked>装修不限</option>
 				<option value="1">毛坯</option>
 				<option value="2">简单装修</option>
 				<option value="3">中等装修</option>

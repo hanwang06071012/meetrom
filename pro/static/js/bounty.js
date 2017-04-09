@@ -62,11 +62,11 @@ function set_fangwu_chaxun()
             alert(msg);
             var json_msg = eval(msg);
             var list_city_name_id = json_msg[0];
-            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
+            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
             for (var i = 0; i <list_city_name_id.length; i++) {
                 var map_city_name_id = list_city_name_id[i];
-                var city_val = map_city_name_id['id'];
-                var city_id = ("city"+map_city_name_id['id']);
+                var city_val = map_city_name_id['node_id'];
+                var city_id = ("city"+map_city_name_id['node_id']);
                 var city_name = map_city_name_id['city_name'];
                 var str_city_label = ("<label for='child_city'> <input type='radio' value='" + city_val +"' style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
                 str_city_labels += str_city_label;                
@@ -74,7 +74,7 @@ function set_fangwu_chaxun()
             $("#child_city_names").html(str_city_labels);
 
             var list_fangzu = json_msg[1];
-            var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label>");
+            var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label><label for='fang_zu'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='fang_zu' id='fangzunolimit'/>不限</label>");
             for (var i = 0; i < list_fangzu.length; i++) {
                 var fangzu_val = list_fangzu[i];
                 var fangzu_id = ("fangzu"+i);
@@ -100,7 +100,7 @@ function set_fangwu_chaxun()
             $("#city_fangzu_levels").html(str_fangzu_labels);
 
             var list_agents = json_msg[2];
-            var str_agent_labels = ("<p><label for='brand'> 品牌:</label><label for='agents'> <input type='radio' value='0' style='visibility: hidden;' name='agents' id='agentnolimit'/>不限</label>");
+            var str_agent_labels = ("<p><label for='brand'> 品牌:</label><label for='agents'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='agents' id='agentnolimit'/>不限</label>");
             for (var i = 0; i < list_agents.length; i++) {
                 var agent_name = list_agents[i]['name'];
                 var agent_id = ("agents" + list_agents['id']);
