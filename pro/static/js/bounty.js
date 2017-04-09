@@ -62,7 +62,7 @@ function set_fangwu_chaxun()
             alert(msg);
             var json_msg = eval(msg);
             var list_city_name_id = json_msg[0];
-            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' style='visibility: hidden;' name='child_city' id='0'/>"+ 不限 +"</label>");
+            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' style='visibility: hidden;' name='child_city' id='0'/> 不限 </label>");
             for (var i = 0; i <list_city_name_id.length; i++) {
                     var map_city_name_id = list_city_name_id[i];
                     var city_val = map_city_name_id['id'];
@@ -71,7 +71,7 @@ function set_fangwu_chaxun()
                     var str_city_label = ("<label for='child_city'> <input type='radio' value=" + city_val +" style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
                     str_city_labels += str_city_label;                
             }
-            $("#child_city_names").innerHTML = str_city_labels;
+            $("#child_city_names").html(str_city_labels);
         }
     });
 }
