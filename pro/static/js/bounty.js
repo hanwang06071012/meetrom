@@ -76,7 +76,8 @@ function set_fangwu_chaxun()
             var list_fangzu = json_msg[1];
             var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label>");
             for (var i = 0; i < list_fangzu.length; i++) {
-                var fangzu_val = list_fangzu[i]
+                var fangzu_val = list_fangzu[i];
+                var fangzu_id = ("fangzu"+ str(i));
                 var fangzu_name ='';
                 if (i == 0)
                 {
@@ -90,11 +91,10 @@ function set_fangwu_chaxun()
                 {
                     fangzu_name = (list_fangzu[i] + "-"+list_fangzu[i+1] + "元");
                 }
-                var fangzu_id = ("fangzu"+ str(i))
-                var str_fangzu_label = ("<label for='fang_zus'> <input type='radio' value=" + fangzu_val +" style='visibility: hidden;' name='fang_zu' id='"+ fangzu_id +"'/>"+ fangzu_name +"</label>");
+                var str_fangzu_label = ("<label for='fang_zu'> <input type='radio' value=" + fangzu_val + " style='visibility: hidden;' name='fang_zu' id=' "+ fangzu_id +"'/>"+ fangzu_name +"</label>");
                 str_fangzu_labels += str_fangzu_label;
             }
-            var str_input_submit = ("<label for='pricestart'> <input type='text' style='width:70px;height:20px;'' name='pricestart' id='price_start'/> — </label><label for='priceend'> <input type='text' style='width:70px;height:20px;'' name='priceend' id='price_end'/></label><label for='subbtn'> <button type='btn btn-default'  style='height:20px;'' name='subbtn' id='sub_btn' onclick='set_fangwu_chaxun()'' />价格筛选</label>");
+            var str_input_submit = ("<label for='pricestart'> <input type='text' style='width:70px;height:20px;' name='pricestart' id='price_start'/> — </label><label for='priceend'> <input type='text' style='width:70px;height:20px;' name='priceend' id='price_end'/></label><label for='subbtn'> <button type='btn btn-default'  style='height:20px;' name='subbtn' id='sub_btn' onclick='set_fangwu_chaxun()' />价格筛选</label>");
             str_fangzu_labels += str_input_submit;
             str_fangzu_labels += "</p>";
             $("#city_fangzu_levels").html(str_fangzu_labels);
