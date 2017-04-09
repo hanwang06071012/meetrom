@@ -71,7 +71,7 @@ function set_fangwu_chaxun()
                     var str_city_label = ("<label for='child_city'> <input type='radio' value=" + city_val +" style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
                     str_city_labels += str_city_label;                
             }
-            $("#city_names").innerHTML = str_city_labels;
+            $("#child_city_names").innerHTML = str_city_labels;
         }
     });
 }
