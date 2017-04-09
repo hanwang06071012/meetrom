@@ -77,7 +77,7 @@ function set_fangwu_chaxun()
             var str_fangzu_labels = ("<p><label for='fang_zus'> 租金:</label><label for='fang_zu'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='fang_zu' id='fangzunolimit'/>不限</label>");
             var fangzu_val = list_fangzu[0];
             var fangzu_id = ('fangzu0');
-            var fangzu_name =(list_fangzu[i] + "元以下");
+            var fangzu_name =(list_fangzu[0] + "元以下");
             var str_fangzu_label = ("<label for='fang_zu'> <input type='radio' value='" + fangzu_val + "' style='visibility: hidden;' name='fang_zu' id=' "+ fangzu_id +"'/>"+ fangzu_name +"</label>");
             str_fangzu_labels += str_fangzu_label;
             for (var i = 0; i < list_fangzu.length; i++) {
