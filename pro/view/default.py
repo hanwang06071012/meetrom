@@ -89,8 +89,8 @@ def fangwuchuzu():
     check_addr()
     return render_template('sub1/fangwuchuzu.html',**locals())
 
-@app.route('/fangwuchaxun',methods=['POST','GET'])
-def fangwuchaxun():
+@app.route('/fangwuchaxun/init',methods=['POST','GET'])
+def init_fangwu_chaxun():
     check_addr()
     list_city_names = []
     list_ciyt_fangzu=[]

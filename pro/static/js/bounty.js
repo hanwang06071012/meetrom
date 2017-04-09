@@ -45,9 +45,9 @@ function set_addr_go_back(addr_node_id)
 }
 
 //设置房租出租选择数据获取
-function set_fangwu_chaxun()
+function init_fangwu_chaxun()
 {
-     $.post("/fangwuchaxun",
+     $.post("/fangwuchaxun/init",
     {
         man:'male'
     },
@@ -59,7 +59,7 @@ function set_fangwu_chaxun()
         }
         else
         {
-            alert(msg);
+            //alert(msg);
             var json_msg = eval(msg);
             var list_city_name_id = json_msg[0];
             var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
