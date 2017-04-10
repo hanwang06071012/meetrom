@@ -208,5 +208,5 @@ drop-tb-width
 }
 .tabs-bottom-line
 {
-	border: 3px solid #FF6600;
+	border-bottom: 3px solid #FF6600;
 }
