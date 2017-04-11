@@ -121,3 +121,10 @@ function init_fangwu_chaxun()
         }
     });
 }
+
+//获取房屋出租检索参数与结果
+function get_estate_rental_result()
+{
+    var rom_val = $('input[name="rom"]:checked').val();
+    alert("rom_val=" + rom_val);
+}
