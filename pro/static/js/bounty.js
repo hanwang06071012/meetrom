@@ -126,10 +126,10 @@ function init_fangwu_chaxun()
 //获取房屋出租检索参数与结果
 function get_estate_rental_result()
 {
-	var rom_val = $('input:radio[name="rom"]:checked').val();
+    var rom_val = $('input:radio[name="rom"]:checked').val();
     alert("rom_val=" + rom_val);
-	var cl_val = this.id;
-	alert(cl_val)
+    var cl_val = this.id;
+    alert(cl_val);
 }
 
 //设置选中
