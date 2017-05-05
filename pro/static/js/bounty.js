@@ -69,13 +69,14 @@ function init_fangwu_chaxun()
             //alert(msg);
             var json_msg = eval(msg);
             var list_city_name_id = json_msg[0];
-            var str_city_labels = ("<label for='child_city'> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
+            var str_city_labels = ("<label for='child_city' id='lable_citynolimit' style='color:red;' onclick=\" testcheck('child_city','lable_citynolimit','citynolimit');\"> <input type='radio' value='0' checked='checked' style='visibility: hidden;' name='child_city' id='citynolimit'/> 不限 </label>");
             for (var i = 0; i <list_city_name_id.length; i++) {
                 var map_city_name_id = list_city_name_id[i];
                 var city_val = map_city_name_id['node_id'];
                 var city_id = ("city"+map_city_name_id['node_id']);
+                var lable_city_id = ("lable_city"+map_city_name_id['node_id']);
                 var city_name = map_city_name_id['city_name'];
-                var str_city_label = ("<label for='child_city'> <input type='radio' value='" + city_val +"' style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
+                var str_city_label = ("<label for='child_city' id = '" + lable_city_id + "' onclick=\" testcheck('child_city'," + lable_city_id + "," + city_id+ ")\" > <input type='radio' value='" + city_val +"' style='visibility: hidden;' name='child_city' id='"+ city_id +"'/>"+ city_name +"</label>");
                 str_city_labels += str_city_label;                
             }
             $("#child_city_names").html(str_city_labels);
@@ -125,6 +126,39 @@ function init_fangwu_chaxun()
 //获取房屋出租检索参数与结果
 function get_estate_rental_result()
 {
-    getvar rom_val = $('input:radio[name="rom"]:checked').val();
+	var rom_val = $('input:radio[name="rom"]:checked').val();
     alert("rom_val=" + rom_val);
+	var cl_val = this.id;
+	alert(cl_val)
+}
+
+//设置选中
+function testcheck(str_lable,str_lable_id,str_sig_id)
+{
+	var id = ("#"+ str_lable_id);
+	var sig_id = ("#"+ str_sig_id);
+	if (str_lable == 'rom')
+	{
+		$("input:radio[name='rom']").attr("checked",false);
+		$("#lable_romnolimit").css("color","black");
+		$("#lable_rom_one").css("color","black");
+		$("#lable_rom_two").css("color","black");
+		$("#lable_rom_three").css("color","black");
+		$("#lable_rom_four").css("color","black");
+		$("#lable_rom_four_over").css("color","black");
+	}
+	if(str_lable=="rental")
+	{
+		$("input:radio[name='rental']").attr("checked",false);
+		$("#lable_rentalnolimit").css("color","black");
+		$("#lable_rental_all").css("color","black");
+		$("#lable_rental_sigrom").css("color","black");
+		$("#lable_rental_sigbed").css("color","black");
+	}
+	if(str_lable=="child_city")
+	{
+		alert("child _city here....");
+	}
+	$(sig_id).attr("checked","checked");
+	$(id).css("color","red");
 }

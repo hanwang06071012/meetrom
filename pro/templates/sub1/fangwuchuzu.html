@@ -64,19 +64,19 @@ get_estate_rental_result();
 <div>
 	<p>
 		<label for="rom"> 厅室:</label>
-		<label for="rom"> <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rom" id="romnolimit"/>不限</label>
-		<label for="rom"> <input type="radio" value="1" style="visibility: hidden;" name="rom" id="rom_one"/>一室</label>
-		<label for="rom"> <input type="radio" value="2" style="visibility: hidden;" name="rom" id="rom_two"/>两室</label>
-		<label for="rom"> <input type="radio" value="3" style="visibility: hidden;" name="rom" id="rom_three"/>三室</label>
-		<label for="rom"> <input type="radio" value="4" style="visibility: hidden;" name="rom" id="rom_four"/>四室</label> 
-		<label for="rom"> <input type="radio" value="5" style="visibility: hidden;" name="rom" id="rom_four_over"/>四室以上</label>
+		<label for="rom" id="lable_romnolimit" style="color:red;" onclick="testcheck('rom','lable_romnolimit','romnolimit');" > <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rom" id="romnolimit"/>不限</label>
+		<label for="rom" id="lable_rom_one" onclick="testcheck('rom','lable_rom_one','rom_one');"> <input type="radio" value="1" style="visibility: hidden;" name="rom" id="rom_one"/ >一室</label>
+		<label for="rom" id="lable_rom_two" onclick="testcheck('rom','lable_rom_two','rom_two');"> <input type="radio" value="2" style="visibility: hidden;" name="rom" id="rom_two"/>两室</label>
+		<label for="rom" id="lable_rom_three" onclick="testcheck('rom','lable_rom_three','rom_three');"> <input type="radio" value="3" style="visibility: hidden;" name="rom" id="rom_three"/>三室</label>
+		<label for="rom" id="lable_rom_four" onclick="testcheck('rom','lable_rom_four','rom_four');" > <input type="radio" value="4" style="visibility: hidden;" name="rom" id="rom_four"/>四室</label> 
+		<label for="rom" id="lable_rom_four_over" onclick="testcheck('rom','lable_rom_four_over','rom_four_over');"> <input type="radio" value="5" style="visibility: hidden;" name="rom" id="rom_four_over"/>四室以上</label>
 	</p>
 	<p>
-		<label for="way"> 方式:</label>
-		<label for="way"> <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rental_manner" id="rentalnolimit"/>不限</label>
-		<label for="way"> <input type="radio" value="1" style="visibility: hidden;" name="rental_manner" id="rentalall"/>整套出租</label>
-		<label for="way"> <input type="radio" value="2" style="visibility: hidden;" name="rental_manner" id="rentalsigrom"/>单间出租</label> 
-		<label for="way"> <input type="radio" value="3" style="visibility: hidden;" name="rental_manner" id="rentalsigbed"/>床位出租</label> 
+		<label for="rental_manner"> 方式:</label>
+		<label for="rental_manner" id="lable_rentalnolimit" style="color:red;" onclick="testcheck('rental','lable_rentalnolimit','rentalnolimit')"> <input type="radio" value="0" checked="checked" style="visibility: hidden;" name="rental_manner" id="rentalnolimit"/>不限</label>
+		<label for="rental_manner" id="lable_rental_all" onclick="testcheck('rental','lable_rental_all','rental_all')"> <input type="radio" value="1" style="visibility: hidden;" name="rental_manner" id="rental_all"/>整套出租</label>
+		<label for="rental_manner" id="lable_rental_sigrom" onclick="testcheck('rental','lable_rental_sigrom','rental_sigrom');"> <input type="radio" value="2" style="visibility: hidden;" name="rental_manner" id="rental_sigrom"/>单间出租</label> 
+		<label for="rental_manner" id="lable_rental_sigbed" onclick="testcheck('rental','lable_rental_sigbed','rental_sigbed');"> <input type="radio" value="3" style="visibility: hidden;" name="rental_manner" id="rental_sigbed"/>床位出租</label> 
 	</p>
 </div>
 <div id="brand_agents">
@@ -133,9 +133,5 @@ get_estate_rental_result();
 		</div>
 	</div>
 </div>
-{% endblock %}
-{% block jsb %}
-<script>
-	
-</script>
+<button class="btn btn-info" id="btn_hanwang"  onclick="get_estate_rental_result();">点我吧</bottom>
 {% endblock %}
