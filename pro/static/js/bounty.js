@@ -157,7 +157,17 @@ function testcheck(str_lable,str_lable_id,str_sig_id)
 	}
 	if(str_lable=="child_city")
 	{
-		alert("child _city here....");
+        var arr=document.getElementsByName("child_city");
+        for(var i=0;i<arr.length;i++)
+        {
+            if(arr[i].checked)
+            {
+                var arr_check_id = ("#lable_"+arr[i].id);
+                $(arr_check_id).css("color","black");
+            }
+        }
+        var id = ("#"+ str_lable_id.id);
+        var sig_id = ("#"+ str_sig_id.id);
 	}
 	$(sig_id).attr("checked","checked");
 	$(id).css("color","red");
