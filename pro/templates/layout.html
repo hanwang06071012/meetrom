@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8"> 
-	<title>59网 -有B格的网站 </title>
+	<title>会议室预订管理系统</title>
 	<link rel="stylesheet" href="/static/bootstrap/bootstrap-3.3.7-dist/css/bootstrap.min.css">  
 	<link rel="stylesheet" href="/static/css/bounty.css">  
 	<script src="/static/jquery/jquery-3.1.1.min.js"></script>
@@ -13,144 +13,6 @@
 	<link rel="bookmark"  type="image/x-icon"  href="/static/ico/favicon.ico"/>
 </head>
 <body class="all-all">
-<div class="container div-all">
-	<nav class="navbar navbar-default" style="margin:0px;" role="navigation">
-		<div class="container-fluid"> 
-			<div class="navbar-header">
-				<p class="navbar-text navbar-left "><span class="cont-head-text">{{ session['master_city_name']}}</span>
-				<a class="href-non-line" href="/selectaddr">[&nbsp;&nbsp;切换城市</a>&nbsp;&nbsp;
-				<a class="href-non-line" href="javascript:set_addr({{ session['frist_slave_city_id'] }});">{{session['frist_slave_city_name']}}</a>&nbsp;&nbsp;
-				<a class="href-non-line" href="javascript:set_addr({{ session['sed_slave_city_id'] }});">{{session['sed_slave_city_name']}}</a>&nbsp;&nbsp;
-				<a class="href-non-line" href="javascript:set_addr({{ session['thrid_slave_city_id'] }});">{{session['thrid_slave_city_name']}}&nbsp;&nbsp;]</a>
-				</p>
-			</div>
-			<div>
-				<p class="navbar-text navbar-left">招聘</p>
-				<p class="navbar-text navbar-left">租房</p>
-				<p class="navbar-text navbar-left">服务</p>
-				<!--向左对齐-->
-				<ul class="nav navbar-nav navbar-left">
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						更多 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li>
-						<div class="table-responsive">
-							<table class="table" style="width:380px;">
-								<tbody>
-								<tr style="border:0px;">
-									<td style="font-weight:900;"><a herf='#'>房产:</a></td>
-									<td><a herf='#'>租房</a></td>
-									<td><a herf='#'>二手房</a></td>
-									<td><a herf='#'>商铺</a></td>
-									<td><a herf='#'>写字楼</a></td>
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>招聘:</a></td>
-									<td><a herf='#'>全职</a></td>
-									<td><a herf='#'>兼职</a></td>
-									<td><a herf='#'>简历库</a></td>
-									<!--td><a herf='#'>写字楼</a></td-->
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>车辆:</a></td>
-									<td><a herf='#'>二手车</a></td>
-									<td><a herf='#'>摩托车</a></td>
-									<td><a herf='#'>自行车</a></td>
-									<td><a herf='#'>拼车</a></td>
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>二手:</a></td>
-									<td><a herf='#'>手机</a></td>
-									<td><a herf='#'>笔记本</a></td>
-									<td><a herf='#'>家具</a></td>
-									<td><a herf='#'>家电</a></td>
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>宠物:</a></td>
-									<td><a herf='#'>泰迪態</a></td>
-									<td><a herf='#'>金毛</a></td>
-									<td><a herf='#'>花狗</a></td>
-									<td><a herf='#'>哈士奇</a></td>
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>服务:</a></td>
-									<td><a herf='#'>搬家</a></td>
-									<td><a herf='#'>保姆</a></td>
-									<td><a herf='#'>租车</a></td>
-									<td><a herf='#'>身边服务</a></td>
-								</tr>
-								<tr>
-									<td style="font-weight:900;"><a herf='#'>教育:</a></td>
-									<td><a herf='#'>职业培训</a></td>
-									<td><a herf='#'>外语培训</a></td>
-									<td><a herf='#'>学历培训</a></td>
-									<td><a herf='#'>家教</a></td>
-								</tr>
-								</tbody>
-								</div>
-							</table>
-						</li>
-					</ul>
-					</li>
-				</ul>
-				<!--向右对齐-->
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						最近浏览 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">jmeter</a></li>
-						<li><a href="#">EJB</a></li>
-						<li><a href="#">Jasper Report</a></li>
-						<li class="divider"></li>
-						<li><a href="#">分离的链接</a></li>
-						<li class="divider"></li>
-						<li><a href="#">另一个分离的链接</a></li>
-					</ul>
-					</li>
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						网站导航 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">jmeter</a></li>
-						<li><a href="#">EJB</a></li>
-						<li><a href="#">Jasper Report</a></li>
-						<li class="divider"></li>
-						<li><a href="#">分离的链接</a></li>
-						<li class="divider"></li>
-						<li><a href="#">另一个分离的链接</a></li>
-					</ul>
-					</li>
-				</ul>
-				<p class="navbar-text navbar-right">帮助中心</p>
-				<p class="navbar-text navbar-right">商家中心</p>
-
-
-				<!--向右对齐-->
-				<ul class="nav navbar-nav navbar-right">
-					<li class="dropdown">
-					<a href="#" class="dropdown-toggle" data-toggle="dropdown">
-						个人中心 <b class="caret"></b>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a href="#">jmeter</a></li>
-						<li><a href="#">EJB</a></li>
-						<li><a href="#">Jasper Report</a></li>
-						<li class="divider"></li>
-						<li><a href="#">分离的链接</a></li>
-						<li class="divider"></li>
-						<li><a href="#">另一个分离的链接</a></li>
-					</ul>
-					</li>
-				</ul>
-
-			</div>
-		</div>
-	</nav>
 	{% block topad %}{% endblock %}
 	{% block search %}{% endblock %}
 	{% block midnav %}{% endblock %}
@@ -160,6 +22,5 @@
 	{% block contracts %}{% endblock %}
 	{% block endlink %}{% endblock %}
 	{% block jsb %}{% endblock %}
-</div>
 </body>
 </html>
