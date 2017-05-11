@@ -30,3 +30,7 @@ def adminlogin():
 def admintitle():
     user="test"
     return render_template("admin_title.html",**locals())
+
+@app.route("/users/list")
+def userlist():
+    return render_template("users_list.html",**locals())
