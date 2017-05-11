@@ -18,6 +18,10 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-@app.route('/test')
-def test():
+@app.route('/adminlogin')
+def showadminlogin():
     return render_template("admin_login.html")
+
+@app.route("/login/admin")
+def adminlogin():
+    return render_template("admin.html")
