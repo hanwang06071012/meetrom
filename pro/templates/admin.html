@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
     <frameset cols="20%,80%">
-        <frame src="1.html"/>
-        <frame src="2.html" name="show"/>
+        <frame src="{% url_for('/title/admin')%}"/>
+        <frame src="{% url_for('/login/admin')%}" name="show"/>
     </frameset>
 </html>
     
