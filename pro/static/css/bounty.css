@@ -15,5 +15,9 @@
 
 .login-admin
 {
-	margin:300px 100px 100px 300px;
+	margin:100px 100px 100px 100px;
+}
+.login-admin-input
+{
+	margin:100px 100px 100px 100px;
 }
