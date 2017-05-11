@@ -20,4 +20,4 @@ sys.setdefaultencoding('utf-8')
 
 @app.route('/test')
 def test():
-    return render_template("layout.html")
+    return render_template("admin_login.html")
