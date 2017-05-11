@@ -1,15 +1,9 @@
 {% extends "layout.html" %}
 {% block admin %}
 <div class="">
-    <div class="row" >
-        <div class="col-xs-6 btn-danger" >
-             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
-             <a href="http:www.baidu.com" target="context">百度</a>
-        </div>
-    <div class="col-xs-6 btn-info" id="context">
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do 
-            eiusmod tempor incididunt ut. 
-         </p>
-    </div>
+    <frameset cols="20%,80%">
+        <frame src="http://www.baidu.com"></frame>
+        <frame src="http://www.baidu.com"></frame>
+    </frameset>
 </div>
 {% endblock %}
