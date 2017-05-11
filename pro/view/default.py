@@ -25,3 +25,7 @@ def showadminlogin():
 @app.route("/login/admin")
 def adminlogin():
     return render_template("admin.html")
+
+@app.route("/title/admin")
+def adminlogin():
+    return render_template("admin_title.html")
