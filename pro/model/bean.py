@@ -28,6 +28,8 @@ class Bean(object):
 		sql = 'INSERT INTO `%s`(%s) VALUES(%s)' % (cls._tbl,','.join(safe_keys),'%s'+'%s'*(size-1))
 		print("====================insert start===============================")
 		print("sql=%s"% sql )
+		print(keys)
+		print(data[key] for key in keys)
 		print("====================insert end=========================================")
 		last_id = db.insert(sql,[data[key] for key in keys])
 		return last_id
