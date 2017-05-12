@@ -11,7 +11,7 @@ class Bean(object):
 	_tbl = ''
 	_id = 'id'
 	_cols = ''
-	_dbname = 'bounty'
+	_dbname = 'meetrom'
 
 	@classmethod
 	def getdb(cls):

@@ -10,8 +10,8 @@ import os
 DEBUG = True
 
 #--  bounty db config --
-BOUNTY_DB_HOST = "127.0.0.1"
-BOUNTY_DB_PORT = 3306
-BOUNTY_DB_USER = "root"
-BOUNTY_DB_PASSWD = "root"
-BOUNTY_DB_NAME = "bounty"
+MEETROM_DB_HOST = "127.0.0.1"
+MEETROM_DB_PORT = 3306
+MEETROM_DB_USER = "root"
+MEETROM_DB_PASSWD = "root"
+MEETROM_DB_NAME = "meetrom"

@@ -124,8 +124,8 @@ class Multi_DB(object):
                 self.conn = None
 
 db = Multi_DB(
-		config.BOUNTY_DB_HOST,
-		config.BOUNTY_DB_PORT,
-		config.BOUNTY_DB_USER,
-		config.BOUNTY_DB_PASSWD,
-		config.BOUNTY_DB_NAME)
+		config.MEETROM_DB_HOST,
+		config.MEETROM_DB_PORT,
+		config.MEETROM_DB_USER,
+		config.MEETROM_DB_PASSWD,
+		config.MEETROM_DB_NAME)
