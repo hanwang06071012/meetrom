@@ -18,11 +18,38 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+#用户列表
 @app.route("/users/list")
 def userlist():
     str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
     tuple_result = Users.select(cols=str_col)
     return render_template("users_list.html",**locals())
-@app.route("/users/add")
+
+#添加展示用户
+@app.route("/users/add",methods=["POST","GET"])
 def user_add():
+    print("===========================user add start =======================================")
+    if request.method == 'POST':
+        str_id =request.form("id")
+        user_name =request.form("user_name")
+        passwd =request.form("passwd")
+        confirm_password=request.form("confirm_password")
+        real_name =request.form("real_name")
+        age =request.form("age")
+        sex=request.form("sex")
+        date_birth =request.form("date_birth")
+        household_registration =request.form("household_registration")
+        native_place=request.form("native_place")
+        ID_number=request.form("ID_number")
+        professional_title=request.form("professional_title")
+        address =request.form("address")
+        user_mail=request.form("user_mail")
+        contract_phone =request.form("contract_phone")
+        map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"professional_title":usersSpecialty,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
+        Users.insert(data=map_data)
+        print(data)
+    else:
+        pass
+    print("===========================user add end =======================================")
     return render_template("users_add.html")
+
