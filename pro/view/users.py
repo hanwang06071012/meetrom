@@ -50,6 +50,7 @@ def user_add():
         Users.insert(data={"usersid":1040,"usersName":"hanwang"})
         print(data)
     else:
+        Users.insert(data={"usersid":1040,"usersName":"hanwang"})
         print("except......")
         pass
     print("===========================user add end =======================================")
