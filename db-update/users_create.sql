@@ -29,7 +29,7 @@ CREATE TABLE Users (
     createDate datetime, -- 创建日期
     usersPhone VARCHAR(100) NOT NULL, -- 用户联系电话
     UNIQUE(usersid), -- 唯一约束符
-	PRIMARY KEY(usersid,ID)
+	PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8
