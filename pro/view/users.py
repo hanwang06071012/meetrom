@@ -49,6 +49,7 @@ def user_add():
         print("id=%s,user_name=%s"%(id,user_name))
         #map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"usersSpecialty":professional_title,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
         map_data={"usersid":str_id,"usersName":user_name}
+        print("usersid=%s,userName=%s"%(usersid,user_name))
         Users.insert(map_data)
         print(data)
     else:
