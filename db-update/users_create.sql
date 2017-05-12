@@ -28,6 +28,7 @@ CREATE TABLE Users (
     usersSex VARCHAR(40), -- 用户性别
     createDate datetime, -- 创建日期
     usersPhone VARCHAR(100) NOT NULL, -- 用户联系电话
+    UNIQUE(usersid), -- 唯一约束符
 	PRIMARY KEY(usersid,ID)
 )
  ENGINE =InnoDB
