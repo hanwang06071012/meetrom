@@ -33,14 +33,16 @@
 		</thead>
 		<tbody>
             {% for result in tuple_result %}
-                <td><input type="checkbox" name=""></td>
-                <td>{{ result[1] }}</td>
-                <td>{{ result[2] }}</td>
-                <td>{{ result[3] }}</td>
-                <td>{{ result[4] }}</td>
-                <td>{{ result[5] }}</td>
-                <td>编辑</td>
-                <td>删除</td>
+                <tr>
+                    <td><input type="checkbox" name=""></td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td>{{ result[4] }}</td>
+                    <td>{{ result[5] }}</td>
+                    <td>编辑</td>
+                    <td>删除</td>
+                </tr>
             {% endfor %}
 		</tbody>
 	</table>
