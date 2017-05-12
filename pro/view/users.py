@@ -47,12 +47,12 @@ def user_add():
         user_mail=request.form["user_mail"]
         contract_phone =request.form["contract_phone"]
         map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"usersSpecialty":professional_title,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
-        Users.insert(data={"usersid":1040,"usersName":"hanwang"})
+        Users.insert(map_data)
         print(data)
     else:
         map_data={}
         map_data={"usersid":1040,"usersName":"hanwang"}
-        Users.insert(data=map_data)
+        Users.insert(map_data)
         print("except......")
         pass
     print("===========================user add end =======================================")
