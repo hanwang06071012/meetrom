@@ -20,7 +20,7 @@ sys.setdefaultencoding('utf-8')
 
 @app.route("/users/list")
 def userlist():
-    str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersEmail","createDate","usersPhone"))
+    str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
     tuple_result = Users.select(cols=str_col)
     print("============================start============================")
     print (tuple_result)
