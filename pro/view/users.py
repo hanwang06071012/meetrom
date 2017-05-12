@@ -30,21 +30,21 @@ def userlist():
 def user_add():
     print("===========================user add start =======================================")
     if request.method == 'POST':
-        str_id =request.form("id")
-        user_name =request.form("user_name")
-        passwd =request.form("passwd")
-        confirm_password=request.form("confirm_password")
-        real_name =request.form("real_name")
-        age =request.form("age")
-        sex=request.form("sex")
-        date_birth =request.form("date_birth")
-        household_registration =request.form("household_registration")
-        native_place=request.form("native_place")
-        ID_number=request.form("ID_number")
-        professional_title=request.form("professional_title")
-        address =request.form("address")
-        user_mail=request.form("user_mail")
-        contract_phone =request.form("contract_phone")
+        str_id =request.form["id"]
+        user_name =request.form["user_name"]
+        passwd =request.form["passwd"]
+        confirm_password=request.form["confirm_password"]
+        real_name =request.form["real_name"]
+        age =request.form["age"]
+        sex=request.form["sex"]
+        date_birth =request.form["date_birth"]
+        household_registration =request.form["household_registration"]
+        native_place=request.form["native_place"]
+        ID_number=request.form["ID_number"]
+        professional_title=request.form["professional_title"]
+        address =request.form["address"]
+        user_mail=request.form["user_mail"]
+        contract_phone =request.form["contract_phone"]
         map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"professional_title":usersSpecialty,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
         Users.insert(data=map_data)
         print(data)
