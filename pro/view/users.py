@@ -24,5 +24,5 @@ def userlist():
     tuple_result = Users.select(cols=str_col)
     print("============================start============================")
     print (tuple_result)
-    pirnt("============================end============================")
+    print("============================end============================")
     return render_template("users_list.html",**locals())
