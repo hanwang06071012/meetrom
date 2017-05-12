@@ -9,7 +9,7 @@
 USE meetrom;
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
-    ID INT(10) AUTO_INCREMENT, -- 用户ID
+    ID INT(10) AUTO_INCREMENT, -- 自增长标志位
     usersid INT(10), -- 用户ID
     usersName VARCHAR(40) NOT NULL, -- 用户名
     usersPass VARCHAR(40) NOT NULL, -- 用户登录密码
