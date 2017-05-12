@@ -50,7 +50,9 @@ def user_add():
         Users.insert(data={"usersid":1040,"usersName":"hanwang"})
         print(data)
     else:
-        Users.insert(data={"usersid":1040,"usersName":"hanwang"})
+        map_data={}
+        map_data={"usersid":1040,"usersName":"hanwang"}
+        Users.insert(data=map_data)
         print("except......")
         pass
     print("===========================user add end =======================================")
