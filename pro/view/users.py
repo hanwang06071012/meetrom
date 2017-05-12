@@ -22,7 +22,7 @@ sys.setdefaultencoding('utf-8')
 def userlist():
     str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
     tuple_result = Users.select(cols=str_col)
-    print("============================start============================")
-    print (tuple_result)
-    print("============================end============================")
     return render_template("users_list.html",**locals())
+@app.route("/users/add")
+def user_add():
+    return render_template("users_add.html")
