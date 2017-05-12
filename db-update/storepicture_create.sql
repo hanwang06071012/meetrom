@@ -9,10 +9,11 @@
 USE meetrom;
 DROP TABLE IF EXISTS storePicture;
 CREATE TABLE storePicture (
-    Adminid  INT(10) AUTO_INCREMENT, -- 管理员ID
+    ID  INT(10) AUTO_INCREMENT, -- 管理员ID
+    Adminid  INT(10), -- 管理员ID
     nameplates VARCHAR(40) NOT NULL, -- 管理员照片
     storePicture VARCHAR(16) NOT NULL, -- 会议室地点
-	PRIMARY KEY(Adminid)
+	PRIMARY KEY(Adminid,ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8

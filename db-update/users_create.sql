@@ -9,7 +9,8 @@
 USE meetrom;
 DROP TABLE IF EXISTS Users;
 CREATE TABLE Users (
-    usersid INT(10) AUTO_INCREMENT, -- 用户ID
+    ID INT(10) AUTO_INCREMENT, -- 用户ID
+    usersid INT(10), -- 用户ID
     usersName VARCHAR(40) NOT NULL, -- 用户名
     usersPass VARCHAR(40) NOT NULL, -- 用户登录密码
     usersRepass VARCHAR(40) NOT NULL, -- 确认用户密码
@@ -27,7 +28,7 @@ CREATE TABLE Users (
     usersSex VARCHAR(40), -- 用户性别
     createDate datetime, -- 创建日期
     usersPhone VARCHAR(100) NOT NULL, -- 用户联系电话
-	PRIMARY KEY(usersid)
+	PRIMARY KEY(usersid,ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8

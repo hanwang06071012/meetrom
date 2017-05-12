@@ -9,7 +9,8 @@
 USE meetrom;
 DROP TABLE IF EXISTS Admin;
 CREATE TABLE Admin (
-    Adminid  INT(10) AUTO_INCREMENT, -- 管理员ID
+    ID  INT(10) AUTO_INCREMENT, -- 自增长标志位
+    Adminid  INT(10), -- 管理员ID
     AdminName VARCHAR(40) NOT NULL, -- 管理员姓名
     AdminPass VARCHAR(40) NOT NULL, -- 密码
     AdminRepass VARCHAR(40) NOT NULL, -- 确认用户密码
@@ -26,7 +27,7 @@ CREATE TABLE Admin (
     AdminAge VARCHAR(40), -- 管理员年龄
     AdminSex VARCHAR(40), -- 管理员性别
     AdminPhone VARCHAR(100) NOT NULL, -- 联系电话
-	PRIMARY KEY(Adminid)
+	PRIMARY KEY(Adminid,ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8
