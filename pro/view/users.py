@@ -119,7 +119,7 @@ def user_select():
     return render_template("users_select.html")
 
 #用户信息查询
-@app.route("/user/info")
+@app.route("/user/<id>/info")
 def userinfo(id):
     str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
     tuple_result = Users.select(cols=str_col,where=("id=%s" % (id)))
