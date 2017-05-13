@@ -95,9 +95,10 @@ def user_select():
         if len(contract_phone) != 0:
             map_where["usersPhone"] = contract_phone
         if len(map_where) != 0:
-            for key,val in map_where:
-                tuple_mid_key_val = (key,val)
-                list_key_val.append(tuple_mid_key_val)
+            for sig_map_where in map_where:
+                for key,val in sig_map_where:
+                    tuple_mid_key_val = (key,val)
+                    list_key_val.append(tuple_mid_key_val)
         int_len_list_key_val = len(list_key_val)
         if int_len_list_key_val == 1:
             str_sql_mid = (" %s like '%%%s%%'" % (list_key_val[0][0],list_key_val[0][1]))
