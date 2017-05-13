@@ -122,5 +122,5 @@ def user_select():
 @app.route("/user/<id>/info")
 def userinfo(id):
     str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
-    tuple_result = Users.select(cols=str_col,where=("id=%s" % (id)))
+    tuple_result = Users.select(cols=str_col,where=("usersid=%s" % (id)))
     return render_template("users_list.html",**locals())
