@@ -103,6 +103,8 @@ def user_select():
                     tuple_mid_key_val = (key,val)
                     list_key_val.append(tuple_mid_key_val)
         int_len_list_key_val = len(list_key_val)
+        print(list_key_val)
+        print(int_len_list_key_val)
         if int_len_list_key_val == 1:
             str_sql_mid = (" %s like '%%%s%%'" % (list_key_val[0][0],list_key_val[0][1]))
             str_sql_where += str_sql_mid
