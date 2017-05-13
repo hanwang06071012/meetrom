@@ -107,6 +107,7 @@ def user_select():
         print(int_len_list_key_val)
         if int_len_list_key_val == 1:
             str_sql_mid = (" %s like '%%%s%%'" % (list_key_val[0][0],list_key_val[0][1]))
+            print (str_sql_mid)
             str_sql_where += str_sql_mid
             print(str_sql_where)
         elif int_len_list_key_val > 1:
