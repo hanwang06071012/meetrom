@@ -114,7 +114,7 @@ def user_select():
                 str_sql_where += str_sql_mid
                 print (str_sql_mid)
                 print(str_sql_where)
-            str_sql_mid += (" %s = '%s' " % (list_key_val[int_len_list_key_val-1][0],list_key_val[int_len_list_key_val-1][1]))
+            str_sql_mid = (" %s = '%s' " % (list_key_val[int_len_list_key_val-1][0],list_key_val[int_len_list_key_val-1][1]))
             str_sql_where += str_sql_mid
             print (str_sql_mid)
             print(str_sql_where)
