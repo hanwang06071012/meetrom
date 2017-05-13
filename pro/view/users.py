@@ -13,7 +13,7 @@ from pro.model.admin  import Admin
 from pro.model.conference import Conference
 from pro.model.storepicture import StorePicture
 from pro.model.users import Users
-import json,sys
+import json,sys,time
 from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -44,7 +44,8 @@ def user_add():
         usersAddress =request.form["address"]
         usersEmail=request.form["user_mail"]
         usersPhone =request.form["contract_phone"]
-        map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone}
+        createDate=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+        map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone,"createDate":createDate}
         Users.insert(map_data)
         return redirect(url_for("userlist"))
     else:
