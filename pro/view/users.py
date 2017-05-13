@@ -95,6 +95,7 @@ def user_select():
         usersPhone =request.form["contract_phone"]
         if len(usersPhone) != 0:
             map_where["usersPhone"] = usersPhone
+        print (map_where)
         if len(map_where) != 0:
             for sig_map_where in map_where:
                 for key,val in sig_map_where:
