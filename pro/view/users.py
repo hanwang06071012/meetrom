@@ -118,7 +118,7 @@ def user_select():
             str_sql_where += str_sql_mid
         else:
             pass
-        str_col = (" (%s,%s,%s,%s,%s,%s) " % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
+        str_col = (" %s,%s,%s,%s,%s,%s " % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
         tuple_result = Users.select(cols=str_col,where=str_sql_where)
         print(tuple_result)
         return render_template("users_list.html",**locals())
