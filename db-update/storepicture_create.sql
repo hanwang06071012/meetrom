@@ -11,8 +11,8 @@ DROP TABLE IF EXISTS storePicture;
 CREATE TABLE storePicture (
     ID  INT(10) AUTO_INCREMENT, -- 自增长标志位
     Adminid  INT(10) , -- 管理员ID
-    nameplates VARCHAR(40) NOT NULL, -- 管理员照片
-    storePicture VARCHAR(16) NOT NULL, -- 会议室地点
+    nameplates VARCHAR(40) NOT NULL, -- 管理员照片路径
+    storePicture VARCHAR(16) NOT NULL, -- 图片地址名称
     UNIQUE(Adminid), -- 唯一约束符
 	PRIMARY KEY(ID)
 )
