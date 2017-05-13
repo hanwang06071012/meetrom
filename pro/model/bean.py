@@ -95,7 +95,7 @@ class Bean(object):
 			if offset < 0:
 				offset = 0
 			sql = '%s OFFSET %s' % (sql, offset)
-			print("sql=%s" % sql )
+		print("sql=%s" % sql )
 
 		return db.query_all(sql, params)
 
