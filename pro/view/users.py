@@ -58,7 +58,6 @@ def user_select():
     map_where ={}
     list_key_val = []
     str_sql_where=""
-    list_where_param=[]
     if request.method == 'POST':
         usersid =request.form["id"]
         if len(usersid) != 0:
@@ -107,23 +106,20 @@ def user_select():
         print(list_key_val)
         print(int_len_list_key_val)
         if int_len_list_key_val == 1:
-            str_sql_mid = (" %s like '%%s'" % (list_key_val[0][0]))
-            list_where_param.append(list_key_val[0][1])
+            str_sql_mid = (" %s like '%%%s%%'" % (list_key_val[0][0]),list_key_val[0][1])
             print (str_sql_mid)
             str_sql_where += str_sql_mid
             print(str_sql_where)
         elif int_len_list_key_val > 1:
             for i in range(int_len_list_key_val-1):
-                str_sql_mid = (" %s like '%%s' and " % (list_key_val[i][0]))
-                list_where_param.append(list_key_val[i][1])
+                str_sql_mid = (" %s like '%%%s%%' and " % (list_key_val[i][0],list_key_val[i][1]))
                 str_sql_where += str_sql_mid
-            str_sql_mid += (" %s like '%%s' " % (list_key_val[int_len_list_key_val-1][0]))
-            list_where_param.append(list_key_val[int_len_list_key_val-1][1])
+            str_sql_mid += (" %s like '%%%s%%' " % (list_key_val[int_len_list_key_val-1][0],list_key_val[int_len_list_key_val-1][1]))
             str_sql_where += str_sql_mid
         else:
             pass
         str_col = (" %s,%s,%s,%s,%s,%s " % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
-        tuple_result = Users.select(cols=str_col,where=str_sql_where,params=list_where_param)
+        tuple_result = Users.select(cols=str_col,where=str_sql_where)
         print(tuple_result)
         return render_template("users_list.html",**locals())
     else:
