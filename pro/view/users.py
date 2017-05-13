@@ -108,6 +108,7 @@ def user_select():
         if int_len_list_key_val == 1:
             str_sql_mid = (" %s like '%%%s%%'" % (list_key_val[0][0],list_key_val[0][1]))
             str_sql_where += str_sql_mid
+            print(str_sql_where)
         elif int_len_list_key_val > 1:
             for i in range(int_len_list_key_val-1):
                 str_sql_mid = (" %s like %%%s%% and " % (list_key_val[i][0],list_key_val[i][1]))
@@ -118,6 +119,7 @@ def user_select():
             pass
         str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
         tuple_result = Users.select(cols=str_col,where=str_sql_where)
+        print(tuple_result)
         return render_template("users_list.html",**locals())
     else:
         pass
