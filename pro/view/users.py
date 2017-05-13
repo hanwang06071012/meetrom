@@ -28,7 +28,6 @@ def userlist():
 #添加展示用户
 @app.route("/users/add",methods=["POST","GET"])
 def user_add():
-    print("===========================user add start =======================================")
     print(request.method)
     if request.method == 'POST':
         str_id =request.form["id"]
@@ -51,9 +50,8 @@ def user_add():
         print("usersid=%s,userName=%s"%(str_id,user_name))
         print(map_data)
         Users.insert(map_data)
+        return redirect(url_for("userlist"),**locals())
     else:
-        print("except......")
         pass
-    print("===========================user add end =======================================")
     return render_template("users_add.html")
 
