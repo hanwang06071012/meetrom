@@ -1,0 +1,88 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+<table class="table table-bordered table-hover">
+        <caption>
+            <button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+                <span class="glyphicon glyphicon-th-list"></span>添加新会议室
+            </button>   
+        </caption>
+        <div class="container">
+        <thead>
+            <tr>
+                <th><lable class="control-label pull-right">名称</lable></th>
+                <th><lable>内容</lable></th>
+            </tr>
+        </thead>
+        <tbody>
+            <form class="" role="form" method="POST" action="/users/add">
+            <tr>
+                    <td><label for="id" class="control-label pull-right">申请人账号:</label></td>
+                    <td><input type="text" class="form-control" name="id" 
+                           placeholder="请输入申请人账号"></td>
+            </tr>
+           <tr>
+                <td><label for="user_name" class=" control-label pull-right">申请人姓名:</label></td>
+                <td><input type="text" class="form-control" name="user_name" 
+                           placeholder="请输入申请人姓名">
+                </td>
+            </tr>
+           <tr> 
+                <td><label for="passwd" class=" control-label pull-right">会议室名:</label></td>
+                <td><input type="text" class="form-control" name="passwd"
+                           placeholder="请输入会议室名">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="real_name" class=" control-label pull-right">会议室地点:</label></td>
+                <td><input type="text" class="form-control" name="real_name" 
+                           placeholder="请输入会议室地点"></td>            
+            </tr>
+           <tr>     
+                <td><label for="age" class=" control-label pull-right">是否多媒体教室:</label></td>
+                <td> <input type="text" class="form-control" name="age" 
+                           placeholder="请输入是否多媒体教室"></td> 
+            </tr>
+           <tr> 
+                <td><label for="sex" class=" control-label pull-right">容纳人数:</label></td>
+                <td><input type="text" class="form-control" name="sex" 
+                           placeholder="请输入容纳人数"></td>
+            </tr>
+           <tr>   
+                <td><label for="date_birth" class=" control-label pull-right">会议主题:</label></td>
+                <td><input type="text" class="form-control" name="date_birth"
+                           placeholder="请输入会议主题"></td>
+            </tr>
+           <tr>  
+                <td><label for="household_registration" class=" control-label pull-right">申请状态:</label></td>
+                <td><input type="text" class="form-control" name="household_registration" 
+                           placeholder="请输入申请状态"></td>
+            </tr>
+           <tr>
+                <td><label for="native_place" class=" control-label pull-right">会议室审批:</label></td>
+                <td> <input type="text" class="form-control" name="native_place" 
+                           placeholder="请输入会议室审批"></td>
+            </tr>
+           <tr>
+                <td><label for="ID_number" class=" control-label pull-right">申请理由:</label></td>
+                <td><input type="text" class="form-control" name="ID_number" 
+                           placeholder="请输入申请理由"></td>
+            </tr>
+           <tr>
+                <td><label for="professional_title" class=" control-label pull-right">申请时间:</label></td>
+                <td><input type="text" class="form-control" name="professional_title"
+                           placeholder="请输入申请时间"></td>
+
+            </tr>
+            <tr>
+                <td><button type="submit" class="btn btn-default pull-right">添加</button></td>
+                <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
+            </tr>
+        </form>
+        </tbody>
+        </div>
+    </table>  
+    <div>
+ 
+</div>
+{% endblock %}
