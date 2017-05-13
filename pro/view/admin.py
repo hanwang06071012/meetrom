@@ -21,6 +21,9 @@ sys.setdefaultencoding('utf-8')
 #用户信息查询
 @app.route("/admin/<id>/info")
 def admininfo(id):
-    str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","Adminid","AdminName","AdminPhone","AdminEmail","AdminCsrq"))
-    tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
-    return render_template("admin_list.html",**locals())
+    try:
+        str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","Adminid","AdminName","AdminPhone","AdminEmail","AdminCsrq"))
+        tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
+        return render_template("admin_list.html",**locals())
+    except:
+        return redirect(url_for("admintitle"))
