@@ -1,0 +1,68 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+	<table class="table table-bordered table-hover">
+		<caption>
+			<button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-th-list"></span>用户列表
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-trash"></span>删除
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-edit"></span>修改
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-plus"></span>增加
+			</button>	
+			<p class="pull-right" style="font-size: 10px">
+				 <label><input type="checkbox">全选</label>
+			</p>	
+		</caption>
+		<thead>
+			<tr>
+				<th>选择</th>
+				<th>序号</th>
+				<th>用户姓名</th>
+				<th>联系电话</th>
+				<th>Email</th>
+				<th>创建日期</th>
+				<th>编辑</th>
+				<th>删除</th>
+			</tr>
+		</thead>
+		<tbody>
+            {% for result in tuple_result %}
+                <tr>
+                    <td><input type="checkbox" name=""></td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td>{{ result[4] }}</td>
+                    <td>{{ result[5] }}</td>
+                    <td>查看</td>
+                    <td>删除</td>
+                </tr>
+            {% endfor %}
+		</tbody>
+	</table>
+	<p class="pull-left">每页10条记录</p>
+	<p class="pull-left">当前第{{total_page_num}}页,</p>
+	<p class="pull-left">共{{total_page_num}}条记录,</p>
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-trash"></span>转
+	</button>	
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-edit"></span>尾页
+	</button>	
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>下一页
+  	</button>
+  	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>上一页
+  	</button>
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>首页
+  	</button>
+</div>
+{% endblock %}

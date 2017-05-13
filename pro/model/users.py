@@ -10,7 +10,7 @@ from pro.model.bean import Bean
 
 class Users(Bean):
 	_tbl = 'Users'
-	_id = 'usersid'
+	_id = 'ID'
 	_cols = 'usersid,usersName,usersPass,usersRepass,usersPassQuestion,usersPassReply,usersTrueName,usersAddress,usersEmail,usersSpecialty,usersHuji,usersIDcard,usersCsrq,usersJiguan,usersAge,usersSex,createDate,usersPhone'
 
         def __init__(self,usersid,usersName,usersPass,usersRepass,usersPassQuestion,usersPassReply,usersTrueName,usersAddress,usersEmail,usersSpecialty,usersHuji,usersIDcard,usersCsrq,usersJiguan,usersAge,usersSex,createDate,usersPhone):

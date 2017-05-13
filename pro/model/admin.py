@@ -10,7 +10,7 @@ from pro.model.bean import Bean
 
 class Admin(Bean):
 	_tbl = 'Admin'
-	_id = 'Adminid'
+	_id = 'ID'
 	_cols = 'Adminid,AdminName,AdminPass,AdminRepass,AdminPassQuestion,AdminPassReply,AdminTrueName,AdminAddress,AdminEmail,AdminSpecialty,AdminHuji,AdminIDcard,AdminCsrq,AdminJiguan,AdminAge,AdminSex,AdminPhone'
         def __init__(self,Adminid,AdminName,AdminPass,AdminRepass,AdminPassQuestion,AdminPassReply,AdminTrueName,AdminAddress,AdminEmail,AdminSpecialty,AdminHuji,AdminIDcard,AdminCsrq,AdminJiguan,AdminAge,AdminSex,AdminPhone):
                 self.Adminid = Adminid
