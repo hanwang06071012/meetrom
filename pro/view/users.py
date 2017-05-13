@@ -51,7 +51,7 @@ def user_add():
         pass
     return render_template("users_add.html")
 
-    #添加展示用户
+#添加展示用户
 @app.route("/users/select",methods=["POST","GET"])
 def user_select():
     map_where ={}
@@ -116,5 +116,11 @@ def user_select():
         return render_template("users_list.html",**locals())
     else:
         pass
-    return render_template("users_select.html");
+    return render_template("users_select.html")
 
+#用户信息查询
+@app.route("/user/info")
+def userinfo(id):
+    str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
+    tuple_result = Users.select(cols=str_col,where=("id=%s" % (id)))
+    return render_template("users_list.html",**locals())
