@@ -69,6 +69,13 @@ def conference_select():
     else:
         pass
     return render_template("conference_select.html")
+
+#用户列表
+@app.route("/conference/list")
+def conferencelist():
+    str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
+    tuple_result = Users.select(cols=str_col)
+    return render_template("conference_list.html",**locals())
 """
 #添加展示用户
 @app.route("/users/select",methods=["POST","GET"])
