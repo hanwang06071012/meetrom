@@ -67,29 +67,36 @@ class Bean(object):
 			values.extend(params)
 			return cls.update(', '.join(arr) + 'WHERE' + where,values)
 
-	@classmethod
-	def select(cls,cols=None,where=None,params=None,order=None,limit=None,page=None,offset=None):
-		if cols is None:
-			cols = cls._cols
-		if params is None:
-			params=[]
-		db = cls.getdb()
-		sql = 'SELECT %s FROM %s' % (cols,cls._tbl)
-		if where:
-			sql = '%s WHERE %s' % (sql,where)
-		if order:
-			sql = '%s ORDER BY %s'  %(sql,order)
-		if limit is not None:
-			sql = '%s LIMIT %s'%(sql,limit)
-		if offset is not None:
-			sql = '%s OFFSET %s' % (sql,offset)
-		if page is not None:
-			offset = (int(page)-1)*int(limit)
-			if offset < 0:
-				offset =0
-			sql = '%s OFFSET %s' %(sql,offset)
-		print("sql=%s" % sql)
-		return db.query_all(sql,params)
+    @classmethod
+    def select(cls, cols=None, where=None, params=None, order=None, limit=None, page=None, offset=None):
+        if cols is None:
+            cols = cls._cols
+
+        if params is None:
+            params = []
+
+        db = cls.getdb()
+        sql = 'SELECT %s FROM `%s`' % (cols, cls._tbl)
+
+        if where:
+            sql = '%s WHERE %s' % (sql, where)
+
+        if order:
+            sql = '%s ORDER BY %s' % (sql, order)
+
+        if limit is not None:
+            sql = '%s LIMIT %s' % (sql, limit)
+
+        if offset is not None:
+            sql = '%s OFFSET %s' % (sql, offset)
+
+        if page is not None:
+            offset = (int(page) - 1) * int(limit)
+            if offset < 0:
+                offset = 0
+            sql = '%s OFFSET %s' % (sql, offset)
+
+        return db.query_all(sql, params)
 
 	@classmethod
 	def select_vs(cls,where=None,params=None,order=None,limit=None,page=None,offset=None):
