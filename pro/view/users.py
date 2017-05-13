@@ -50,7 +50,7 @@ def user_add():
         print("usersid=%s,userName=%s"%(str_id,user_name))
         print(map_data)
         Users.insert(map_data)
-        return redirect(url_for("userlist"),**locals())
+        return redirect(url_for("userlist"))
     else:
         pass
     return render_template("users_add.html")
