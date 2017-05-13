@@ -13,4 +13,4 @@ app = Flask(__name__)
 app.config.from_object("frame.config")
 app.config['SECRET_KEY'] = '123456'
 
-from view import default,users
+from view import default,users,admin
