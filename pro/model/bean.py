@@ -79,7 +79,7 @@ class Bean(object):
 		sql = 'SELECT %s FROM `%s`' % (cols, cls._tbl)
 
 		if where:
-		sql = '%s WHERE %s' % (sql, where)
+			sql = '%s WHERE %s' % (sql, where)
 
 		if order:
 			sql = '%s ORDER BY %s' % (sql, order)
