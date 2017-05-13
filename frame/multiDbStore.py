@@ -86,14 +86,14 @@ class Multi_DB(object):
             cursor and cursor.close()
 
     def query_all(self, *a, **kw):
-		cursor = None
-		#print ("query_all *a=[%s], **kw=[%s]\n" % (a, kw))
-		try:
-			cursor = self.execute(*a, **kw)
-			self.commit() 
-			return cursor.fetchall()
-		finally:
-			cursor and cursor.close()
+        cursor = None
+        # print "query_all *a=[%s], **kw=[%s]\n" % (a, kw)
+        try:
+            cursor = self.execute(*a, **kw)
+            self.commit() 
+            return cursor.fetchall()
+        finally:
+            cursor and cursor.close()
 
     def query_one(self, *a, **kw):
         rows = self.query_all(*a, **kw)
