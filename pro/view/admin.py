@@ -43,7 +43,7 @@ def admin_info(id):
 @app.route("/admin/<id>/edit",methods=["POST","GET"])
 def admin_info_edit(id):
     map_where={}
-    if method == "POST":
+    if request.method == "POST":
         Adminid =request.form["adminid"]
         if len(Adminid) != 0:
             map_where["Adminid"] = Adminid
