@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+<table class="table table-bordered table-hover">
+        <caption>
+            <button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+                <span class="glyphicon glyphicon-th-list"></span>更新管理员帐号
+            </button>   
+        </caption>
+        <div class="container">
+        <thead>
+            <tr>
+                <th><lable class="control-label pull-right">名称</lable></th>
+                <th><lable>内容</lable></th>
+            </tr>
+        </thead>
+        <tbody>
+            <form class="" role="form" method="POST" action="/users/add">
+            <tr>
+                    <td><label for="adminid" class="control-label pull-right">管理员编号:</label></td>
+                    <td><input type="text" class="form-control" name="adminid" value="{{ tuple_result[0][0] }}" 
+                           placeholder="请输入管理员编号"></td>
+            </tr>
+            <tr>
+                <td><label for="adminName" class=" control-label pull-right">管理员姓名:</label></td>
+                <td><input type="text" class="form-control" name="adminName"  value="{{ tuple_result[0][1] }}" 
+                           placeholder="请输入管理员姓名">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="adminTrueName" class=" control-label pull-right">管理员真实姓名:</label></td>
+                <td><input type="text" class="form-control" name="adminTrueName" value="{{ tuple_result[0][2] }}" 
+                           placeholder="请输入管理员真实姓名">
+                </td>
+            </tr>
+           <tr> 
+                <td><label for="adminAddress" class=" control-label pull-right">管理员联系地址:</label></td>
+                <td><input type="text" class="form-control" name="adminAddress" value="{{ tuple_result[0][3] }}" 
+                           placeholder="请输入管理员联系地址">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="adminAddress" class=" control-label pull-right">管理员邮件:</label></td>
+                <td><input type="text" class="form-control" name="adminAddress" value="{{ tuple_result[0][4] }}" 
+                           placeholder="请输入管理员邮件"></td>
+            </tr>
+           <tr>
+                <td><label for="adminSpecialty" class=" control-label pull-right">专业名称:</label></td>
+                <td><input type="text" class="form-control" name="adminSpecialty" value="{{ tuple_result[0][5] }}" 
+                           placeholder="请输入专业名称"></td>            
+            </tr>
+           <tr>     
+                <td><label for="adminHuji" class=" control-label pull-right">户 籍:</label></td>
+                <td> <input type="text" class="form-control" name="adminHuji"  value="{{ tuple_result[0][6] }}" 
+                           placeholder="请输入户 籍"></td> 
+            </tr>
+           <tr> 
+                <td><label for="adminIDcard" class=" control-label pull-right">身份证:</label></td>
+                <td><input type="text" class="form-control" name="adminIDcard"  value="{{ tuple_result[0][7] }}" 
+                           placeholder="请输入身份证"></td>
+            </tr>
+           <tr>   
+                <td><label for="adminIDcard" class=" control-label pull-right">出生日期:</label></td>
+                <td><input type="text" class="form-control" name="adminIDcard" value="{{ tuple_result[0][8] }}" 
+                           placeholder="请输入出生日期"></td>
+            </tr>
+           <tr>  
+                <td><label for="adminJiguan" class=" control-label pull-right">籍 贯:</label></td>
+                <td><input type="text" class="form-control" name="adminJiguan"  value="{{ tuple_result[0][8] }}" 
+                           placeholder="请输入籍 贯"></td>
+            </tr>
+           <tr>
+                <td><label for="adminAge" class=" control-label pull-right">管理员年龄:</label></td>
+                <td> <input type="text" class="form-control" name="adminAge"  value="{{ tuple_result[0][10] }}" 
+                           placeholder="请输入管理员年龄"></td>
+            </tr>
+           <tr>
+                <td><label for="adminSex" class=" control-label pull-right">管理员性别:</label></td>
+                <td><input type="text" class="form-control" name="adminSex" value="{{ tuple_result[0][11] }}" 
+                           placeholder="请输入管理员性别"></td>
+            </tr>
+            <tr>
+                <td><label for="adminPhone" class=" control-label pull-right">联系电话:</label></td>
+                <td> <input type="text" class="form-control" name="adminPhone" value="{{ tuple_result[0][12] }}" 
+                           placeholder="请输入联系电话"></td>
+            </tr>
+            <tr>
+                <td><button type="submit" class="btn btn-default pull-right">更新资料</button></td>
+                <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
+            </tr>
+        </form>
+        </tbody>
+        </div>
+    </table>  
+    <div>
+ 
+</div>
+{% endblock %}
