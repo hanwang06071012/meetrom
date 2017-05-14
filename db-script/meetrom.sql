@@ -10,6 +10,7 @@ DROP DATABASE IF EXISTS meetrom;
 CREATE DATABASE meetrom character set utf8;
 USE meetrom;
 SET NAMES 'utf8';
+
 -- ===============================================================================
 -- 作者：田川
 -- 日期：2017-05-06
@@ -17,7 +18,6 @@ SET NAMES 'utf8';
 -- 更新：2017-04-07优化数据表注释
 -- 备注：无
 -- ===============================================================================
-
 -- 创建管理员登陆时信息的验证功能和存储管理员个人信息表
 USE meetrom;
 DROP TABLE IF EXISTS Admin;
@@ -40,7 +40,7 @@ CREATE TABLE Admin (
     AdminAge VARCHAR(40), -- 管理员年龄
     AdminSex VARCHAR(40), -- 管理员性别
     AdminPhone VARCHAR(100) NOT NULL, -- 联系电话
-    UNIQUE(Adminid), -- 唯一约束符
+    UNIQUE(Adminid,AdminName), -- 唯一约束符
     PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
@@ -70,13 +70,14 @@ CREATE TABLE Conference (
     Shenpi VARCHAR(40), -- 会议室审批
     Shenqliyou VARCHAR(40), -- 申请理由
     Shenqsjian VARCHAR(40), -- 申请时间
+    UNIQUE(Sqrzh,Sqrxm), -- 唯一约束符
     PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8
  COLLATE = utf8_unicode_ci;
 
--- ===============================================================================
+ -- ===============================================================================
 -- 作者：田川
 -- 日期：2017-05-06
 -- 功能：创建存储管理员上传的照片信息表
@@ -89,16 +90,16 @@ DROP TABLE IF EXISTS storePicture;
 CREATE TABLE storePicture (
     ID  INT(10) AUTO_INCREMENT, -- 自增长标志位
     Adminid  INT(10) , -- 管理员ID
-    nameplates VARCHAR(40) NOT NULL, -- 管理员照片
-    storePicture VARCHAR(16) NOT NULL, -- 会议室地点
-    UNIQUE(Adminid), -- 唯一约束符
+    nameplates VARCHAR(40) NOT NULL, -- 管理员照片路径
+    storePicture VARCHAR(16) NOT NULL, -- 图片地址名称
+    UNIQUE(Adminid,storePicture), -- 唯一约束符
     PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8
  COLLATE = utf8_unicode_ci;
 
--- ===============================================================================
+ -- ===============================================================================
 -- 作者：田川
 -- 日期：2017-05-06
 -- 功能：创建普通用户类别信息的存储信息表
@@ -128,10 +129,10 @@ CREATE TABLE Users (
     usersSex VARCHAR(40), -- 用户性别
     createDate datetime, -- 创建日期
     usersPhone VARCHAR(100) NOT NULL, -- 用户联系电话
-    UNIQUE(usersid), -- 唯一约束符
+    UNIQUE(usersid,usersName), -- 唯一约束符
     PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
  DEFAULT CHARSET = utf8
  COLLATE = utf8_unicode_ci;
- 
+
