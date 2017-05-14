@@ -80,7 +80,7 @@ def admin_info_edit(id):
         AdminPhone =request.form["adminPhone"]
         if len(AdminPhone) != 0:
             map_where["AdminPhone"] = AdminPhone
-        str_sql_where = (" ID = %d")
+        str_sql_where = (" ID = %s")
         print(map_where)
         print("str_sql=%s" % str_sql_where)
         Admin.update_dict(map_where,str_sql_where,[id])
