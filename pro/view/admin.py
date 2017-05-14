@@ -94,12 +94,13 @@ def admin_info_edit(id):
 def admin_pwd_update(id):
     try:
         print("================pwd upodate start===================================")
-        str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
+        str_col = (" %s,%s,%s " % ("AdminPass","AdminPassQuestion","AdminPassReply"))
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
         print("tuple_result=[%s]" % tuple_result)
         print("str_col=[%s]" % str_col)
         adminpass = tuple_result[0][0]
         adminpassquestion = tuple_result[0][1]
+        adminpassreply = tuple_result[0][2]
         print("adminpass=[%s]" % adminpass)
         print("adminpassquestion=[%s]" % adminpassquestion)
         if len(adminpassquestion) == 0:
@@ -117,7 +118,7 @@ def admin_pwd_update(id):
             if str_adminpassnew != str_adminrepassnew:
                 return ("新密码与确认密码不一致")
             str_sql_where = (" ID = %s")
-            if str_adminpassreply == adminpassquestion:
+            if str_adminpassreply == adminpassreply:
                 if adminpass == str_adminrepass:
                     Admin.update_dict(map_where,str_sql_where,[id])
                     return redirect(url_for("admin_list"))
