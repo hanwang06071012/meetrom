@@ -27,13 +27,12 @@ def showadminlogin():
             str_cols=(" %s,%s" % ("Adminid","AdminName"))
             str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
             tuple_id_name = Admin.select(cols=str_cols,where=str_where)
-            if len(tuple_id_name) == 0:
-                return render_template("admin_login.html")
-            else:
+            if len(tuple_id_name) != 0:
                 session["id"] = tuple_id_name[0][0]
                 session["name"] = tuple_id_name[0][1]
                 session["level"] = 0
                 return render_template("admin.html",**locals())
+            return render_template("admin_login.html")
         else:
             return render_template("admin_login.html")
     except Exception as e:
