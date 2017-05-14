@@ -93,6 +93,10 @@ def admin_info_edit(id):
 @app.route("/admin/<id>/pwd",methods=["POST","GET"])
 def admin_pwd_update(id):
     try:
+        str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
+        tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
+        adminpass = tuple_result[0][0]
+        adminpassquestion = tuple_result[0][1]
         if request.method == "POST":
             map_where ={}
             str_adminpassreply = request.form["adminpassreply"].strip()
@@ -104,10 +108,6 @@ def admin_pwd_update(id):
             map_where["AdminRepass"] = str_adminrepassnew
             if str_adminpassnew != str_adminrepassnew:
                 return ("新密码与确认密码不一致")
-            str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
-            tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
-            adminpass = tuple_result[0][0]
-            adminpassquestion = tuple_result[0][1]
             str_sql_where = (" ID = %s")
             if str_adminpassreply == adminpassquestion:
                 if adminpass == str_adminrepass:
