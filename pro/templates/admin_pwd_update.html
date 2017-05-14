@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+<table class="table table-bordered table-hover">
+        <caption>
+            <button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+                <span class="glyphicon glyphicon-th-list"></span>更改密码
+            </button>   
+        </caption>
+        <div class="container">
+        <thead>
+            <tr>
+                <th><lable class="control-label pull-right">名称</lable></th>
+                <th><lable>内容</lable></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td colspan="2"><button class="btn bnt-danger">{{ adminpassquestion }}</button></td>
+            </tr>
+            <form class="" role="form" method="POST" action="{{ url_for('admin_pwd_update',id=session['id']) }}">
+            <tr>
+                <td><label for="adminpassreply" class=" control-label pull-right">密码保护答案:</label></td>
+                <td><input type="text" class="form-control" name="adminpassreply" 
+                           placeholder="请输入密码保护答案">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="adminrepass" class=" control-label pull-right">原始密码:</label></td>
+                <td><input type="text" class="form-control" name="adminrepass"
+                           placeholder="请输入原始密码">
+                </td>
+            </tr>
+           <tr> 
+                <td><label for="adminpassnew" class=" control-label pull-right">新密码:</label></td>
+                <td><input type="text" class="form-control" name="adminpassnew"
+                           placeholder="请输入新密码">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="adminrepassnew" class=" control-label pull-right">确认密码:</label></td>
+                <td><input type="text" class="form-control" name="adminrepassnew"
+                           placeholder="请输入确认密码"></td>
+            </tr>
+            <tr>
+                <td><button type="submit" class="btn btn-default pull-right">更新密码</button></td>
+                <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
+            </tr>
+        </form>
+        </tbody>
+        </div>
+    </table>  
+    <div>
+ 
+</div>
+{% endblock %}

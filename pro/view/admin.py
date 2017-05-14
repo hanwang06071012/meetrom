@@ -88,3 +88,34 @@ def admin_info_edit(id):
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
     tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
     return render_template("admin_edit.html",**locals())
+
+#管理员密码修改
+@app.route("/admin/<id>/pwd",methods=["POST","GET"])
+def admin_pwd_update(id):
+    try:
+        if request.method == "POST":
+            map_where ={}
+            str_adminpassreply = request.form["adminpassreply"].strip()
+            map_where["AdminPassQuestion"] = str_adminpassreply
+            str_adminrepass = request.form["adminrepass"].strip()
+            str_adminpassnew = request.form["adminpassnew"].strip()
+            map_where["AdminPass"] = str_adminpassnew
+            str_adminrepassnew = request.form["adminrepassnew"].strip()
+            map_where["AdminRepass"] = str_adminrepassnew
+            if str_adminpassnew != str_adminrepassnew:
+                return ("新密码与确认密码不一致")
+            str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
+            tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
+            adminpass = tuple_result[0][0]
+            adminpassquestion = tuple_result[0][1]
+            str_sql_where = (" ID = %s")
+            if str_adminpassreply == adminpassquestion:
+                if adminpass == str_adminrepass:
+                    Admin.update_dict(map_where,str_sql_where,[id])
+                    return redirect(url_for("admin_list"))
+                else:
+                    return ("输入原始密码不正确，请返回重新输入")
+            else:
+                return ("密码保护问题不正确，请返回重新输入")
+    except:
+        return render_template("admin_pwd_update.html")
