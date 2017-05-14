@@ -125,7 +125,7 @@ def admin_pwd_update(id):
             else:
                 return ("密码保护问题不正确，请返回重新输入")
             print("================pwd upodate end1===================================")
-        return render_template("admin_pwd_update.html")
+        return render_template("admin_pwd_update.html",**locals())
     except:
         print("================pwd upodate end2===================================")
         return render_template("admin_pwd_update.html",**locals())
