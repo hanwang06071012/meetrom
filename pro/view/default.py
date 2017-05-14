@@ -20,20 +20,24 @@ sys.setdefaultencoding('utf-8')
 
 @app.route('/adminlogin',methods=["POST","GET"])
 def showadminlogin():
-    if request.method == "POST":
-        user = request.form["user"]
-        passwd = request.form["passwd"]
-        str_cols=(" %s,%s" % ("Adminid","AdminName"))
-        str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
-        tuple_id_name = Admin.select(cols=str_cols,where=str_where)
-        if len(tuple_id_name) == 0:
-            return render_template("admin_login.html")
+    try:
+        if request.method == "POST":
+            user = request.form["user"]
+            passwd = request.form["passwd"]
+            str_cols=(" %s,%s" % ("Adminid","AdminName"))
+            str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
+            tuple_id_name = Admin.select(cols=str_cols,where=str_where)
+            if len(tuple_id_name) == 0:
+                return render_template("admin_login.html")
+            else:
+                session["id"] = tuple_id_name[0][0]
+                session["name"] = tuple_id_name[0][1]
+                session["level"] = 0
+                return render_template("admin.html",**locals())
         else:
-            session["id"] = tuple_id_name[0][0]
-            session["name"] = tuple_id_name[0][1]
-            session["level"] = 0
-            return render_template("admin.html")
-    return render_template("admin_login.html")
+            return render_template("admin_login.html")
+    except:
+        return render_template("admin_login.html")
 
 @app.route("/login/admin")
 def adminlogin():
