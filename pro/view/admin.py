@@ -128,3 +128,22 @@ def admin_info_show(id):
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminPassQuestion","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
     tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
     return render_template("admin_info_show.html",**locals())
+
+#个人资料展示
+@app.route("/admin/<id>/picture/up",methods=["POST","GET"])
+def admin_picture_up(id):
+    str_col = (" %s " % ("Adminid"))
+    tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+    if len(tuple_result) != 0:
+        Adminid = tuple_result[0][0]
+    else:
+        Adminid = '0'
+    if request.method = "POST":
+        map_where ={}
+        str_nameplates = request.form["nameplates"]
+        storePicture = str_nameplates.split('/')[-1]
+        map_where["nameplates"] = str_nameplates
+        map_where["storePicture"] = storePicture
+        map_where["Adminid"] = Adminid
+        StorePicture.insert(map_where)
+    return render_template("admin_picture_up.html",**locals())
