@@ -83,7 +83,7 @@ def admin_info_edit(id):
         AdminPhone =request.form["adminPhone"]
         if len(AdminPhone) != 0:
             map_where["AdminPhone"] = AdminPhone
-        str_sql_where = (" ID = %s")
+        str_sql_where = (" ID = %d")
         Admin.update_dict(data=map_where,where=str_sql_where,params=[id])
         return redirect(url_for("admin_list"))
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
