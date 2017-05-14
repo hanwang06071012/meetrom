@@ -32,8 +32,7 @@ def showadminlogin():
                 session["id"] = tuple_id_name[0][0]
                 session["name"] = tuple_id_name[0][1]
                 session["level"] = 0
-                return render_template("admin.html",**locals())
-            return render_template("admin_login.html")
+            return render_template("admin.html",**locals())
         else:
             return render_template("admin_login.html")
     except Exception as e:
