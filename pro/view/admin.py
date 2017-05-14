@@ -97,6 +97,8 @@ def admin_pwd_update(id):
         tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
         adminpass = tuple_result[0][0]
         adminpassquestion = tuple_result[0][1]
+        if len(adminpassquestion) == 0:
+            adminpassquestion = "没有密码保护问题"
         if request.method == "POST":
             map_where ={}
             str_adminpassreply = request.form["adminpassreply"].strip()
