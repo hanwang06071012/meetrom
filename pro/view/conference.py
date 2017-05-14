@@ -52,24 +52,70 @@ def conference_add():
 @app.route("/conference/select",methods=["POST","GET"])
 def conference_select():
     if request.method == 'POST':
-        str_id =request.form["id"]
-        user_name =request.form["user_name"]
-        passwd =request.form["passwd"]
-        confirm_password=request.form["confirm_password"]
-        real_name =request.form["real_name"]
-        age =request.form["age"]
-        sex=request.form["sex"]
-        date_birth =request.form["date_birth"]
-        household_registration =request.form["household_registration"]
-        native_place=request.form["native_place"]
-        ID_number=request.form["ID_number"]
-        professional_title=request.form["professional_title"]
-        address =request.form["address"]
-        user_mail=request.form["user_mail"]
-        contract_phone =request.form["contract_phone"]
-        map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"usersSpecialty":professional_title,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
-        Users.insert(map_data)
+        map_where={}
+        Sqrzh =request.form["sqrzh"]
+        if len(Sqrzh) != 0:
+            map_where["Sqrzh"] = Sqrzh
+        Sqrxm =request.form["sqrxm"]
+        if len(Sqrxm) != 0:
+            map_where["Sqrxm"] = Sqrxm
+        Name =request.form["name"]
+        if len(Name) != 0:
+            map_where["Name"] = Name
+        Didian=request.form["didian"]
+        if len(Didian) != 0:
+            map_where["Didian"] = Didian
+        Duomeiti =request.form["duomeiti"]
+        if len(Duomeiti) != 0:
+            map_where["Duomeiti"] = Duomeiti
+        Rongnarenshu =request.form["rongnarenshu"]
+        if len(Rongnarenshu) != 0:
+            map_where["Rongnarenshu"] = Rongnarenshu
+        Hueiyizhuti=request.form["hueiyizhuti"]
+        if len(Hueiyizhuti) != 0:
+            map_where["Hueiyizhuti"] = Hueiyizhuti
+        Shenqingzhuangtai =request.form["shenqingzhuangtai"]
+        if len(Shenqingzhuangtai) != 0:
+            map_where["Shenqingzhuangtai"] = Shenqingzhuangtai
+        Shenpi =request.form["shenpi"]
+        if len(Shenpi) != 0:
+            map_where["Shenpi"] = Shenpi
+        Shenqliyou=request.form["shenqliyou"]
+        if len(Shenqliyou) != 0:
+            map_where["Shenqliyou"] = Shenqliyou
+        Shenqsjian=request.form["shenqsjian"]
+        if len(Shenqsjian) != 0:
+            map_where["Shenqsjian"] = Shenqsjian
         return redirect(url_for("userlist"))
+        print (map_where)
+        if len(map_where) != 0:
+        for sig_map_where in map_where:
+            key = sig_map_where
+            val = map_where[key]
+            tuple_mid_key_val = (key,val)
+            list_key_val.append(tuple_mid_key_val)
+        int_len_list_key_val = len(list_key_val)
+        print(list_key_val)
+        print(int_len_list_key_val)
+        if int_len_list_key_val == 1:
+            str_sql_mid = (" %s = '%s'" % (list_key_val[0][0],list_key_val[0][1]))
+            str_sql_where += str_sql_mid
+        elif int_len_list_key_val > 1:
+            for i in range(int_len_list_key_val-1):
+                str_sql_mid = (" %s = '%s' and " % (list_key_val[i][0],list_key_val[i][1]))
+                str_sql_where += str_sql_mid
+                print (str_sql_mid)
+                print(str_sql_where)
+            str_sql_mid = (" %s = '%s' " % (list_key_val[int_len_list_key_val-1][0],list_key_val[int_len_list_key_val-1][1]))
+            str_sql_where += str_sql_mid
+            print (str_sql_mid)
+            print(str_sql_where)
+        else:
+            pass
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("ID","Sqrzh","Sqrxm","Name","Didian","Duomeiti","Rongnarenshu","Hueiyizhuti","Shenqingzhuangtai","Shenpi","Shenqliyou","Shenqsjian"))
+        tuple_result = Conference.select(cols=str_col,where=str_sql_where)
+        print(tuple_result)
+        return render_template("conference_list.html",**locals())
     else:
         pass
     return render_template("conference_select.html")
