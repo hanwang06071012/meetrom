@@ -1,0 +1,82 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+	<table class="table table-bordered table-hover">
+		<caption>
+			<button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-th-list"></span>会议室审批
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-trash"></span>删除
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-edit"></span>修改
+			</button>	
+			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  				<span class="glyphicon glyphicon-plus"></span>增加
+			</button>	
+			<p class="pull-right" style="font-size: 10px">
+				 <label><input type="checkbox">全选</label>
+			</p>	
+		</caption>
+		<thead>
+			<tr>
+                <th>选择</th>
+                <th>会议室ID</th>
+                <th>申请人账号</th>
+                <th>申请人姓名</th>
+                <th>会议室名</th>
+                <th>会议室地点</th>
+                <th>是否多媒体教室</th>
+                <th>容纳人数</th>
+                <th>会议主题</th>
+                <th>申请状态</th>
+                <th>会议室审批</th>
+                <th>申请理由</th>
+                <th>申请时间</th>
+                <th>同意</th>
+                <th>不同意</th>
+			</tr>
+		</thead>
+		<tbody>
+            {% for result in tuple_result %}
+                <tr>
+                    <td><input type="checkbox" name=""></td>
+                    <td>{{ result[0] }}</td>
+                    <td>{{ result[1] }}</td>
+                    <td>{{ result[2] }}</td>
+                    <td>{{ result[3] }}</td>
+                    <td>{{ result[4] }}</td>
+                    <td>{{ result[5] }}</td>
+                    <td>{{ result[6] }}</td>
+                    <td>{{ result[7] }}</td>
+                    <td>{{ result[8] }}</td>
+                    <td>{{ result[9] }}</td>
+                    <td>{{ result[10] }}</td>
+                    <td>{{ result[11] }}</td>
+                    <td>同意</td>
+                    <td>不同意</td>
+                </tr>
+            {% endfor %}
+		</tbody>
+	</table>
+    <p class="pull-left">共{{total_page_num}}条记录,</p>
+	<p class="pull-left">当前第{{total_page_num}}页,</p>
+	<p class="pull-left">每页10条记录</p>
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-trash"></span>转
+	</button>	
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-edit"></span>尾页
+	</button>	
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>下一页
+  	</button>
+  	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>上一页
+  	</button>
+	<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+  		<span class="glyphicon glyphicon-plus"></span>首页
+  	</button>
+</div>
+{% endblock %}
