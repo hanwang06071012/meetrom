@@ -94,7 +94,7 @@ def admin_info_edit(id):
 def admin_pwd_update(id):
     try:
         str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
-        tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))
+        tuple_result = Admin.select(cols=str_col,where=(" ID =%s" % (id)))
         adminpass = tuple_result[0][0]
         adminpassquestion = tuple_result[0][1]
         if len(adminpassquestion) == 0:
