@@ -33,6 +33,7 @@ def showadminlogin():
             session["name"] = tuple_id_name[0][1]
             session["level"] = 0
             return render_template("admin.html")
+    return render_template("admin_login.html")
 
 @app.route("/login/admin")
 def adminlogin():
