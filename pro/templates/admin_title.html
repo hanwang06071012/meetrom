@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block admin %}
-<button class="btn btn-info" style="width: 100%;">当前用户:{{user}}</button>
+<button class="btn btn-info" style="width: 100%;">当前用户:{{ session["name"] }}</button>
 <button class="btn btn-warning" style="width: 100%;">管理菜单</button>
 <div class="container">
     <div class="panel-group" id="accordion">

@@ -24,9 +24,15 @@ def showadminlogin():
         user = request.form["user"]
         passwd = request.form["passwd"]
         str_cols=(" %s,%s" % ("Adminid","AdminName"))
-        str_where = (" AdminName=%s and AdminPass=%s" % (user,passwd))
-        Admin.select(cols=str_cols,where=str_where)
-    return render_template("admin_login.html")
+        str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
+        tuple_id_name = Admin.select(cols=str_cols,where=str_where)
+        if len(tuple_id_name) == 0:
+            return render_template("admin_login.html")
+        else:
+            session["id"] = tuple_id_name[0][0]
+            session["name"] = tuple_id_name[0][1]
+            session["level"] = 0
+            return render_template("admin.html")
 
 @app.route("/login/admin")
 def adminlogin():
