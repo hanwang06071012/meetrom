@@ -51,7 +51,7 @@ class Bean(object):
 		sql = 'UPDATE `%s` SET %s' %(cls._tbl,clause)
 		print("==================update start==========================")
 		print(sql)
-		print(clause)
+		print(params)
 		print("==================update end=============================")
 		return db.update(sql,params)
 
