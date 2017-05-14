@@ -123,3 +123,10 @@ def admin_pwd_update(id):
         return render_template("admin_pwd_update.html",**locals())
     except:
         return render_template("admin_pwd_update.html",**locals())
+
+#个人资料展示
+@app.route("/admin/<id>/info/show",methods=["POST","GET"])
+def admin_info_show(id):
+    str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminPassQuestion","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
+    tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+    return render_template("admin_info_show.html",**locals())
