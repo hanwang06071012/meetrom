@@ -138,7 +138,7 @@ def admin_picture_up(id):
         Adminid = tuple_result[0][0]
     else:
         Adminid = '0'
-    if request.method = "POST":
+    if request.method == "POST":
         map_where ={}
         str_nameplates = request.form["nameplates"]
         storePicture = str_nameplates.split('/')[-1]
