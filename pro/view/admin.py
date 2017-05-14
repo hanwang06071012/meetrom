@@ -93,10 +93,15 @@ def admin_info_edit(id):
 @app.route("/admin/<id>/pwd",methods=["POST","GET"])
 def admin_pwd_update(id):
     try:
+        print("================pwd upodate start===================================")
         str_col = (" %s,%s " % ("AdminPass","AdminPassQuestion"))
-        tuple_result = Admin.select(cols=str_col,where=(" ID =%s" % (id)))
+        tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+        print("tuple_result=[%s]" % tuple_result)
+        print("str_col=[%s]" % str_col)
         adminpass = tuple_result[0][0]
         adminpassquestion = tuple_result[0][1]
+        print("adminpass=[%s]" % adminpass)
+        print("adminpassquestion=[%s]" % adminpassquestion)
         if len(adminpassquestion) == 0:
             adminpassquestion = "没有密码保护问题"
         if request.method == "POST":
@@ -119,6 +124,8 @@ def admin_pwd_update(id):
                     return ("输入原始密码不正确，请返回重新输入")
             else:
                 return ("密码保护问题不正确，请返回重新输入")
+            print("================pwd upodate end1===================================")
         return render_template("admin_pwd_update.html")
     except:
+        print("================pwd upodate end2===================================")
         return render_template("admin_pwd_update.html",**locals())
