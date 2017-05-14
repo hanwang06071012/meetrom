@@ -20,7 +20,7 @@ sys.setdefaultencoding('utf-8')
 
 #用户信息查询
 @app.route("/admin/list")
-def adminlist():
+def admin_list():
     try:
         str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","Adminid","AdminName","AdminPhone","AdminEmail","AdminCsrq"))
         tuple_result = Admin.select(cols=str_col)
@@ -31,7 +31,7 @@ def adminlist():
 
 #用户信息查询
 @app.route("/admin/<id>/info")
-def admininfo(id):
+def admin_info(id):
     try:
         str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","Adminid","AdminName","AdminPhone","AdminEmail","AdminCsrq"))
         tuple_result = Admin.select(cols=str_col,where=("usersid=%s" % (id)))

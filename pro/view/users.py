@@ -20,7 +20,7 @@ sys.setdefaultencoding('utf-8')
 
 #用户列表
 @app.route("/users/list")
-def userlist():
+def user_list():
     str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
     tuple_result = Users.select(cols=str_col)
     return render_template("users_list.html",**locals())

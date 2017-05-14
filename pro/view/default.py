@@ -27,7 +27,7 @@ def adminlogin():
     return render_template("admin.html")
 
 @app.route("/title/admin")
-def admintitle():
+def admin_title():
     user="test"
     return render_template("admin_title.html",**locals())
 
