@@ -58,6 +58,7 @@ def conference_select():
         Sqrzh =request.form["sqrzh"]
         if len(Sqrzh) != 0:
             map_where["Sqrzh"] = Sqrzh
+        print("================conference select come2=================================")
         Sqrxm =request.form["sqrxm"]
         if len(Sqrxm) != 0:
             map_where["Sqrxm"] = Sqrxm
@@ -88,7 +89,6 @@ def conference_select():
         Shenqsjian=request.form["shenqsjian"]
         if len(Shenqsjian) != 0:
             map_where["Shenqsjian"] = Shenqsjian
-        print("================conference select come2=================================")
         print (map_where)
         if len(map_where) != 0:
             for sig_map_where in map_where:
