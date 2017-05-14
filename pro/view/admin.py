@@ -108,6 +108,7 @@ def admin_pwd_update(id):
             map_where ={}
             str_adminpassreply = request.form["adminpassreply"].strip()
             map_where["AdminPassQuestion"] = str_adminpassreply
+            print("str_adminpassreply=[%s]" % str_adminpassreply)
             str_adminrepass = request.form["adminrepass"].strip()
             str_adminpassnew = request.form["adminpassnew"].strip()
             map_where["AdminPass"] = str_adminpassnew
