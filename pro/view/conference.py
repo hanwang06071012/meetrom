@@ -89,11 +89,11 @@ def conference_select():
         return redirect(url_for("userlist"))
         print (map_where)
         if len(map_where) != 0:
-        for sig_map_where in map_where:
-            key = sig_map_where
-            val = map_where[key]
-            tuple_mid_key_val = (key,val)
-            list_key_val.append(tuple_mid_key_val)
+            for sig_map_where in map_where:
+                key = sig_map_where
+                val = map_where[key]
+                tuple_mid_key_val = (key,val)
+                list_key_val.append(tuple_mid_key_val)
         int_len_list_key_val = len(list_key_val)
         print(list_key_val)
         print(int_len_list_key_val)
