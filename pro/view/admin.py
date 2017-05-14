@@ -44,18 +44,15 @@ def admin_info(id):
 def admin_info_edit(id):
     map_where={}
     if request.method == "POST":
-        print("come1")
         Adminid =request.form["adminid"]
         if len(Adminid) != 0:
             map_where["Adminid"] = Adminid
-        print("come2")
         AdminName =request.form["adminName"]
         if len(AdminName) != 0:
             map_where["AdminName"] = AdminName
         AdminTrueName =request.form["adminTrueName"]
         if len(AdminTrueName) != 0:
             map_where["AdminTrueName"] = AdminTrueName
-        print("come3")
         AdminAddress =request.form["adminAddress"]
         if len(AdminAddress) != 0:
             map_where["AdminAddress"] = AdminAddress
@@ -68,7 +65,6 @@ def admin_info_edit(id):
         AdminHuji =request.form["adminHuji"]
         if len(AdminHuji) != 0:
             map_where["AdminHuji"] = AdminHuji
-        print("come4")
         AdminIDcard =request.form["adminIDcard"]
         if len(AdminIDcard) != 0:
             map_where["AdminIDcard"] = AdminIDcard
@@ -81,16 +77,14 @@ def admin_info_edit(id):
         AdminAge =request.form["adminAge"]
         if len(AdminAge) != 0:
             map_where["AdminAge"] = AdminAge
-        print("come5")
         AdminSex =request.form["adminSex"]
         if len(AdminSex) != 0:
             map_where["AdminSex"] = AdminSex
         AdminPhone =request.form["adminPhone"]
         if len(AdminPhone) != 0:
             map_where["AdminPhone"] = AdminPhone
-        print("come6")
-        str_sql_where = (" ID = %s" % id)
-        Admin.update_dict(data=map_where,where=str_sql_where)
+        str_sql_where = (" ID = %s")
+        Admin.update_dict(data=map_where,where=str_sql_where,params=[id])
         return redirect(url_for("admin_list"))
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
     tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
