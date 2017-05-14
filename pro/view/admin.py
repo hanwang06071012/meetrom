@@ -141,8 +141,8 @@ def admin_picture_up(id):
     if request.method == "POST":
         map_where ={}
         str_nameplates = request.form["nameplates"]
-        storePicture = str_nameplates.split('/')[-1]
         map_where["nameplates"] = str_nameplates
+        storePicture = str_nameplates.split('/')[-1]
         map_where["storePicture"] = storePicture
         map_where["Adminid"] = Adminid
         StorePicture.insert(map_where)
