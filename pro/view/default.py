@@ -26,6 +26,7 @@ def showadminlogin():
             passwd = request.form["passwd"]
             str_cols=(" %s,%s" % ("Adminid","AdminName"))
             str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
+            print(str_where)
             tuple_id_name = Admin.select(cols=str_cols,where=str_where)
             if len(tuple_id_name) != 0:
                 session["id"] = tuple_id_name[0][0]
