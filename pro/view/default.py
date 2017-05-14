@@ -18,8 +18,14 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-@app.route('/adminlogin')
+@app.route('/adminlogin',methods=["POST","GET"])
 def showadminlogin():
+    if request.method == "POST":
+        user = request.form["user"]
+        passwd = request.form["passwd"]
+        str_cols=(" %s,%s" % ("Adminid","AdminName"))
+        str_where = (" AdminName=%s and AdminPass=%s" % (user,passwd))
+        Admin.select(cols=str_cols,where=str_where)
     return render_template("admin_login.html")
 
 @app.route("/login/admin")

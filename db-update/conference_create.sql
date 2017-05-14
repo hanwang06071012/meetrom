@@ -21,6 +21,7 @@ CREATE TABLE Conference (
     Shenpi VARCHAR(40), -- 会议室审批
     Shenqliyou VARCHAR(40), -- 申请理由
     Shenqsjian VARCHAR(40), -- 申请时间
+    UNIQUE(Sqrzh), -- 唯一约束符
 	PRIMARY KEY(ID)
 )
  ENGINE =InnoDB

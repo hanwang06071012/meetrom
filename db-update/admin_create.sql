@@ -27,7 +27,7 @@ CREATE TABLE Admin (
     AdminAge VARCHAR(40), -- 管理员年龄
     AdminSex VARCHAR(40), -- 管理员性别
     AdminPhone VARCHAR(100) NOT NULL, -- 联系电话
-    UNIQUE(Adminid), -- 唯一约束符
+    UNIQUE(Adminid,AdminName), -- 唯一约束符
 	PRIMARY KEY(ID)
 )
  ENGINE =InnoDB
