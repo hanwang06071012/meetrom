@@ -51,6 +51,7 @@ def conference_add():
 #展示会议室
 @app.route("/conference/select",methods=["POST","GET"])
 def conference_select():
+    print("================conference select start=================================")
     if request.method == 'POST':
         map_where={}
         Sqrzh =request.form["sqrzh"]
@@ -115,9 +116,11 @@ def conference_select():
         str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("ID","Sqrzh","Sqrxm","Name","Didian","Duomeiti","Rongnarenshu","Hueiyizhuti","Shenqingzhuangtai","Shenpi","Shenqliyou","Shenqsjian"))
         tuple_result = Conference.select(cols=str_col,where=str_sql_where)
         print(tuple_result)
+        print("================conference select end1=================================")
         return render_template("conference_list.html",**locals())
     else:
         pass
+    print("================conference select end2=================================")
     return render_template("conference_select.html")
 
 #用户列表
