@@ -117,5 +117,6 @@ def admin_pwd_update(id):
                     return ("输入原始密码不正确，请返回重新输入")
             else:
                 return ("密码保护问题不正确，请返回重新输入")
+        return render_template("admin_pwd_update.html")
     except:
         return render_template("admin_pwd_update.html")
