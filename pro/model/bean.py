@@ -46,17 +46,13 @@ class Bean(object):
 		return db.update(sql,[pk])
 
 	@classmethod
-	def update(cls,clause=None,where='',params=None):
+	def update(cls, clause=None, params=None):
 		db = cls.getdb()
-		sql = 'UPDATE `%s` SET %s' %(cls._tbl,clause)
-		print("==================update start==========================")
-		print(sql)
-		print(params)
-		print("==================update end=============================")
-		return db.update(sql,params)
+		sql = 'UPDATE `%s` SET %s' % (cls._tbl, clause)
+		return db.update(sql, params)
 
 	@classmethod
-	def update_dict(cls,data=None,where='',params=None):
+	def update_dict(cls, data=None, where='', params=None):
 		if not data:
 			raise ValueError('argument data is invalid')
 		db = cls.getdb()
@@ -64,12 +60,13 @@ class Bean(object):
 		keys = data.keys()
 		safe_keys = ['`%s`' % k for k in keys]
 		values = [data[key] for key in keys]
-		arr = ['%s=%%s'% key for key in safe_keys]
+		arr = ['%s=%%s' % key for key in safe_keys]
 		if not where:
-			return cls.update(','.join(arr),values)
+			return cls.update(','.join(arr), values)
 		else:
 			values.extend(params)
-			return cls.update(', '.join(arr) + 'WHERE' + where,values)
+			return cls.update(', '.join(arr) + ' WHERE ' + where, values)
+
 
  	@classmethod
 	def select(cls, cols=None, where=None, params=None, order=None, limit=None, page=None, offset=None):
