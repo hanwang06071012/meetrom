@@ -18,27 +18,31 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
-#展示会议室
+#会议室列表
+@app.route("/conference/list")
+def conference_list():
+    str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("ID","Sqrzh","Sqrxm","Name","Didian","Duomeiti","Rongnarenshu","Hueiyizhuti","Shenqingzhuangtai","Shenpi","Shenqliyou","Shenqsjian"))
+    tuple_result = Conference.select(cols=str_col)
+    return render_template("conference_list.html",**locals())
+
+
+#增加会议室
 @app.route("/conference/add",methods=["POST","GET"])
 def conference_add():
     if request.method == 'POST':
-        str_id =request.form["id"]
-        user_name =request.form["user_name"]
-        passwd =request.form["passwd"]
-        confirm_password=request.form["confirm_password"]
-        real_name =request.form["real_name"]
-        age =request.form["age"]
-        sex=request.form["sex"]
-        date_birth =request.form["date_birth"]
-        household_registration =request.form["household_registration"]
-        native_place=request.form["native_place"]
-        ID_number=request.form["ID_number"]
-        professional_title=request.form["professional_title"]
-        address =request.form["address"]
-        user_mail=request.form["user_mail"]
-        contract_phone =request.form["contract_phone"]
-        map_data = {"usersid":str_id,"usersName":user_name,"usersPass":passwd,"usersRepass":confirm_password,"usersTrueName":real_name,"usersAge":age,"usersSex":sex,"usersCsrq":date_birth,"usersHuji":household_registration,"usersJiguan":native_place,"usersIDcard":ID_number,"usersSpecialty":professional_title,"usersAddress":address,"usersEmail":user_mail,"usersPhone":contract_phone}
-        Users.insert(map_data)
+        Sqrzh =request.form["sqrzh"]
+        Sqrxm =request.form["sqrxm"]
+        Name =request.form["name"]
+        Didian=request.form["didian"]
+        Duomeiti =request.form["duomeiti"]
+        Rongnarenshu =request.form["rongnarenshu"]
+        Hueiyizhuti=request.form["hueiyizhuti"]
+        Shenqingzhuangtai =request.form["shenqingzhuangtai"]
+        Shenpi =request.form["shenpi"]
+        Shenqliyou=request.form["shenqliyou"]
+        Shenqsjian=request.form["shenqsjian"]
+        map_data = {"Sqrzh":Sqrzh,"Sqrxm":Sqrxm,"Name":Name,"Didian":Didian,"Duomeiti":Duomeiti,"Rongnarenshu":Rongnarenshu,"Hueiyizhuti":Hueiyizhuti,"Shenqingzhuangtai":Shenqingzhuangtai,"Shenpi":Shenpi,"Shenqliyou":Shenqliyou,"Shenqsjian":Shenqsjian}
+        Conference.insert(map_data)
         return redirect(url_for("userlist"))
     else:
         pass
