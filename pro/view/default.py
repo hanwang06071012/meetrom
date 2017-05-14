@@ -20,6 +20,7 @@ sys.setdefaultencoding('utf-8')
 
 @app.route('/adminlogin',methods=["POST","GET"])
 def showadminlogin():
+    return render_template("admin.html",**locals())
     try:
         if request.method == "POST":
             user = request.form["user"]
