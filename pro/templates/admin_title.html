@@ -52,7 +52,7 @@
             <div id="collapseThree" class="panel-collapse collapse">
                 <div class="panel-body">
                     <p><a href="{{ url_for('admin_info_edit',id=session['id']) }}" target="show">修改个人资料</a></p>
-                    <p><a href="http://www.sina.com.cn/" target="show">修改密码</a></p>
+                    <p><a href="{{ url_for('admin_pwd_update',id=session['id']) }}" target="show">修改密码</a></p>
                     <p><a href="http://www.sina.com.cn/" target="show">上传照片</a></p>
                     <p><a href="https://www.baidu.com/" target="show">个人信息</a></p>
                 </div>
