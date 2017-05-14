@@ -52,8 +52,8 @@ def conference_add():
 @app.route("/conference/select",methods=["POST","GET"])
 def conference_select():
     print("================conference select start=================================")
+    map_where={}
     if request.method == 'POST':
-        map_where={}
         Sqrzh =request.form["sqrzh"]
         if len(Sqrzh) != 0:
             map_where["Sqrzh"] = Sqrzh
@@ -87,7 +87,7 @@ def conference_select():
         Shenqsjian=request.form["shenqsjian"]
         if len(Shenqsjian) != 0:
             map_where["Shenqsjian"] = Shenqsjian
-        return redirect(url_for("userlist"))
+        print("================conference select come1=================================")
         print (map_where)
         if len(map_where) != 0:
             for sig_map_where in map_where:
