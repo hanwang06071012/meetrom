@@ -36,8 +36,6 @@ def showadminlogin():
                 return render_template("admin.html",**locals())
         else:
             return render_template("admin_login.html")
-    except:
-        return render_template("admin_login.html")
 
 @app.route("/login/admin")
 def adminlogin():
