@@ -53,6 +53,8 @@ def conference_add():
 def conference_select():
     print("================conference select start=================================")
     map_where={}
+    list_key_val=[]
+    str_sql_where=""
     if request.method == 'POST':
         print("================conference select come1=================================")
         Sqrzh =request.form["sqrzh"]
