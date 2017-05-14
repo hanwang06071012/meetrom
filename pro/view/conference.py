@@ -43,7 +43,7 @@ def conference_add():
         Shenqsjian=request.form["shenqsjian"]
         map_data = {"Sqrzh":Sqrzh,"Sqrxm":Sqrxm,"Name":Name,"Didian":Didian,"Duomeiti":Duomeiti,"Rongnarenshu":Rongnarenshu,"Hueiyizhuti":Hueiyizhuti,"Shenqingzhuangtai":Shenqingzhuangtai,"Shenpi":Shenpi,"Shenqliyou":Shenqliyou,"Shenqsjian":Shenqsjian}
         Conference.insert(map_data)
-        return redirect(url_for("userlist"))
+        return redirect(url_for("conference_list"))
     else:
         pass
     return render_template("conference_add.html")
