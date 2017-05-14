@@ -49,6 +49,10 @@ class Bean(object):
 	def update(cls,clause=None,where='',params=None):
 		db = cls.getdb()
 		sql = 'UPDATE `%s` SET %s' %(cls._tbl,clause)
+		print("==================update start==========================")
+		print(sql)
+		print(clause)
+		print("==================update end=============================")
 		return db.update(sql,params)
 
 	@classmethod
