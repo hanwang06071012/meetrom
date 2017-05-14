@@ -88,4 +88,4 @@ def admin_info_edit(id):
         return redirect(url_for("admin_list"))
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
     tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
-    return render_template("admin_update.html",**locals())
+    return render_template("admin_edit.html",**locals())
