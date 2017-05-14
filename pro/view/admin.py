@@ -44,9 +44,6 @@ def admin_info(id):
 def admin_info_edit(id):
     map_where={}
     if request.method == "POST":
-        Adminid =request.form["adminid"]
-        if len(Adminid) != 0:
-            map_where["Adminid"] = Adminid
         AdminName =request.form["adminName"]
         if len(AdminName) != 0:
             map_where["AdminName"] = AdminName
