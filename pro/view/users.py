@@ -95,7 +95,6 @@ def user_select():
         usersPhone =request.form["contract_phone"]
         if len(usersPhone) != 0:
             map_where["usersPhone"] = usersPhone
-        print (map_where)
         if len(map_where) != 0:
             for sig_map_where in map_where:
                     key = sig_map_where
@@ -103,8 +102,6 @@ def user_select():
                     tuple_mid_key_val = (key,val)
                     list_key_val.append(tuple_mid_key_val)
         int_len_list_key_val = len(list_key_val)
-        print(list_key_val)
-        print(int_len_list_key_val)
         if int_len_list_key_val == 1:
             str_sql_mid = (" %s = '%s'" % (list_key_val[0][0],list_key_val[0][1]))
             str_sql_where += str_sql_mid
@@ -112,17 +109,12 @@ def user_select():
             for i in range(int_len_list_key_val-1):
                 str_sql_mid = (" %s = '%s' and " % (list_key_val[i][0],list_key_val[i][1]))
                 str_sql_where += str_sql_mid
-                print (str_sql_mid)
-                print(str_sql_where)
             str_sql_mid = (" %s = '%s' " % (list_key_val[int_len_list_key_val-1][0],list_key_val[int_len_list_key_val-1][1]))
             str_sql_where += str_sql_mid
-            print (str_sql_mid)
-            print(str_sql_where)
         else:
             pass
         str_col = (" %s,%s,%s,%s,%s,%s " % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
         tuple_result = Users.select(cols=str_col,where=str_sql_where)
-        print(tuple_result)
         return render_template("users_list.html",**locals())
     else:
         pass
