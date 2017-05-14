@@ -83,7 +83,7 @@ def admin_info_edit(id):
         str_sql_where = (" ID = %d")
         print(map_where)
         print("str_sql=%s" % str_sql_where)
-        Admin.update_dict(data=map_where,where=str_sql_where,params=[id])
+        Admin.update_dict(map_where,str_sql_where,[id])
         return redirect(url_for("admin_list"))
     str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
     tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
