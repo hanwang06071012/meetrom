@@ -27,7 +27,7 @@ def showadminlogin():
         passwd = request.form["passwd"]
         str_cols=(" %s,%s" % ("Adminid","AdminName"))
         print("come to 3")
-        str_where = (" (AdminName=%s and AdminPass=%s) " % (user,passwd))
+        str_where = (" (AdminName='%s' and AdminPass='%s') " % (user,passwd))
         print(str_where)
         tuple_id_name = Admin.select(cols=str_cols,where=str_where)
         if len(tuple_id_name) != 0:
