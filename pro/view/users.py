@@ -52,6 +52,42 @@ def user_add():
         pass
     return render_template("users_add.html")
 
+#用户注册模块
+@app.route("/users/registered",methods=["POST","GET"])
+def user_registered():
+    if request.method == 'POST':
+        usersid =request.form["id"]
+        usersName =request.form["user_name"]
+        usersPass =request.form["passwd"]
+        usersRepass=request.form["confirm_password"]
+        usersTrueName =request.form["real_name"]
+        usersAge =request.form["age"]
+        usersSex=request.form["sex"]
+        usersCsrq =request.form["date_birth"]
+        usersHuji =request.form["household_registration"]
+        usersJiguan=request.form["native_place"]
+        usersIDcard=request.form["ID_number"]
+        usersSpecialty=request.form["professional_title"]
+        usersAddress =request.form["address"]
+        usersEmail=request.form["user_mail"]
+        usersPhone =request.form["contract_phone"]
+        createDate=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+        map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone,"createDate":createDate}
+        Users.insert(map_data)
+        str_col = (" %s " % ("ID"))
+        str_sql_where = (" usersid = %s " % usersid)
+        tuple_result = Users.select(cols=str_col,where=str_sql_where)
+        if len(tuple_result) > 0:
+            session["id"] = tuple_result[0][0]
+            session["adminid"] = usersid
+            session["name"] = usersName
+            session["level"] = 1
+            return redirect(url_for("showadminlogin"))
+    else:
+        pass
+    return render_template("users_registered.html")
+
+
 #添加展示用户
 @app.route("/users/select",methods=["POST","GET"])
 def user_select():
