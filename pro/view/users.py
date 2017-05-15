@@ -60,6 +60,8 @@ def user_registered():
         usersName =request.form["user_name"]
         usersPass =request.form["passwd"]
         usersRepass=request.form["confirm_password"]
+        usersPassQuestion=request.form["userspassquestion"]
+        usersPassReply =request.form["userspassreply"]
         usersTrueName =request.form["real_name"]
         usersAge =request.form["age"]
         usersSex=request.form["sex"]
@@ -72,7 +74,7 @@ def user_registered():
         usersEmail=request.form["user_mail"]
         usersPhone =request.form["contract_phone"]
         createDate=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
-        map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone,"createDate":createDate}
+        map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersPassQuestion":usersPassQuestion,"usersPassReply":usersPassReply,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone,"createDate":createDate}
         Users.insert(map_data)
         str_col = (" %s " % ("ID"))
         str_sql_where = (" usersid = %s " % usersid)
