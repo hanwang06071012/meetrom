@@ -82,7 +82,7 @@ def user_registered():
             session["adminid"] = usersid
             session["name"] = usersName
             session["level"] = 1
-            return redirect(url_for("showadminlogin"))
+            return redirect(url_for("adminlogin"))
     else:
         pass
     return render_template("users_registered.html")
