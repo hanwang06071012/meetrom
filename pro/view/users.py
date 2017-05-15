@@ -47,7 +47,7 @@ def user_add():
         createDate=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
         map_data = {"usersid":usersid,"usersName":usersName,"usersPass":usersPass,"usersRepass":usersRepass,"usersTrueName":usersTrueName,"usersAge":usersAge,"usersSex":usersSex,"usersCsrq":usersCsrq,"usersHuji":usersHuji,"usersJiguan":usersJiguan,"usersIDcard":usersIDcard,"usersSpecialty":usersSpecialty,"usersAddress":usersAddress,"usersEmail":usersEmail,"usersPhone":usersPhone,"createDate":createDate}
         Users.insert(map_data)
-        return redirect(url_for("userlist"))
+        return redirect(url_for("users_list"))
     else:
         pass
     return render_template("users_add.html")

@@ -15,13 +15,16 @@
 
 .login-admin
 {
-	width: 300px;
-    height: 200px;
+    width: 500px;
+    height: 300px;
+    margin:150px 200px 200px 500px;
+    background-image: url('/static/img/bj.jpg');
 }
 .login-admin-input
 {
-	width: 200px;
-    height: 100px;
+    width: 400px;
+    height: 200px;
+    margin: 50px 30px;
 }
 .users-list
 {
