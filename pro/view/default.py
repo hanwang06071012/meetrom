@@ -46,3 +46,11 @@ def admin_title():
     user="test"
     return render_template("admin_title.html",**locals())
 
+@app.route("/sys/out")
+def sys_out():
+    session["id"] = ''
+    session["adminid"] = ''
+    session["name"] = ''
+    session["level"] = -1
+    return render_template("admin_login.html")
+
