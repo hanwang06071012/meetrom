@@ -1,6 +1,6 @@
 {% extends "layout.html" %}
 {% block admin %}
-<button class="btn btn-info" style="width: 100%;">当前用户:{{ session["name"] }}  <a href="{{ url_for('sys_out') }}">退出</a></button>
+<button class="btn btn-info" style="width: 100%;">当前用户:{{ session["name"] }}  <a href="javascript:function(){ window.location.href={{ url_for('adminlogin')}} }">退出</a></button>
 <button class="btn btn-warning" style="width: 100%;">管理菜单</button>
 <div class="container">
     <div class="panel-group" id="accordion">
