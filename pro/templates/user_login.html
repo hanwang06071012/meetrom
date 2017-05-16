@@ -1,0 +1,21 @@
+{% extends "layout.html" %}
+{% block login %}
+<div class="container login-admin well well-lg">
+	<div class="login-admin-input">
+		<form class="bs-example bs-example-form" role="form" method="post" action="/userlogin">
+			<div class="input-group input-group-lg">
+				<span class="input-group-addon">用户</span>
+				<input type="text" class="form-control" name="user" placeholder="请输入用户名">
+			</div><br>
+			<div class="input-group input-group-lg">
+				<span class="input-group-addon">密码</span>
+				<input type="password" class="form-control" name="passwd" placeholder="请输入密码">
+			</div><br>
+			<div class="input-group input-group-lg">
+				<button type="submit" class="btn btn-default">登陆</button>
+				<button class="btn btn-default"><a href="{{ url_for('user_registered') }}">注册</a></button>
+			</div>
+		</form>
+	</div>
+</div>
+{% endblock %}
