@@ -20,7 +20,9 @@
                     {% endif %}
                     <p><a href="{{ url_for('user_select') }}" target="show">查询用户</a></p>
                     <p><a href="{{ url_for('users_list')}}" target="show">用户信息</a></p>
-                    <p><a href="{{ url_for('admin_list')}}" target="show">管理员信息</a></p>
+                    {%if session['level'] == 0 %}
+                        <p><a href="{{ url_for('admin_list')}}" target="show">管理员信息</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -38,7 +40,9 @@
                     <p><a href="{{ url_for('conference_add') }}" target="show">添加会议室</a></p>
                     <p><a href="{{ url_for('conference_select') }}" target="show">查询会议室</a></p>
                     <p><a href="{{ url_for('conference_list') }}" target="show">会议室信息</a></p>
-                    <p><a href="{{ url_for('conference_sure') }}" target="show">会议室审批</a></p>
+                    {%if session['level'] == 0 %}
+                        <p><a href="{{ url_for('conference_sure') }}" target="show">会议室审批</a></p>
+                    {% endif %}
                 </div>
             </div>
         </div>
