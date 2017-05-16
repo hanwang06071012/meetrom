@@ -7,7 +7,7 @@
 #备注：无
 #============================================================
 from flask import Flask,session,url_for
-from flask import render_template,request
+from flask import render_template,request,redirect
 from pro import app
 from pro.model.admin  import Admin
 from pro.model.conference import Conference
