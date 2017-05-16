@@ -4,7 +4,11 @@
 <button class="btn btn-warning" style="width: 100%;">管理菜单</button>
 <div class="container">
     <div class="panel-group" id="accordion">
+    {%if session['level'] == 0 %}
         <div class="panel panel-info">
+    {% else %}
+        <div class="panel panel-info hidden">
+    {% endif %}
             <div class="panel-heading">
                 <h4 class="panel-title">
                     <a data-toggle="collapse" data-parent="#accordion" 
@@ -15,14 +19,10 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-                    {%if session['level'] == 0 %}
-                        <p><a href="{{ url_for('user_add') }}" target="show">添加用户</a></p>
-                    {% endif %}
+                    <p><a href="{{ url_for('user_add') }}" target="show">添加用户</a></p>
                     <p><a href="{{ url_for('user_select') }}" target="show">查询用户</a></p>
                     <p><a href="{{ url_for('users_list')}}" target="show">用户信息</a></p>
-                    {%if session['level'] == 0 %}
-                        <p><a href="{{ url_for('admin_list')}}" target="show">管理员信息</a></p>
-                    {% endif %}
+                    <p><a href="{{ url_for('admin_list')}}" target="show">管理员信息</a></p>
                 </div>
             </div>
         </div>
