@@ -25,7 +25,7 @@ def showadminlogin():
         user = request.form["user"]
         passwd = request.form["passwd"]
         usertype = request.form["usertype"]
-        if usertype = 0:
+        if usertype == 0:
             str_cols=(" %s,%s,%s" % ("ID","usersid","usersName"))
             str_where = (" (usersName='%s' and usersPass='%s') " % (user,passwd))
             tuple_id_name = Users.select(cols=str_cols,where=str_where)
