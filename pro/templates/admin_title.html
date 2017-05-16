@@ -15,7 +15,9 @@
             </div>
             <div id="collapseOne" class="panel-collapse collapse in">
                 <div class="panel-body">
-                    <p><a href="{{ url_for('user_add') }}" target="show">添加用户</a></p>
+                    {%if session['level'] == 0 %}
+                        <p><a href="{{ url_for('user_add') }}" target="show">添加用户</a></p>
+                    {% endif %}
                     <p><a href="{{ url_for('user_select') }}" target="show">查询用户</a></p>
                     <p><a href="{{ url_for('users_list')}}" target="show">用户信息</a></p>
                     <p><a href="{{ url_for('admin_list')}}" target="show">管理员信息</a></p>
