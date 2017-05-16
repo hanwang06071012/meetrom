@@ -18,14 +18,21 @@ from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
 
+#用户登陆界面
 @app.route('/adminlogin',methods=["POST","GET"])
 def showadminlogin():
     if request.method == "POST":
         user = request.form["user"]
         passwd = request.form["passwd"]
-        str_cols=(" %s,%s,%s" % ("ID","Adminid","AdminName"))
-        str_where = (" (AdminName='%s' and AdminPass='%s') " % (user,passwd))
-        tuple_id_name = Admin.select(cols=str_cols,where=str_where)
+        usertype = request.form["usertype"]
+        if usertype = 0:
+            str_cols=(" %s,%s,%s" % ("ID","usersid","usersName"))
+            str_where = (" (usersName='%s' and usersPass='%s') " % (user,passwd))
+            tuple_id_name = Users.select(cols=str_cols,where=str_where)
+        else:
+            str_cols=(" %s,%s,%s" % ("ID","Adminid","AdminName"))
+            str_where = (" (AdminName='%s' and AdminPass='%s') " % (user,passwd))
+            tuple_id_name = Admin.select(cols=str_cols,where=str_where)
         if len(tuple_id_name) != 0:
             session["id"] = tuple_id_name[0][0]
             session["adminid"] = tuple_id_name[0][1]
@@ -41,9 +48,13 @@ def user_login():
     if request.method == "POST":
         user = request.form["user"]
         passwd = request.form["passwd"]
-        str_cols=(" %s,%s,%s" % ("ID","usersid","usersName"))
-        str_where = (" (usersName='%s' and usersPass='%s') " % (user,passwd))
-        tuple_id_name = Users.select(cols=str_cols,where=str_where)
+        usertype = request.form["usertype"]
+        if usertype = 1:
+            str_cols=(" %s,%s,%s" % ("ID","usersid","usersName"))
+            str_where = (" (usersName='%s' and usersPass='%s') " % (user,passwd))
+            tuple_id_name = Users.select(cols=str_cols,where=str_where)
+        else:
+
         if len(tuple_id_name) != 0:
             session["id"] = tuple_id_name[0][0]
             session["usersid"] = tuple_id_name[0][1]
@@ -69,5 +80,5 @@ def sys_out():
     session["adminid"] = ''
     session["name"] = ''
     session["level"] = -1
-    return redirect(url_for("adminlogin"))
+    return ("adminlogin")
 
