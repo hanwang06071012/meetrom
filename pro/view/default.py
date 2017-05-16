@@ -52,5 +52,5 @@ def sys_out():
     session["adminid"] = ''
     session["name"] = ''
     session["level"] = -1
-    return render_template("admin_login.html")
+    return redirect(url_for("adminlogin"))
 
