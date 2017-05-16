@@ -125,6 +125,7 @@ def admin_pwd_update(id):
 #个人资料展示
 @app.route("/admin/<id>/<level>/info/show",methods=["POST","GET"])
 def admin_info_show(id,level):
+    tuple_result=()
     if level == '0':
         str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminPassQuestion","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
