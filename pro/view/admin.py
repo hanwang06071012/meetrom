@@ -132,7 +132,7 @@ def admin_info_show(id,level):
         return render_template("admin_info_show.html",**locals())
     else:
         str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
-        tuple_result = Users.select(cols=str_col,where=("usersid=%s" % (id)))
+        tuple_result = Users.select(cols=str_col,where=(" ID =%s" % (id)))
         return render_template("users_list.html",**locals())
 
 
