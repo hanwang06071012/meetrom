@@ -88,7 +88,7 @@ def admin_info_edit(id,level):
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
         return render_template("admin_edit.html",**locals())
     else:
-         if request.method == "POST":
+        if request.method == "POST":
             usersName =request.form["usersName"]
             if len(usersName) != 0:
                 map_where["usersName"] = usersName
