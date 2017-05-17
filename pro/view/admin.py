@@ -84,10 +84,9 @@ def admin_info_edit(id,level):
             str_sql_where = (" ID = %s")
             Admin.update_dict(map_where,str_sql_where,[id])
             return redirect(url_for("admin_list"))
-        else:
-            str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
-            tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
-            return render_template("admin_edit.html",**locals())
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
+        tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+        return render_template("admin_edit.html",**locals())
     else:
          if request.method == "POST":
             usersName =request.form["usersName"]
@@ -135,10 +134,9 @@ def admin_info_edit(id,level):
             str_sql_where = (" ID = %s")
             Users.update_dict(map_where,str_sql_where,[id])
             return redirect(url_for("users_list"))
-        else:
-            str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("usersid","usersName","usersPassQuestion","usersPassReply","usersTrueName","usersAddress","usersEmail","usersSpecialty","usersHuji","usersIDcard","usersCsrq","usersJiguan","usersAge","usersSex","usersPhone"))
-            tuple_result = Users.select(cols=str_col,where=(" ID = %s" % (id)))
-            return render_template("user_edit.html",**locals())
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("usersid","usersName","usersPassQuestion","usersPassReply","usersTrueName","usersAddress","usersEmail","usersSpecialty","usersHuji","usersIDcard","usersCsrq","usersJiguan","usersAge","usersSex","usersPhone"))
+        tuple_result = Users.select(cols=str_col,where=(" ID = %s" % (id)))
+        return render_template("user_edit.html",**locals())
 
 #管理员密码修改
 @app.route("/admin/<id>/pwd",methods=["POST","GET"])
