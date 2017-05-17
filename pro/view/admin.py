@@ -182,9 +182,9 @@ def admin_info_show(id,level):
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
         return render_template("admin_info_show.html",**locals())
     else:
-        str_col = ("%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPhone","usersEmail","createDate"))
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("ID","usersid","usersName","usersPassQuestion","usersPassReply","usersTrueName","usersAddress","usersEmail","usersSpecialty","usersHuji","usersIDcard","usersCsrq","usersJiguan","usersAge","usersSex","createDate","usersPhone"))
         tuple_result = Users.select(cols=str_col,where=(" ID =%s" % (id)))
-        return render_template("users_list.html",**locals())
+        return render_template("users_info_show.html",**locals())
 
 
 #个人资料展示
