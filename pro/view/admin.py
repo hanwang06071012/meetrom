@@ -139,37 +139,67 @@ def admin_info_edit(id,level):
         return render_template("user_edit.html",**locals())
 
 #管理员密码修改
-@app.route("/admin/<id>/pwd",methods=["POST","GET"])
-def admin_pwd_update(id):
+@app.route("/admin/<id>/<level>/pwd",methods=["POST","GET"])
+def admin_pwd_update(id,level):
     try:
-        str_col = (" %s,%s,%s " % ("AdminPass","AdminPassQuestion","AdminPassReply"))
-        tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
-        adminpass = tuple_result[0][0]
-        adminpassquestion = tuple_result[0][1]
-        adminpassreply = tuple_result[0][2]
-        if len(adminpassquestion) == 0:
-            adminpassquestion = "没有密码保护问题"
-        if request.method == "POST":
-            map_where ={}
-            str_adminpassreply = request.form["adminpassreply"].strip()
-            map_where["AdminPassReply"] = str_adminpassreply
-            str_adminrepass = request.form["adminrepass"].strip()
-            str_adminpassnew = request.form["adminpassnew"].strip()
-            map_where["AdminPass"] = str_adminpassnew
-            str_adminrepassnew = request.form["adminrepassnew"].strip()
-            map_where["AdminRepass"] = str_adminrepassnew
-            if str_adminpassnew != str_adminrepassnew:
-                return ("新密码与确认密码不一致")
-            str_sql_where = (" ID = %s")
-            if str_adminpassreply == adminpassreply:
-                if adminpass == str_adminrepass:
-                    Admin.update_dict(map_where,str_sql_where,[id])
-                    return redirect(url_for("admin_list"))
+        if level == '0':
+            str_col = (" %s,%s,%s " % ("AdminPass","AdminPassQuestion","AdminPassReply"))
+            tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+            adminpass = tuple_result[0][0]
+            adminpassquestion = tuple_result[0][1]
+            adminpassreply = tuple_result[0][2]
+            if len(adminpassquestion) == 0:
+                adminpassquestion = "没有密码保护问题"
+            if request.method == "POST":
+                map_where ={}
+                str_adminpassreply = request.form["adminpassreply"].strip()
+                map_where["AdminPassReply"] = str_adminpassreply
+                str_adminrepass = request.form["adminrepass"].strip()
+                str_adminpassnew = request.form["adminpassnew"].strip()
+                map_where["AdminPass"] = str_adminpassnew
+                str_adminrepassnew = request.form["adminrepassnew"].strip()
+                map_where["AdminRepass"] = str_adminrepassnew
+                if str_adminpassnew != str_adminrepassnew:
+                    return ("新密码与确认密码不一致")
+                str_sql_where = (" ID = %s")
+                if str_adminpassreply == adminpassreply:
+                    if adminpass == str_adminrepass:
+                        Admin.update_dict(map_where,str_sql_where,[id])
+                        return redirect(url_for("admin_list"))
+                    else:
+                        return ("输入原始密码不正确，请返回重新输入")
                 else:
-                    return ("输入原始密码不正确，请返回重新输入")
-            else:
-                return ("密码保护问题不正确，请返回重新输入")
-        return render_template("admin_pwd_update.html",**locals())
+                    return ("密码保护问题不正确，请返回重新输入")
+            return render_template("admin_pwd_update.html",**locals())
+        else:
+            str_col = (" %s,%s,%s " % ("usersPass","usersPassQuestion","usersPassReply"))
+            tuple_result = Users.select(cols=str_col,where=(" ID = %s" % (id)))
+            usersPass = tuple_result[0][0]
+            adminpassquestion = tuple_result[0][1]
+            usersPassReply = tuple_result[0][2]
+            if len(adminpassquestion) == 0:
+                adminpassquestion = "没有密码保护问题"
+            if request.method == "POST":
+                map_where ={}
+                str_userspassreply = request.form["adminpassreply"].strip()
+                map_where["usersPassReply"] = str_userspassreply
+                str_userrepass = request.form["adminrepass"].strip()
+                str_userpassnew = request.form["adminpassnew"].strip()
+                map_where["usersPass"] = str_userpassnew
+                str_userrepassnew = request.form["adminrepassnew"].strip()
+                map_where["usersRepass"] = str_userrepassnew
+                if str_userpassnew != str_userrepassnew:
+                    return ("新密码与确认密码不一致")
+                str_sql_where = (" ID = %s")
+                if str_userpassreply == usersPassReply:
+                    if usersPass == str_userrepass:
+                        Users.update_dict(map_where,str_sql_where,[id])
+                        return redirect(url_for("user_list"))
+                    else:
+                        return ("输入原始密码不正确，请返回重新输入")
+                else:
+                    return ("密码保护问题不正确，请返回重新输入")
+            return render_template("admin_pwd_update.html",**locals())
     except:
         return render_template("admin_pwd_update.html",**locals())
 
