@@ -233,7 +233,7 @@ def admin_picture_up(id,level):
     if request.method == "POST":
         map_where ={}
         str_nameplates = request.form["nameplates"]
-        map_where["nameplates"] = str_nameplates
+        map_where["nameplates"] = "/static/img/"
         storePicture = str_nameplates.split('/')[-1]
         map_where["storePicture"] = storePicture
         map_where["Adminid"] = Adminid
