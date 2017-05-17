@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <form class="" role="form" method="POST" action="{{ url_for('admin_info_edit',id=session['id']) }}">
+            <form class="" role="form" method="POST" action="{{ url_for('admin_info_edit',id=session['id'],level=session['level']) }}">
             <tr>
                 <td><label for="adminName" class=" control-label pull-right">管理员姓名:</label></td>
                 <td><input type="text" class="form-control" name="adminName"  value="{{ tuple_result[0][1] }}" 
