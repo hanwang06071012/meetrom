@@ -191,10 +191,10 @@ def admin_pwd_update(id,level):
                 if str_userpassnew != str_userrepassnew:
                     return ("新密码与确认密码不一致")
                 str_sql_where = (" ID = %s")
-                if str_userpassreply == usersPassReply:
+                if str_userspassreply == usersPassReply:
                     if usersPass == str_userrepass:
                         Users.update_dict(map_where,str_sql_where,[id])
-                        return redirect(url_for("user_list"))
+                        return redirect(url_for("users_list"))
                     else:
                         return ("输入原始密码不正确，请返回重新输入")
                 else:
