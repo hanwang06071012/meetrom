@@ -88,7 +88,55 @@ def admin_info_edit(id,level):
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
         return render_template("admin_edit.html",**locals())
     else:
-        pass
+         if request.method == "POST":
+            usersName =request.form["usersName"]
+            if len(usersName) != 0:
+                map_where["usersName"] = usersName
+            usersPassQuestion =request.form["usersPassQuestion"]
+            if len(usersPassQuestion) != 0:
+                map_where["usersPassQuestion"] = usersPassQuestion
+            usersPassReply =request.form["usersPassReply"]
+            if len(usersPassReply) != 0:
+                map_where["usersPassReply"] = usersPassReply
+            usersTrueName =request.form["usersTrueName"]
+            if len(usersTrueName) != 0:
+                map_where["usersTrueName"] = usersTrueName
+            usersAddress =request.form["usersAddress"]
+            if len(usersAddress) != 0:
+                map_where["usersAddress"] = usersAddress
+            usersEmail =request.form["usersEmail"]
+            if len(usersEmail) != 0:
+                map_where["usersEmail"] = usersEmail
+            usersSpecialty =request.form["usersSpecialty"]
+            if len(usersSpecialty) != 0:
+                map_where["usersSpecialty"] = usersSpecialty
+            usersHuji =request.form["usersHuji"]
+            if len(usersHuji) != 0:
+                map_where["usersHuji"] = usersHuji
+            usersIDcard =request.form["usersIDcard"]
+            if len(usersIDcard) != 0:
+                map_where["usersIDcard"] = usersIDcard
+            usersCsrq =request.form["usersCsrq"]
+            if len(usersCsrq) != 0:
+                map_where["usersCsrq"] = usersCsrq
+            usersJiguan =request.form["usersJiguan"]
+            if len(usersJiguan) != 0:
+                map_where["usersJiguan"] = usersJiguan
+            usersAge =request.form["usersAge"]
+            if len(usersAge) != 0:
+                map_where["usersAge"] = usersAge
+            usersSex =request.form["usersSex"]
+            if len(usersSex) != 0:
+                map_where["usersSex"] = usersSex
+            usersPhone =request.form["usersPhone"]
+            if len(usersPhone) != 0:
+                map_where["usersPhone"] = usersPhone
+            str_sql_where = (" ID = %s")
+            Users.update_dict(map_where,str_sql_where,[id])
+            return redirect(url_for("users_list"))
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("usersid","usersName","usersPassQuestion","usersPassReply","usersTrueName","usersAddress","usersEmail","usersSpecialty","usersHuji","usersIDcard","usersCsrq","usersJiguan","usersAge","usersSex","usersPhone"))
+        tuple_result = Users.select(cols=str_col,where=(" ID = %s" % (id)))
+        return render_template("user_edit.html",**locals())
 
 #管理员密码修改
 @app.route("/admin/<id>/pwd",methods=["POST","GET"])

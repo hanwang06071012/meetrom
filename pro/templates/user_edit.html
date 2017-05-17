@@ -1,0 +1,105 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+<table class="table table-bordered table-hover">
+        <caption>
+            <button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+                <span class="glyphicon glyphicon-th-list"></span>编辑用户资料
+            </button>   
+        </caption>
+        <div class="container">
+        <thead>
+            <tr>
+                <th><lable class="control-label pull-right">名称</lable></th>
+                <th><lable>内容</lable></th>
+            </tr>
+        </thead>
+        <tbody>
+            <form class="" role="form" method="POST" action="{{ url_for('admin_info_edit',id=session['id'],level=session['level']) }}">
+            <tr>
+                <td><label for="usersName" class=" control-label pull-right">用户名:</label></td>
+                <td><input type="text" class="form-control" name="usersName"  value="{{ tuple_result[0][1] }}" 
+                           placeholder="请输入用户名">
+                </td>
+            </tr>
+            <tr>
+                <td><label for="usersPassQuestion" class=" control-label pull-right">密码保护问题:</label></td>
+                <td><input type="text" class="form-control" name="usersPassQuestion"  value="{{ tuple_result[0][2] }}" 
+                           placeholder="请输入用户名">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="usersPassReply" class=" control-label pull-right">密码答案:</label></td>
+                <td><input type="text" class="form-control" name="usersPassReply" value="{{ tuple_result[0][3] }}" 
+                           placeholder="请输入用户真实姓名">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="usersTrueName" class=" control-label pull-right">用户真实姓名:</label></td>
+                <td><input type="text" class="form-control" name="usersTrueName" value="{{ tuple_result[0][4] }}" 
+                           placeholder="请输入用户真实姓名">
+                </td>
+            </tr>
+           <tr> 
+                <td><label for="usersAddress" class=" control-label pull-right">用户联系地址:</label></td>
+                <td><input type="text" class="form-control" name="usersAddress" value="{{ tuple_result[0][5] }}" 
+                           placeholder="请输入用户联系地址">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="usersEmail" class=" control-label pull-right">用户邮件:</label></td>
+                <td><input type="text" class="form-control" name="usersEmail" value="{{ tuple_result[0][6] }}" 
+                           placeholder="请输入用户邮件"></td>
+            </tr>
+           <tr>
+                <td><label for="usersSpecialty" class=" control-label pull-right">专业名称:</label></td>
+                <td><input type="text" class="form-control" name="usersSpecialty" value="{{ tuple_result[0][7] }}" 
+                           placeholder="请输入专业名称"></td>            
+            </tr>
+           <tr>     
+                <td><label for="usersHuji" class=" control-label pull-right">户 籍:</label></td>
+                <td> <input type="text" class="form-control" name="usersHuji"  value="{{ tuple_result[0][8] }}" 
+                           placeholder="请输入户 籍"></td> 
+            </tr>
+           <tr> 
+                <td><label for="usersIDcard" class=" control-label pull-right">身份证:</label></td>
+                <td><input type="text" class="form-control" name="usersIDcard"  value="{{ tuple_result[0][9] }}" 
+                           placeholder="请输入身份证"></td>
+            </tr>
+           <tr>   
+                <td><label for="usersCsrq" class=" control-label pull-right">出生日期:</label></td>
+                <td><input type="text" class="form-control" name="usersCsrq" value="{{ tuple_result[0][10] }}" 
+                           placeholder="请输入出生日期"></td>
+            </tr>
+           <tr>  
+                <td><label for="usersJiguan" class=" control-label pull-right">籍 贯:</label></td>
+                <td><input type="text" class="form-control" name="usersJiguan"  value="{{ tuple_result[0][11] }}" 
+                           placeholder="请输入籍 贯"></td>
+            </tr>
+           <tr>
+                <td><label for="usersAge" class=" control-label pull-right">用户年龄:</label></td>
+                <td> <input type="text" class="form-control" name="usersAge"  value="{{ tuple_result[0][12] }}" 
+                           placeholder="请输入用户年龄"></td>
+            </tr>
+           <tr>
+                <td><label for="usersSex" class=" control-label pull-right">用户性别:</label></td>
+                <td><input type="text" class="form-control" name="usersSex" value="{{ tuple_result[0][13] }}" 
+                           placeholder="请输入用户性别"></td>
+            </tr>
+            <tr>
+                <td><label for="usersPhone" class=" control-label pull-right">联系电话:</label></td>
+                <td> <input type="text" class="form-control" name="usersPhone" value="{{ tuple_result[0][14] }}" 
+                           placeholder="请输入联系电话"></td>
+            </tr>
+            <tr>
+                <td><button type="submit" class="btn btn-default pull-right">更新资料</button></td>
+                <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
+            </tr>
+        </form>
+        </tbody>
+        </div>
+    </table>  
+    <div>
+ 
+</div>
+{% endblock %}
