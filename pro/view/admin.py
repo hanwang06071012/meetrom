@@ -218,10 +218,14 @@ def admin_info_show(id,level):
 
 
 #个人资料展示
-@app.route("/admin/<id>/picture/up",methods=["POST","GET"])
-def admin_picture_up(id):
-    str_col = (" %s " % ("Adminid"))
-    tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+@app.route("/admin/<id>/<level>/picture/up",methods=["POST","GET"])
+def admin_picture_up(id,level):
+    if level=="0":
+        str_col = (" %s " % ("Adminid"))
+        tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
+    else:
+        str_col = (" %s " % ("usersid"))
+        tuple_result = Users.select(cols=str_col,where=(" ID = %s" % (id)))
     if len(tuple_result) != 0:
         Adminid = tuple_result[0][0]
     else:

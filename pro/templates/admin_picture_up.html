@@ -15,7 +15,7 @@
             </tr>
         </thead>
         <tbody>
-            <form class="" role="form" method="POST" action="{{ url_for('admin_picture_up',id=session['id']) }}">
+            <form class="" role="form" method="POST" action="{{ url_for('admin_picture_up',id=session['id'],level=session['level']) }}">
             <tr>
                 <td><label for="nameplates" class=" control-label pull-right">图片:</label></td>
                 <td><input type="file" class="form-control" name="nameplates" 
