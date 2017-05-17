@@ -99,7 +99,7 @@
                 </td>
             </tr>
             <tr>
-                <td><button type="submit" class="btn btn-default pull-right"><a href="{{ url_for('admin_info_edit',id=session['id']) }}">更改资料</a></button></td>
+                <td><button type="submit" class="btn btn-default pull-right"><a href="{{ url_for('admin_info_edit',id=session['id'],level=session['level']) }}">更改资料</a></button></td>
                 <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
             </tr>
         </tbody>
