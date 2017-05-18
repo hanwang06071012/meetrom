@@ -40,8 +40,8 @@
                     <td>{{ result[3] }}</td>
                     <td>{{ result[4] }}</td>
                     <td>{{ result[5] }}</td>
-                    <td><a href="{{ url_for('admin_info_show',id=session['id'],level='1'}}">查看</a></td>
-                    <td><a href="{{ url_for('info_delete',id=session['id'],level='1')}}">删除</a></td>
+                    <td><a href="{{ url_for('admin_info_show',id=result[0],level='1'}}">查看</a></td>
+                    <td><a href="{{ url_for('info_delete',id=result[0],level='1')}}">删除</a></td>
                 </tr>
             {% endfor %}
 		</tbody>
