@@ -65,9 +65,9 @@ def info_delete(id,level):
     str_sql_where = (" ID = %s ")
     if level=='0':
         Admin.delete(str_sql_where,[id])
-        return redirect(url_for('users_list'))
+        return redirect(url_for('admin_list'))
     else:
         Users.delete(str_sql_where,[id])
-        return redirect(url_for('admin_list'))
+        return redirect(url_for('users_list'))
 
 
