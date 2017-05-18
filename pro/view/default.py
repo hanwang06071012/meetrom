@@ -60,4 +60,11 @@ def sys_out():
     session["name"] = ''
     session["level"] = -1
     return ("adminlogin")
+@app.route("/info/<id>/<level>/delete")
+def info_delete(id,level):
+    str_sql_where = (" ID = %s ")
+    if level=='0':
+        Admin.delete(str_sql_where,[id])
+    else:
+        Users.delete(str_sql_where,[id])
 
