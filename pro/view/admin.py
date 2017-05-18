@@ -13,7 +13,7 @@ from pro.model.admin  import Admin
 from pro.model.conference import Conference
 from pro.model.storepicture import StorePicture
 from pro.model.users import Users
-import json,sys.time
+import json,sys,time
 from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
