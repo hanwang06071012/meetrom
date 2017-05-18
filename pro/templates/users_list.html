@@ -3,16 +3,16 @@
 <div class="users-list table-responsive">
 	<table class="table table-bordered table-hover">
 		<caption>
-			<button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+			<button type="button" class="btn btn-info btn-lg pull-left" style="font-size: 10px">
   				<span class="glyphicon glyphicon-th-list"></span>用户列表
 			</button>	
-			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+			<button type="button" class="btn btn-warning btn-lg pull-right" style="font-size: 10px">
   				<span class="glyphicon glyphicon-trash"></span>删除
 			</button>	
-			<button type="button" class="btn btn-primary btn-lg pull-right" style="font-size: 10px">
+			<button type="button" class="btn btn-warning btn-lg pull-right" style="font-size: 10px">
   				<span class="glyphicon glyphicon-edit"></span>修改
 			</button>	
-			<button type="button" class="btn btn-primary btn-lg pull-right"  style="font-size: 10px">
+			<button type="button" class="btn btn-warning btn-lg pull-right"  style="font-size: 10px">
   				<a href="{{ url_for('user_add') }}" name="show"><span class="glyphicon glyphicon-plus"></span>增加</a>
 			</button>	
 			<p class="pull-right" style="font-size: 10px">
@@ -40,8 +40,8 @@
                     <td>{{ result[3] }}</td>
                     <td>{{ result[4] }}</td>
                     <td>{{ result[5] }}</td>
-                    <td><a href="url_for('{{ url_for('admin_info_show',id=session['id'],level='1')}}')">查看</a></td>
-                    <td>删除</td>
+                    <td><a href="{{ url_for('admin_info_show',id=session['id'],level='1'}}">查看</a></td>
+                    <td><a href="{{ url_for('info_delete',id=session['id'],level='1')}}">删除</a></td>
                 </tr>
             {% endfor %}
 		</tbody>
