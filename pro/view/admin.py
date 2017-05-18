@@ -13,7 +13,7 @@ from pro.model.admin  import Admin
 from pro.model.conference import Conference
 from pro.model.storepicture import StorePicture
 from pro.model.users import Users
-import json,sys
+import json,sys.time
 from frame import const
 reload(sys)
 sys.setdefaultencoding('utf-8')
@@ -245,3 +245,30 @@ def admin_picture_up(id,level):
         map_where["Adminid"] = Adminid
         StorePicture.insert(map_where)
     return render_template("admin_picture_up.html",**locals())
+
+    #添加展示用户
+@app.route("/admin/add",methods=["POST","GET"])
+def admin_add():
+    if request.method == 'POST':
+        Adminid =request.form["Adminid"]
+        AdminName =request.form["AdminName"]
+        AdminPass =request.form["AdminPass"]
+        AdminRepass=request.form["AdminRepass"]
+        AdminTrueName =request.form["AdminTrueName"]
+        AdminAddress =request.form["AdminAddress"]
+        AdminEmail=request.form["AdminEmail"]
+        AdminSpecialty =request.form["AdminSpecialty"]
+        AdminHuji=request.form["AdminHuji"]
+        AdminIDcard=request.form["AdminIDcard"]
+        AdminCsrq=request.form["AdminCsrq"]
+        AdminJiguan =request.form["AdminJiguan"]
+        AdminAge=request.form["AdminAge"]
+        AdminSex =request.form["AdminSex"]
+        AdminPhone =request.form["AdminPhone"]
+        #createDate=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+        map_data = {"Adminid":Adminid,"AdminName":AdminName,"AdminPass":AdminPass,"AdminRepass":AdminRepass,"AdminTrueName":AdminTrueName,"AdminAddress":AdminAddress,"AdminEmail":AdminEmail,"AdminSpecialty":AdminSpecialty,"AdminHuji":AdminHuji,"AdminIDcard":AdminIDcard,"AdminCsrq":AdminCsrq,"AdminJiguan":AdminJiguan,"AdminAge":AdminAge,"AdminSex":AdminSex,"AdminPhone":AdminPhone}
+        Admin.insert(map_data)
+        return redirect(url_for("admin_list"))
+    else:
+        pass
+    return render_template("admin_add.html")

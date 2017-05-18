@@ -1,0 +1,111 @@
+{% extends "layout.html" %}
+{% block users %}
+<div class="users-list table-responsive">
+<table class="table table-bordered table-hover">
+        <caption>
+            <button type="button" class="btn btn-primary btn-lg pull-left" style="font-size: 10px">
+                <span class="glyphicon glyphicon-th-list"></span>添加管理
+            </button>   
+        </caption>
+        <div class="container">
+        <thead>
+            <tr>
+                <th><lable class="control-label pull-right">名称</lable></th>
+                <th><lable>内容</lable></th>
+            </tr>
+        </thead>
+        <tbody>
+            <form class="" role="form" method="POST" action="/admin/add">
+            <tr>
+                    <td><label for="Adminid" class="control-label pull-right">管理员:</label></td>
+                    <td><input type="text" class="form-control" name="Adminid" 
+                           placeholder="请输入管理员"></td>
+            </tr>
+           <tr>
+                <td><label for="AdminName" class=" control-label pull-right">管理员姓名:</label></td>
+                <td><input type="text" class="form-control" name="AdminName" 
+                           placeholder="请输入管理员姓名">
+                </td>
+            </tr>
+           <tr> 
+                <td><label for="AdminPass" class=" control-label pull-right">密码:</label></td>
+                <td><input type="text" class="form-control" name="AdminPass"
+                           placeholder="请输入密码">
+                </td>
+            </tr>
+           <tr>
+                <td><label for="AdminRepass" class=" control-label pull-right">确认密码:</label></td>
+                <td><input type="text" class="form-control" name="AdminRepass" 
+                           placeholder="请输入确认密码"></td>
+
+            </tr>
+           <tr>
+                <td><label for="AdminTrueName" class=" control-label pull-right">真实姓名:</label></td>
+                <td><input type="text" class="form-control" name="AdminTrueName" 
+                           placeholder="请输入真实姓名"></td>            
+            </tr>
+            <tr>
+                <td><label for="AdminAddress" class=" control-label pull-right">管理员联系地址:</label></td>
+                <td><input type="text" class="form-control" name="AdminAddress" 
+                           placeholder="请输入管理员联系地址"></td>
+
+            </tr>
+           <tr>
+                <td><label for="AdminEmail" class=" control-label pull-right">管理员邮件:</label></td>
+                <td><input type="text" class="form-control" name="AdminEmail" 
+                           placeholder="请输入用管理员邮件"></td>
+
+            </tr>
+             <tr>
+                <td><label for="AdminSpecialty" class=" control-label pull-right">专业名称:</label></td>
+                <td><input type="text" class="form-control" name="AdminSpecialty"
+                           placeholder="请输入专业名称"></td>
+
+            </tr>
+            <tr>  
+                <td><label for="AdminHuji" class=" control-label pull-right">户籍:</label></td>
+                <td><input type="text" class="form-control" name="AdminHuji" 
+                           placeholder="请输入户籍"></td>
+            </tr>
+            <tr>
+                <td><label for="AdminIDcard" class=" control-label pull-right">身份证号:</label></td>
+                <td><input type="text" class="form-control" name="AdminIDcard" 
+                           placeholder="请输入身份证号"></td>
+            </tr>
+            <tr>   
+                <td><label for="AdminCsrq" class=" control-label pull-right">出生日期:</label></td>
+                <td><input type="text" class="form-control" name="AdminCsrq"
+                           placeholder="请输入出生日期"></td>
+            </tr>
+            <tr>
+                <td><label for="AdminJiguan" class=" control-label pull-right">籍贯:</label></td>
+                <td> <input type="text" class="form-control" name="AdminJiguan" 
+                           placeholder="请输入籍贯"></td>
+            </tr>
+           <tr>     
+                <td><label for="AdminAge" class=" control-label pull-right">管理员年龄:</label></td>
+                <td> <input type="text" class="form-control" name="AdminAge" 
+                           placeholder="请输入管理员年龄"></td> 
+            </tr>
+           <tr> 
+                <td><label for="AdminSex" class=" control-label pull-right">管理员性别:</label></td>
+                <td><input type="text" class="form-control" name="AdminSex" 
+                           placeholder="请输入管理员性别"></td>
+            </tr>
+            <tr>
+                <td><label for="AdminPhone" class=" control-label pull-right">联系电话:</label></td>
+                <td> <input type="text" class="form-control" name="AdminPhone"
+                           placeholder="请输入联系电话"></td>
+            </tr>
+            <tr>
+                <td><button type="submit" class="btn btn-default pull-right">登录</button></td>
+                <td><button class="btn btn-default"  onclick="javascript:history.back(-1);">返回</button></td>
+            </tr>
+        </form>
+        </tbody>
+        </div>
+    </table>  
+    <div>
+ 
+</div>
+{% endblock %}
