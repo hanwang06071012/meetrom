@@ -62,12 +62,12 @@ def sys_out():
     return ("adminlogin")
 @app.route("/info/<id>/<level>/delete")
 def info_delete(id,level):
-    str_sql_where = (" ID = %s ",id)
+    str_sql_where = (" ID = %s ")
     if level=='0':
-        Admin.delete(str_sql_where)
+        Admin.delete(str_sql_where,[id])
         return redirect(url_for('users_list'))
     else:
-        Users.delete(str_sql_where)
+        Users.delete(str_sql_where,[id])
         return redirect(url_for('admin_list'))
 
 
