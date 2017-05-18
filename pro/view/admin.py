@@ -48,6 +48,12 @@ def admin_info_edit(id,level):
             AdminName =request.form["adminName"]
             if len(AdminName) != 0:
                 map_where["AdminName"] = AdminName
+            AdminPassQuestion =request.form["adminPassQuestion"]
+            if len(AdminPassQuestion) != 0:
+                map_where["AdminPassQuestion"] = AdminPassQuestion
+            AdminPassReply =request.form["adminPassReply"]
+            if len(AdminPassReply) != 0:
+                map_where["AdminPassReply"] = AdminPassReply
             AdminTrueName =request.form["adminTrueName"]
             if len(AdminTrueName) != 0:
                 map_where["AdminTrueName"] = AdminTrueName
@@ -84,7 +90,7 @@ def admin_info_edit(id,level):
             str_sql_where = (" ID = %s")
             Admin.update_dict(map_where,str_sql_where,[id])
             return redirect(url_for("admin_list"))
-        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
+        str_col = ("%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s" % ("Adminid","AdminName","AdminPassQuestion","AdminPassReply","AdminTrueName","AdminAddress","AdminEmail","AdminSpecialty","AdminHuji","AdminIDcard","AdminCsrq","AdminJiguan","AdminAge","AdminSex","AdminPhone"))
         tuple_result = Admin.select(cols=str_col,where=(" ID = %s" % (id)))
         return render_template("admin_edit.html",**locals())
     else:
