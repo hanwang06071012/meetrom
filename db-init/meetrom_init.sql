@@ -50,3 +50,4 @@ insert into storePicture (Adminid,nameplates,storePicture) values (6008,"/static
 insert into storePicture (Adminid,nameplates,storePicture) values (6009,"/static/img/","09.img");
 insert into storePicture (Adminid,nameplates,storePicture) values (6010,"/static/img/","10.img");
 insert into storePicture (Adminid,nameplates,storePicture) values (6011,"/static/img/","11.img");
+insert into storePicture (Adminid,nameplates,storePicture) values (6012,"/static/img/","12.img");
